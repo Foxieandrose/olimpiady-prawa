@@ -2,7 +2,7 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Figtree:ital,wght@0,400..800;1,400..700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 <style>
 /* Układ: wąska kolumna jak strona kodeksu; zakładki u góry, karta na środku, oceny pod kartą.
    Akcent: fiolet żabotu sędziowskiego; zieleń/czerwień tylko do oceny odpowiedzi. */
@@ -190,14 +190,15 @@ textarea{width:100%;min-height:90px;font-family:var(--f-mono);font-size:12px}
 .stepdot{min-width:34px;height:34px;border-radius:99px;border:1px solid var(--line);background:var(--surface2);font:600 14px var(--f-ui);color:var(--muted);cursor:pointer}
 .stepdot.done{background:var(--ok-soft);color:var(--ok);border-color:var(--ok)}.stepdot.on{background:var(--accent);color:#fff;border-color:var(--accent)}
 .lstepnav{border-top:1px solid var(--line);padding-top:12px;margin-top:6px;font-family:var(--f-ui)}
-.lesson .lead{font-size:17px;border-left:4px solid var(--accent);padding:6px 12px;background:var(--surface2);border-radius:0 8px 8px 0}
+.lesson .lead{font-size:16.5px;color:var(--ink);border-left:3px solid var(--accent);padding:10px 16px;background:var(--surface2);border-radius:0 10px 10px 0}
 .lesson .box.sc{border-color:var(--accent);background:var(--accent-soft)}
 .lesson .box.sc ul{margin-top:6px}
-.lesson p.asked,.lesson li.asked{background:linear-gradient(90deg,var(--warn-soft),transparent 75%);box-shadow:inset 3px 0 0 var(--warn);border-radius:0 6px 6px 0;padding:2px 8px 2px 11px;margin-left:-11px}
-.lesson li.asked{margin-left:0;padding-left:8px}
-.lesson tr.asked td:first-child{box-shadow:inset 3px 0 0 var(--warn);padding-left:11px}
-.askb{display:inline-block;max-width:100%;margin:2px 0 0 6px;font:600 11.5px/1.45 var(--f-ui);color:var(--warn);background:var(--surface);border:1px solid var(--warn);border-radius:10px;padding:1px 8px;vertical-align:1px;white-space:normal;overflow-wrap:anywhere}
-.lesson td .askb{display:block;margin:4px 0 0;width:fit-content}
+.olc{display:inline-block;font:600 12px/1.5 var(--f-ui);color:var(--warn);background:var(--warn-soft);border:0;border-radius:99px;padding:1px 9px;margin:0 1px;cursor:pointer;white-space:nowrap;vertical-align:1px;letter-spacing:.01em}
+.olc::before{content:"★ ";font-size:11px}
+.olc:hover,.olc.on{filter:brightness(1.12);text-decoration:underline}
+.olc.k{color:var(--muted);background:var(--surface2);border:1px solid var(--line)}.olc.k::before{content:"▸ "}
+.olpop{display:flex;flex-direction:column;gap:6px;margin:8px 0 2px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--surface);font:13.5px/1.45 var(--f-ui);max-width:72ch}
+.olrow{display:flex;flex-wrap:wrap;gap:2px 10px;align-items:baseline}.olrow .olq{flex-basis:100%;color:var(--ink)}
 .lesson .tw{overflow-x:auto;max-width:100%;-webkit-overflow-scrolling:touch}
 .lesson td,.lesson th{overflow-wrap:break-word;hyphens:auto}
 .lesson td:first-child{min-width:7em}
@@ -209,8 +210,6 @@ textarea{width:100%;min-height:90px;font-family:var(--f-mono);font-size:12px}
  .lesson .tw td:first-child{font-weight:600;font-size:15.5px}
  .lesson .tw td[data-l]:not(:first-child)::before{content:attr(data-l);display:block;font:600 11px/1.6 var(--f-ui);text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
  .lesson .tw td:empty{display:none}
- .lesson .tw tr.asked{box-shadow:inset 3px 0 0 var(--warn)}
- .lesson .tw tr.asked td:first-child{box-shadow:none;padding-left:0}
 }
 .chkbox{font-family:var(--f-ui);border:1px dashed var(--accent);border-radius:12px;padding:12px;margin:8px 0;display:flex;flex-direction:column;gap:8px;background:var(--surface)}
 .chkh{font-weight:700;font-size:14px;color:var(--accent)}
@@ -218,14 +217,14 @@ textarea{width:100%;min-height:90px;font-family:var(--f-mono);font-size:12px}
 .arch td{vertical-align:middle}.arch .btn{white-space:nowrap}.nowrap{white-space:nowrap}.btn.sm{padding:5px 10px;font-size:13.5px}
 #tabs a.minor{opacity:.8;font-size:.92em}
 /* Lekcje */
-.lesson{font-family:var(--f-text);font-size:17px;line-height:1.62;display:flex;flex-direction:column;gap:10px;padding:20px 22px}
-.lesson h2{font-family:var(--f-ui);font-size:21px;margin-top:14px;color:var(--accent)}
+.lesson{font-family:var(--f-ui);font-size:16px;line-height:1.7;display:flex;flex-direction:column;gap:12px;padding:24px 28px}
+.lesson h2{font-family:var(--f-ui);font-size:20px;line-height:1.3;margin-top:18px;padding-bottom:8px;border-bottom:1px solid var(--line);color:var(--ink)}
 .lesson .ltitle{font-family:var(--f-ui);font-size:26px;line-height:1.2}
 .lesson h3{font-family:var(--f-ui);text-transform:none;letter-spacing:0;color:var(--ink);font-size:17px;margin-top:8px}
 .lesson p,.lesson li{max-width:72ch}
 .lesson ul,.lesson ol{margin:0;padding-left:1.3em;display:flex;flex-direction:column;gap:4px}
 .lesson table{font-family:var(--f-ui);font-size:14.5px}
-.lesson .box{border-left:3px solid var(--line);background:var(--surface2);padding:10px 14px;border-radius:0 8px 8px 0;font-size:16px}
+.lesson .box{border-left:3px solid var(--line);background:var(--surface2);padding:12px 16px;border-radius:0 10px 10px 0;font-size:15.5px}
 .lesson .box.def{border-color:var(--info);background:var(--info-soft)}
 .lesson .box.num{border-color:var(--accent);background:var(--accent-soft)}
 .lesson .box.trap{border-color:var(--warn);background:var(--warn-soft)}
@@ -247,6 +246,112 @@ details>summary{cursor:pointer;color:var(--info)}
  table.arch tr{padding:8px 0;border-bottom:1px solid var(--line)}table.arch td{border:0;padding:2px 0}}
 @media (max-width:520px){.lesson{font-size:16px;padding:15px}.tq{padding:13px}.q{font-size:17.5px}.opt{font-size:15px}.card{padding:15px}.rate{gap:6px}.brand small{display:none}}
 @media (prefers-reduced-motion:no-preference){.opt,.btn,.chip{transition:background .12s,border-color .12s}}
+
+/* ===== Szata „Półkole – Toga” (jak w kursach OWoBiO/OWoUE/OWS): zaokrąglone karty z cieniem, pastylkowe przyciski,
+   Bricolage Grotesque w nagłówkach, Figtree w tekście, fiolet togi + złoto. Duże, równe odstępy. ===== */
+:root{--bg:#F5F1FA;--surface:#FFFFFF;--surface2:#F3EDF9;--ink:#1D1330;--muted:#625877;--line:#E3DAEE;
+  --accent:#5B2A86;--accent-ink:#FFFFFF;--accent-soft:#EEE4F8;--gold:#8F5E00;--gold2:#FFC857;
+  --warn:#8A5A00;--warn-soft:#FFF2D1;--info:#2B57A0;--info-soft:#E9EFFA;--ok:#17693F;--ok-soft:#E0F2E7;--bad:#B3261E;--bad-soft:#FBE5E2;
+  --f-ui:"Figtree","Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;--f-text:var(--f-ui);
+  --f-head:"Bricolage Grotesque","Avenir Next","Segoe UI",system-ui,sans-serif;
+  --r:20px;--sh:0 1px 2px rgba(29,19,48,.05),0 14px 34px -22px rgba(29,19,48,.38);--glow1:rgba(255,200,87,.16);--glow2:rgba(91,42,134,.12)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#110B1A;--surface:#1B1328;--surface2:#231A33;--ink:#EFE9F8;--muted:#B3A8C8;--line:#342850;
+  --accent:#C7A3F0;--accent-ink:#170E24;--accent-soft:#2D2145;--gold:#FFC857;--warn:#FFC857;--warn-soft:#33280F;--info:#93B5FF;--info-soft:#17223A;
+  --ok:#6FD39C;--ok-soft:#132A1E;--bad:#FF8B80;--bad-soft:#3A1916;--sh:0 1px 2px rgba(0,0,0,.35),0 16px 36px -22px rgba(0,0,0,.85);--glow1:rgba(255,200,87,.06);--glow2:rgba(199,163,240,.10)}}
+:root[data-theme="dark"]{--bg:#110B1A;--surface:#1B1328;--surface2:#231A33;--ink:#EFE9F8;--muted:#B3A8C8;--line:#342850;
+  --accent:#C7A3F0;--accent-ink:#170E24;--accent-soft:#2D2145;--gold:#FFC857;--warn:#FFC857;--warn-soft:#33280F;--info:#93B5FF;--info-soft:#17223A;
+  --ok:#6FD39C;--ok-soft:#132A1E;--bad:#FF8B80;--bad-soft:#3A1916;--sh:0 1px 2px rgba(0,0,0,.35),0 16px 36px -22px rgba(0,0,0,.85);--glow1:rgba(255,200,87,.06);--glow2:rgba(199,163,240,.10)}
+body{font:16px/1.6 var(--f-ui);-webkit-font-smoothing:antialiased;overflow-wrap:break-word}
+body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(900px 520px at 104% -6%,var(--glow1),transparent 62%),radial-gradient(760px 520px at -8% 106%,var(--glow2),transparent 62%)}
+h1,h2{font-family:var(--f-head);letter-spacing:-.015em}
+h2{font-size:22px;font-weight:700}
+.wrap{max-width:880px}
+main{padding-block:24px 80px}
+.stack{gap:20px}
+.row{gap:10px 12px}
+/* nagłówek */
+header.top{background:color-mix(in srgb,var(--surface) 90%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.bar{padding-block:12px 6px;gap:12px}
+.sec{width:38px;height:38px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font:700 20px/1 var(--f-head);box-shadow:0 0 0 3px color-mix(in srgb,var(--gold2) 45%,transparent);flex:none}
+.brand{font:750 18px/1.2 var(--f-head);letter-spacing:-.01em}
+.brand small{font:500 12.5px var(--f-ui)}
+.sync{padding:5px 12px;font-size:12.5px}
+nav.tabs{gap:4px;padding:4px 0 10px}
+nav.tabs a{font:650 14px/1 var(--f-ui);padding:10px 14px;border-radius:999px;border-bottom:0}
+nav.tabs a:hover{background:var(--surface2);color:var(--ink)}
+nav.tabs a.on{background:var(--accent);color:var(--accent-ink)}
+/* karty i przyciski */
+.panel,.card,.tq,.topic,.tile{border-radius:var(--r);box-shadow:var(--sh)}
+.panel{padding:22px 24px}
+.card{padding:22px 24px;gap:16px}
+.tq{padding:20px 22px;gap:14px;border-radius:18px}
+.list,.subs{border-radius:18px;box-shadow:var(--sh)}
+.item{padding:14px 18px}
+.sub{padding:12px 18px}
+.btn{border-radius:999px;min-height:44px;padding:9px 20px;font-weight:650;display:inline-flex;align-items:center;justify-content:center;gap:8px;text-align:center}
+.btn.big{min-height:52px;padding:12px 26px}
+.btn.sm{min-height:36px;padding:6px 14px}
+.btn.link{min-height:0}
+.chip{border-radius:999px;padding:8px 15px;font-weight:600;min-height:38px}
+.chip.on{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.pill{border-radius:999px;padding:3px 11px}
+.opt{border-radius:14px;padding:12px 16px;border-width:1.5px;background:var(--surface)}
+.opt .l{font:700 13px/1 var(--f-ui);background:var(--surface2);border-radius:50%;width:26px;height:26px;min-width:26px;display:inline-flex;align-items:center;justify-content:center}
+.q{font:650 19px/1.42 var(--f-head);letter-spacing:-.005em}
+.tq .q{font-size:18px}
+.ans{font-family:var(--f-ui);font-size:16.5px}
+.exp,.uw,.aibox{border-radius:14px;padding:14px 18px;border-left-width:4px}
+.rate{gap:10px}.rate button{border-radius:16px;min-height:58px}
+input[type=search],input[type=text],input[type=number],select,textarea{border-radius:14px;padding:10px 14px;min-height:44px;font-size:16px}
+textarea{font-family:var(--f-ui);font-size:15px;min-height:110px}
+h3{font:700 12.5px/1.3 var(--f-ui);letter-spacing:.08em}
+th{font:700 11.5px/1.3 var(--f-ui);letter-spacing:.07em}
+th,td{padding:11px 12px}
+.tiles{gap:14px}.tile{padding:16px 18px}.tile b{font:780 28px/1.1 var(--f-head)}
+.tbar{padding:12px 0 10px}
+/* lekcje – czytelny rytm: równe odstępy między akapitami, tabelami i ramkami */
+.lesson{font:17px/1.72 var(--f-ui);gap:18px;padding:30px 34px}
+.lesson .ltitle{font:750 clamp(26px,3.6vw,34px)/1.12 var(--f-head);letter-spacing:-.02em}
+.lstat{border-radius:14px;padding:12px 16px;font-size:14.5px;line-height:1.5}
+.steps{gap:8px}
+.stepdot{min-width:38px;height:38px;font:700 14px var(--f-ui)}
+.lbody{display:block}
+.lbody > * + *{margin-top:20px}
+.lbody > h2{margin-top:44px}
+.lbody > h2:first-child{margin-top:4px}
+.lbody > h3{margin-top:32px}
+.lbody > h2 + *,.lbody > h3 + *{margin-top:12px}
+.lesson h2{font:720 23px/1.25 var(--f-head);letter-spacing:-.015em;color:var(--ink);border-bottom:0;padding-bottom:0}
+.lesson h3{font:700 18px/1.3 var(--f-head);text-transform:none;letter-spacing:-.005em;color:var(--ink)}
+.lesson p,.lesson li{max-width:70ch}
+.lesson ul,.lesson ol{gap:8px;padding-left:1.4em}
+.lesson li::marker{color:var(--accent)}
+.lesson .lead{font-size:17.5px;line-height:1.65;border:0;background:var(--accent-soft);border-radius:18px;padding:18px 22px}
+.lesson .box{border-left-width:4px;border-radius:16px;padding:16px 20px;font-size:16px;line-height:1.65}
+.lesson .box > * + *{margin-top:10px}
+.lesson .box.sc{border:0;background:var(--surface2);box-shadow:inset 0 0 0 1px var(--line)}
+.lesson .tw{border:1px solid var(--line);border-radius:16px;background:var(--surface)}
+.lesson table{font:15px/1.55 var(--f-ui);margin:0}
+.lesson thead th{background:var(--surface2);padding-top:12px;padding-bottom:12px}
+.lesson tbody tr:last-child td{border-bottom:0}
+.lesson td,.lesson th{padding:12px 16px}
+.chkbox{border-radius:18px;padding:18px;gap:12px}
+.lstepnav{padding-top:18px;margin-top:10px}
+.olc{padding:2px 10px;font-size:12.5px}
+.olpop{border-radius:14px;padding:14px 16px;gap:10px;box-shadow:var(--sh)}
+.nums{font:600 14px/1.4 var(--f-ui);gap:14px}@media (max-width:420px){.count{white-space:normal}.sync{padding:4px 10px;font-size:12px}}.pill{font-size:12.5px}
+.sub label{font-weight:500}
+@media (max-width:640px){
+ .lesson{padding:20px 18px;font-size:16.5px}
+ .panel,.card{padding:18px}
+ .tq{padding:16px}
+ .lesson .tw{border:0;background:none}
+ .lesson .tw tr{border-radius:16px;padding:12px 14px;margin:0 0 12px;background:var(--surface);box-shadow:var(--sh)}
+ .lesson .tw tr:last-child{margin-bottom:0}
+ .lesson td,.lesson th{padding:4px 0}
+ .lesson .lead{padding:14px 16px}
+ .lesson .box{padding:14px 16px}
+}
 </style>
 
 <script src="firebase-config.js"></script></head><body><header class="top">
@@ -954,6 +1059,26 @@ function idSrc(id){let m;if((m=/^([SO])(\d\d)-/.exec(id)))return `OWoP ${1997+ +
   if((m=/^A(\d\d)-(\d)-/.exec(id)))return `OWoPiP ${1999+ +m[1]}/${m[1]} ${['','I','II','III'][+m[2]]} et.`;
   if((m=/^E(\d\d)-/.exec(id)))return `OWoP ${1998+ +m[1]} egz. pisemny`;if((m=/^D(\d\d)-(\d)-/.exec(id)))return `OWoPiP ${2000+ +m[1]} ${m[2]==='2'?'probl.':'ustne'}`;
   if(/^F-/.test(id))return 'OWoP finał (program)';if(/^ZS-/.test(id))return 'OWoP finał 2021';return ''}
+/* Odnośniki do pytań w lekcjach → spokojne znaczniki ★ (zamiast list identyfikatorów w tekście) */
+const OL_ID='(?:(?:[SOEFZGHJKRUVPNWYQ]|ZS)\\d{0,2}-\\d{2,3}[a-z]?\\d?|[AD]\\d\\d-\\d-\\d{1,2}|C-\\d{3}|T-[A-Z]{2,3}-\\d{3}|Z-[A-Z]{2}-\\d{3})';
+const OL_LAB='(?:pytani[ae] z test(?:u|ów)|pytani[ae] problemow[ea]|pytani[ae] ustne|finał|egzamin(?:u)? pisemn(?:y|ego)|zadani[ae] otwart(?:e|ych)|zadani[ae] na (?:dopasowanie|przyporządkowanie)|zadani[ae]|zestaw|karty?|klucz(?:a| do)?|zob\\.|por\\.)';
+const OL_SEG=new RegExp('(?:\\b'+OL_LAB+'\\s*:?\\s*)?(?<![\\w-])'+OL_ID+'(?![\\w-])(?:\\s*(?:,|;|–|i|oraz)\\s*(?:'+OL_LAB+'\\s*:?\\s*)?'+OL_ID+'(?![\\w-]))*','gi');
+const OL_ONE=new RegExp('(?<![\\w-])'+OL_ID+'(?![\\w-])','g');
+function olChip(ids){ids=[...new Set(ids)].filter(i=>CARD[i]);if(!ids.length)return '';const a=ids.filter(i=>ARCH_ID.test(i)),first=a[0]||ids[0];
+  const lab=a.length?(idSrc(first)||'olimpiada')+(ids.length>1?` +${ids.length-1}`:''):(ids.length>1?`${ids.length} karty kursu`:'karta kursu');
+  return `<button type="button" class="olc${a.length?'':' k'}" data-ids="${ids.join(' ')}" title="Pokaż pytania">${esc(lab)}</button>`}
+function olRefs(html){const P=[];const tok=ids=>{P.push(ids);return '\u0001'+(P.length-1)+'\u0002'};
+  html=html.split(/(<[^>]+>)/).map(t=>t[0]==='<'?t:t.replace(OL_SEG,m=>{const ids=m.match(OL_ONE)||[];return ids.some(i=>CARD[i])?tok(ids):m})).join('');
+  const TK=/\u0001(\d+)\u0002/g;
+  html=html.replace(/\(([^()]*\u0001[^()]*)\)/g,(m,inner)=>{const ids=[];inner.replace(TK,(x,k)=>{ids.push(...P[+k]);return ''});
+    let rest=inner.replace(TK,'').replace(/\s*[;,]\s*(?=[;,]|$)/g,'').replace(/^\s*[;,–-]\s*/,'').replace(/\s*[;,–-]\s*$/,'').replace(/\s+–\s*(?=,)/g,'').trim();
+    const chip=tok(ids);return rest&&!/^(<[^>]+>|\s)*$/.test(rest)?`(${rest}) ${chip}`:chip});
+  return linkIds(html).replace(TK,(x,k)=>olChip(P[+k]))}
+function olBind(root){root.querySelectorAll('button.olc').forEach(b=>b.onclick=e=>{e.stopPropagation();const host=b.closest('li,td,p,.box,div')||b.parentElement;let pop=host.querySelector(':scope > .olpop[data-for="'+b.dataset.ids+'"]');
+  if(pop){pop.remove();b.classList.remove('on');return}
+  pop=document.createElement('div');pop.className='olpop';pop.dataset.for=b.dataset.ids;
+  pop.innerHTML=b.dataset.ids.split(' ').map(i=>{const c=CARD[i];const q=c?String(c.q||c.f||'').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim():'';return `<div class="olrow"><span class="idlink" data-open="${i}">${i}</span><span class="muted">${esc(idSrc(i)||'karta kursu')}</span><span class="olq">${esc(q.length>110?q.slice(0,108)+'…':q)}</span></div>`}).join('')+'<div class="small muted">Kliknij numer, żeby zobaczyć pytanie z odpowiedzią.</div>';
+  host.appendChild(pop);b.classList.add('on');bindIdLinks(pop)})}
 function olimpCount(L){const o=L.olimp||[];return {n:o.length,owop:o.filter(i=>/^([SOE]\d\d|F|ZS)-/.test(i)).length,owopip:o.filter(i=>/^[AD]\d\d-/.test(i)).length}}
 async function rLessons(){
   const el=$('#v-lekcje');
@@ -987,16 +1112,16 @@ function rLesson(el){
   const L=all[k],s=lesStat(L.id)||{},cards=lesCards(L),prev=all[k-1],next=all[k+1],mode=S().lmode||'now',ol=lesOlimp(L).filter(c=>c.t==='m'||c.t==='z'),oc=olimpCount(L);
   const steps=lesSteps(L),whole=!!S().lall;LSTEP=Math.max(0,Math.min(LSTEP,steps.length-1));const last=whole||LSTEP===steps.length-1;
   let h=`<div class="row"><button class="btn" data-lback type="button">← Wszystkie lekcje</button><span class="small muted">Lekcja ${k+1} z ${all.length} · ${esc(L.blok)} · ok. ${L.min} min</span><span style="flex:1"></span><label class="small"><input type="checkbox" data-lall ${whole?'checked':''}> cała lekcja na jednej stronie</label></div>
-  <article class="panel lesson"><h1 class="ltitle">${esc(L.t)}</h1>${oc.n?`<div class="lstat">Z tego tematu na olimpiadach: <b>${oc.n}</b> ${plural(oc.n,'pytanie lub zadanie','pytania lub zadania','pytań lub zadań')}${oc.owop?` · OWoP ${oc.owop}`:''}${oc.owopip?` · OWoPiP ${oc.owopip}`:''}. Fakty, o które pytano, są oznaczone w treści.</div>`:''}
+  <article class="panel lesson"><h1 class="ltitle">${esc(L.t)}</h1>${oc.n?`<div class="lstat">Z tego tematu na olimpiadach: <b>${oc.n}</b> ${plural(oc.n,'pytanie lub zadanie','pytania lub zadania','pytań lub zadań')}${oc.owop?` · OWoP ${oc.owop}`:''}${oc.owopip?` · OWoPiP ${oc.owopip}`:''}. Fakty, o które pytano, mają w treści znacznik ★ – kliknij go, żeby zobaczyć pytania.</div>`:''}
   ${whole?'':`<div class="steps">${steps.map((st,i)=>`<button class="stepdot ${i===LSTEP?'on':''} ${i<LSTEP?'done':''}" data-lstep="${i}" type="button" title="${esc(st.title)}" aria-label="Krok ${i+1}: ${esc(st.title)}">${i+1}</button>`).join('')}</div><div class="small muted">Krok ${LSTEP+1} z ${steps.length}: ${esc(steps[LSTEP].title)}</div>`}
-  <div class="lbody">${linkIds(whole?L.html:steps[LSTEP].html)}</div>
+  <div class="lbody">${olRefs(whole?L.html:steps[LSTEP].html)}</div>
   ${whole?'':`<div class="row lstepnav">${LSTEP>0?`<button class="btn" data-lstep="${LSTEP-1}" type="button">← Wstecz</button>`:''}<span style="flex:1"></span>${!last?`<button class="btn pri" data-lstep="${LSTEP+1}" type="button">Dalej: ${esc(steps[LSTEP+1].title)} →</button>`:''}</div>`}</article>
   ${last?`<div class="row"><button class="btn ${s.r?'':'pri'}" data-lread type="button" aria-pressed="${!!s.r}">${s.r?'✓ Przeczytana':'Oznacz jako przeczytaną'}</button></div>
   <div class="panel stack" id="lpanel"><h2>Sprawdź się</h2><p>${cards.length} wybranych pytań do lekcji${s.b!=null?` · najlepszy wynik ${fmtPts(s.b)}/${fmtPts(s.n||cards.length)}`:''}. Pytania OWoP i OWoPiP są pogrupowane osobno.${ol.length>cards.length?` Możesz też rozwiązać wszystkie ${ol.length} pytania i zadania z olimpiad przypisane do tej lekcji.`:''}</p>
   ${LQ?'':`<div class="fld"><span class="lbl">Tryb</span><div class="tabs2">${modeChips(mode,'lm')}</div></div><div class="row"><button class="btn pri big" data-lstart type="button">Rozwiąż wybrane pytania (${cards.length})</button>${ol.length>cards.length?`<button class="btn" data-lall2 type="button">Wszystkie z olimpiad (${ol.length})</button>`:''}</div>`}</div>
   <div id="lq"></div>`:''}
   <div class="row lnav">${prev?`<button class="btn" data-lopen="${prev.id}" type="button">← ${esc(prev.t)}</button>`:''}<span style="flex:1"></span>${next?`<button class="btn ${last?'pri':''}" data-lopen="${next.id}" type="button">${esc(next.t)} →</button>`:''}</div>`;
-  el.innerHTML=h;const body=el.querySelector('.lbody');bindIdLinks(el);markAsked(body);mountChecks(body,L);body.querySelectorAll('table').forEach(t=>{if(t.parentElement.classList.contains('tw'))return;const w=document.createElement('div');w.className='tw';t.before(w);w.append(t);const hs=[...t.querySelectorAll('thead th')].map(th=>th.textContent.trim());if(hs.length)t.querySelectorAll('tbody tr').forEach(tr=>{let i=0;[...tr.children].forEach(td=>{if(hs[i])td.dataset.l=hs[i];i+=td.colSpan||1})})});
+  el.innerHTML=h;const body=el.querySelector('.lbody');bindIdLinks(el);olBind(body);mountChecks(body,L);body.querySelectorAll('table').forEach(t=>{if(t.parentElement.classList.contains('tw'))return;const w=document.createElement('div');w.className='tw';t.before(w);w.append(t);const hs=[...t.querySelectorAll('thead th')].map(th=>th.textContent.trim());if(hs.length)t.querySelectorAll('tbody tr').forEach(tr=>{let i=0;[...tr.children].forEach(td=>{if(hs[i])td.dataset.l=hs[i];i+=td.colSpan||1})})});
   el.oninput=null;
   el.onclick=e=>{const b=e.target.closest('button,input');if(!b||!el.contains(b)||b.closest('#lq')||b.closest('.chkbox'))return;const d=b.dataset;
     if('lall' in d){setS({lall:b.checked});rLesson(el);return}
