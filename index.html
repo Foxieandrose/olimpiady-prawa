@@ -1,0 +1,1275 @@
+<!doctype html><html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#5a2b84"><link rel="manifest" href="manifest.json"><link rel="icon" href="icon.svg" type="image/svg+xml"><style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style><title>Kurs z prawa – OWoP i OWoPiP</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<style>
+/* Układ: wąska kolumna jak strona kodeksu; zakładki u góry, karta na środku, oceny pod kartą.
+   Akcent: fiolet żabotu sędziowskiego; zieleń/czerwień tylko do oceny odpowiedzi. */
+:root{
+  --bg:#f3f4f7;--surface:#ffffff;--surface2:#f8f8fb;--ink:#171a2b;--muted:#5c6278;--line:#dcdfe8;
+  --accent:#5a2b84;--accent-ink:#ffffff;--accent-soft:#efe7f7;
+  --ok:#1d7440;--ok-soft:#e2f3e8;--bad:#b02a20;--bad-soft:#fbe8e6;--warn:#8a5d00;--warn-soft:#fff3d4;
+  --info:#24529b;--info-soft:#e7eefa;--gold:#8a6a12;
+  --f-ui:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --f-text:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --r:10px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#101219;--surface:#191c26;--surface2:#1f2230;--ink:#e7e8f0;--muted:#9da2b6;--line:#2d3142;
+  --accent:#b996e3;--accent-ink:#1b1030;--accent-soft:#2b2340;
+  --ok:#63d08c;--ok-soft:#14301f;--bad:#ff8b80;--bad-soft:#3a1815;--warn:#f0c14d;--warn-soft:#33290f;
+  --info:#8fb4ff;--info-soft:#17223a;--gold:#e1c063;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#101219;--surface:#191c26;--surface2:#1f2230;--ink:#e7e8f0;--muted:#9da2b6;--line:#2d3142;
+  --accent:#b996e3;--accent-ink:#1b1030;--accent-soft:#2b2340;
+  --ok:#63d08c;--ok-soft:#14301f;--bad:#ff8b80;--bad-soft:#3a1815;--warn:#f0c14d;--warn-soft:#33290f;
+  --info:#8fb4ff;--info-soft:#17223a;--gold:#e1c063;color-scheme:dark}
+[hidden]{display:none!important}
+html,body{min-height:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-ui);font-size:15px;line-height:1.5}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+button,input,select,textarea{font:inherit;color:inherit}
+a{color:var(--info)}
+.wrap{max-width:820px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:10px;padding-block:8px}
+.sec{font-family:var(--f-text);font-size:30px;line-height:1;color:var(--accent)}
+.brandtxt{min-width:0;flex:1}
+.brand{display:flex;align-items:baseline;gap:8px;font-weight:700;letter-spacing:.01em}
+.brand small{font-weight:500;color:var(--muted);font-size:13px}
+.count{font-size:13px;color:var(--muted)}
+.count b{color:var(--ink);font-variant-numeric:tabular-nums}
+.sync{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:3px 10px;color:var(--muted);background:var(--surface2);cursor:pointer;white-space:nowrap}
+.sync.ok{color:var(--ok);border-color:color-mix(in srgb,var(--ok) 40%,var(--line))}
+.sync.warn{color:var(--warn)}
+nav.tabs{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+nav.tabs::-webkit-scrollbar{display:none}
+nav.tabs a{padding:9px 12px;text-decoration:none;color:var(--muted);font-weight:500;font-size:14px;border-bottom:2px solid transparent;white-space:nowrap}
+nav.tabs a.on{color:var(--ink);border-bottom-color:var(--accent)}
+nav.tabs a:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+main{padding-block:18px 60px}
+h1,h2,h3{text-wrap:balance;line-height:1.25;margin:0}
+h2{font-size:20px}
+h3{font-size:15px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600}
+p{margin:0}
+.stack{display:flex;flex-direction:column;gap:14px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px}
+.muted{color:var(--muted)}
+.small{font-size:13px}
+.mono{font-family:var(--f-mono);font-size:12px}
+.btn{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:9px 14px;cursor:pointer;font-weight:500}
+.btn:hover{border-color:var(--muted)}
+.btn:focus-visible,.opt:focus-visible,.chip:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.btn.pri{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn.big{padding:12px 20px;font-size:16px}
+.btn:disabled{opacity:.45;cursor:default}
+.btn.link{border:none;background:none;color:var(--info);padding:4px 6px}
+/* Talie */
+.stage{display:grid;gap:10px}
+.stagehead{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.stagehead h2{font-size:18px}
+.pill{font-size:12px;border-radius:999px;padding:2px 9px;background:var(--surface2);border:1px solid var(--line);color:var(--muted)}
+.subs{display:grid;gap:0;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--surface)}
+.sub{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;padding:10px 14px;border-top:1px solid var(--line)}
+.sub:first-child{border-top:none}
+.sub input{width:18px;height:18px;accent-color:var(--accent)}
+.sub label{min-width:0}
+.nums{display:flex;gap:10px;font-variant-numeric:tabular-nums;font-size:13px;font-family:var(--f-mono)}
+.n-new{color:var(--info)}.n-lrn{color:var(--bad)}.n-rev{color:var(--ok)}
+.tabs2{display:flex;gap:6px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 12px;cursor:pointer;font-size:14px}
+.chip.on{background:var(--accent-soft);border-color:var(--accent);color:var(--ink);font-weight:600}
+/* Karta */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.cardtop{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center}
+.q{font-family:var(--f-text);font-size:19px;line-height:1.45;font-weight:600}
+.q img,.ans img{display:block;max-height:280px;margin:8px auto;border-radius:8px}
+.opts{display:flex;flex-direction:column;gap:8px}
+.opt{display:flex;gap:10px;align-items:flex-start;text-align:left;width:100%;border:1px solid var(--line);background:var(--surface2);border-radius:10px;padding:11px 13px;cursor:pointer;font-size:16px;line-height:1.4}
+.opt .l{font-family:var(--f-mono);font-weight:500;color:var(--muted);min-width:1.2em}
+.opt.sel{border-color:var(--accent);background:var(--accent-soft)}
+.opt.right{border-color:var(--ok);background:var(--ok-soft)}
+.opt.right .l{color:var(--ok)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.opt.done{cursor:default}
+.ans{font-family:var(--f-text);font-size:17px;line-height:1.55;border-top:1px dashed var(--line);padding-top:14px}
+.exp{border-left:3px solid var(--info);background:var(--info-soft);padding:12px 14px;border-radius:0 8px 8px 0;font-size:15px;line-height:1.55}
+.aibox{border:1px solid var(--line);border-left:3px solid var(--accent);background:var(--surface);padding:12px 14px;border-radius:0 8px 8px 0;font-size:15px;line-height:1.5;display:flex;flex-direction:column;gap:6px}
+.aibox ul{margin:0;padding-left:1.2em}
+.mic[aria-pressed="true"]{border-color:var(--accent);color:var(--accent)}
+.live{color:var(--muted);font-style:italic}
+.uw{border-left:3px solid var(--warn);background:var(--warn-soft);padding:12px 14px;border-radius:0 8px 8px 0;font-size:15px}
+.verdict{font-weight:700}
+.verdict.ok{color:var(--ok)}.verdict.bad{color:var(--bad)}
+.src{font-size:12px;color:var(--muted);font-family:var(--f-mono)}
+.rate{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.rate button{border:1px solid var(--line);border-radius:10px;padding:10px 6px;background:var(--surface);cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:2px;font-weight:600}
+.rate button small{font-weight:400;color:var(--muted);font-family:var(--f-mono);font-size:12px}
+.rate .g1{color:var(--bad)}.rate .g2{color:var(--warn)}.rate .g3{color:var(--ok)}.rate .g4{color:var(--info)}
+.rate button.hint{outline:2px solid currentColor;outline-offset:1px}
+.sesbar{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.kbd{font-family:var(--f-mono);font-size:11px;border:1px solid var(--line);border-radius:4px;padding:0 4px;color:var(--muted)}
+/* Statystyki */
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px}
+.tile b{display:block;font-size:24px;font-variant-numeric:tabular-nums}
+.tile span{font-size:13px;color:var(--muted)}
+.bars{display:flex;align-items:flex-end;gap:3px;height:120px;padding-top:8px;border-bottom:1px solid var(--line)}
+.bars div{flex:1;background:var(--accent);border-radius:3px 3px 0 0;min-height:1px;opacity:.85}
+.bars div.zero{background:var(--line)}
+.axis{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);font-family:var(--f-mono)}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:7px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:600;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.05em}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+.scroll{overflow-x:auto}
+.meter{height:8px;border-radius:99px;background:var(--line);overflow:hidden;min-width:80px}
+.meter i{display:block;height:100%;background:var(--ok)}
+/* Przeglądanie */
+.list{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);overflow:hidden}
+.item{display:grid;grid-template-columns:auto 1fr auto;gap:10px;padding:10px 14px;border-top:1px solid var(--line);cursor:pointer;align-items:baseline;text-align:left;background:none;border-left:none;border-right:none;border-bottom:none;width:100%}
+.item:first-child{border-top:none}
+.item:hover{background:var(--surface2)}
+.item .t{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.st{font-size:11px;border-radius:99px;padding:1px 8px;border:1px solid var(--line);white-space:nowrap}
+.st.new{color:var(--info)}.st.lrn{color:var(--bad)}.st.rev{color:var(--ok)}
+input[type=search],input[type=text],input[type=number],select,textarea{border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:8px 10px;max-width:100%}
+textarea{width:100%;min-height:90px;font-family:var(--f-mono);font-size:12px}
+/* Test i finał */
+.timer{font-family:var(--f-mono);font-size:22px;font-variant-numeric:tabular-nums}
+.timer.low{color:var(--bad)}
+.qnav{display:flex;flex-wrap:wrap;gap:4px}
+.qnav button{width:30px;height:30px;border-radius:6px;border:1px solid var(--line);background:var(--surface);font-family:var(--f-mono);font-size:12px;cursor:pointer}
+.qnav button.has{background:var(--accent-soft);border-color:var(--accent)}
+.qnav button.cur{outline:2px solid var(--accent)}
+.qnav button.r{background:var(--ok-soft);border-color:var(--ok)}
+.qnav button.w{background:var(--bad-soft);border-color:var(--bad)}
+.score{font-size:40px;font-weight:700;font-variant-numeric:tabular-nums;line-height:1}
+.crit{display:grid;grid-template-columns:1fr auto;gap:6px 12px;align-items:center}
+.crit input[type=range]{width:100%;accent-color:var(--accent)}
+.topic{border:1px solid var(--line);border-radius:var(--r);padding:14px;background:var(--surface);display:flex;flex-direction:column;gap:10px}
+.topic .no{font-family:var(--f-mono);color:var(--accent);font-weight:500}
+/* Lista zadań */
+.fld{display:flex;flex-direction:column;gap:6px}
+.lbl{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+.tbar{position:sticky;top:calc(env(safe-area-inset-top,0px) + var(--hdr,0px));z-index:4;background:var(--bg);padding:8px 0 6px;display:flex;flex-direction:column;gap:6px}
+.tbar-in{display:flex;justify-content:space-between;align-items:center;gap:8px 12px;flex-wrap:wrap}
+.tbar .btn{padding:6px 12px}
+.timer.sm{font-size:16px}
+.tlist{display:flex;flex-direction:column;gap:12px}
+.tq{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:12px;scroll-margin-top:120px}
+.tq.ok{border-left:4px solid var(--ok)}.tq.bad{border-left:4px solid var(--bad)}
+.tqh{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.tqh .no{font-family:var(--f-mono);font-weight:600;color:var(--accent);min-width:1.6em}
+.tq .q{font-size:17.5px}
+.opt.mine::after{content:"Twoja";margin-left:auto;font-size:11px;font-family:var(--f-mono);color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:0 7px;align-self:center}
+.opt[aria-disabled="true"]{cursor:default}
+/* Testy – zadania nowego typu */
+.tabs2.big .chip{font-size:15px;padding:8px 14px}
+.tq.part{border-left:4px solid var(--warn)}
+.verdict.part{color:var(--warn)}
+.pfl,.opl,.mtl{display:flex;flex-direction:column;gap:10px}
+.pfrow,.oprow,.mtrow{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:var(--surface2)}
+.pfrow.ok,.oprow.ok,.mtrow.ok{border-color:var(--ok);background:var(--ok-soft)}.pfrow.bad,.oprow.bad,.mtrow.bad{border-color:var(--bad);background:var(--bad-soft)}
+.pft{flex:1 1 320px}.pfb{display:flex;gap:6px;flex-wrap:wrap}.pfrow>.small,.oprow>.small,.mtrow>.small{flex-basis:100%}
+.opt-l{flex:1 1 300px}.opin{flex:1 1 220px;min-width:0;font:inherit;font-size:16px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink)}
+.mcats{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:15px;padding:6px 2px}
+.selfq{display:inline-flex;gap:6px;align-items:center;flex-wrap:wrap;margin-left:6px}
+.tgrp{font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:.04em;color:var(--accent);margin:10px 2px 0}
+.src-tag{margin-left:auto;font-size:11px;font-family:var(--f-mono);border:1px solid var(--line);border-radius:99px;padding:0 8px;color:var(--muted)}
+/* Lekcje – krok po kroku */
+.lstat{font-family:var(--f-ui);font-size:14px;background:var(--accent-soft);border-radius:8px;padding:8px 12px}
+.steps{display:flex;flex-wrap:wrap;gap:6px;font-family:var(--f-ui)}
+.stepdot{min-width:34px;height:34px;border-radius:99px;border:1px solid var(--line);background:var(--surface2);font:600 14px var(--f-ui);color:var(--muted);cursor:pointer}
+.stepdot.done{background:var(--ok-soft);color:var(--ok);border-color:var(--ok)}.stepdot.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.lstepnav{border-top:1px solid var(--line);padding-top:12px;margin-top:6px;font-family:var(--f-ui)}
+.lesson .lead{font-size:17px;border-left:4px solid var(--accent);padding:6px 12px;background:var(--surface2);border-radius:0 8px 8px 0}
+.lesson .box.sc{border-color:var(--accent);background:var(--accent-soft)}
+.lesson .box.sc ul{margin-top:6px}
+.lesson .asked{background:linear-gradient(90deg,var(--warn-soft),transparent 85%);border-radius:6px;box-shadow:inset 3px 0 0 var(--warn);padding-left:8px}
+.lesson li.asked{list-style-position:inside;margin-left:-1.1em}
+.askb{display:inline-block;margin-left:6px;font:600 11px var(--f-ui);color:var(--warn);background:var(--surface);border:1px solid var(--warn);border-radius:99px;padding:0 7px;vertical-align:1px;white-space:nowrap}
+.chkbox{font-family:var(--f-ui);border:1px dashed var(--accent);border-radius:12px;padding:12px;margin:8px 0;display:flex;flex-direction:column;gap:8px;background:var(--surface)}
+.chkh{font-weight:700;font-size:14px;color:var(--accent)}
+.chkbox .tq{padding:12px}.chkbox .q{font-size:16px}
+.arch td{vertical-align:middle}.nowrap{white-space:nowrap}.btn.sm{padding:5px 10px;font-size:13.5px}
+#tabs a.minor{opacity:.8;font-size:.92em}
+/* Lekcje */
+.lesson{font-family:var(--f-text);font-size:17px;line-height:1.62;display:flex;flex-direction:column;gap:10px;padding:20px 22px}
+.lesson h2{font-family:var(--f-ui);font-size:21px;margin-top:14px;color:var(--accent)}
+.lesson .ltitle{font-family:var(--f-ui);font-size:26px;line-height:1.2}
+.lesson h3{font-family:var(--f-ui);text-transform:none;letter-spacing:0;color:var(--ink);font-size:17px;margin-top:8px}
+.lesson p,.lesson li{max-width:72ch}
+.lesson ul,.lesson ol{margin:0;padding-left:1.3em;display:flex;flex-direction:column;gap:4px}
+.lesson table{font-family:var(--f-ui);font-size:14.5px}
+.lesson .box{border-left:3px solid var(--line);background:var(--surface2);padding:10px 14px;border-radius:0 8px 8px 0;font-size:16px}
+.lesson .box.def{border-color:var(--info);background:var(--info-soft)}
+.lesson .box.num{border-color:var(--accent);background:var(--accent-soft)}
+.lesson .box.trap{border-color:var(--warn);background:var(--warn-soft)}
+.lesson .box.ex{border-color:var(--ok);background:var(--ok-soft)}
+.item.les{grid-template-columns:2.2em 1fr auto;align-items:center}
+.item.les .t{white-space:normal}
+.lnav .btn{max-width:48%;text-align:left}
+details>summary{cursor:pointer;color:var(--info)}
+.modal{position:fixed;inset:0;background:color-mix(in srgb,#000 45%,transparent);z-index:20;display:flex;align-items:flex-start;justify-content:center;overflow-y:auto;padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) 16px max(16px,env(safe-area-inset-left,0px))}
+.modal .card{max-width:780px;width:100%;margin-block:20px}
+.toast{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:9px 16px;border-radius:999px;font-size:14px;z-index:30;max-width:calc(100% - 32px)}
+.info p,.info li{max-width:68ch}
+.info ul{margin:6px 0 0;padding-left:20px;display:flex;flex-direction:column;gap:4px}
+.empty{padding:28px;text-align:center;color:var(--muted)}
+.idlink{font-family:var(--f-mono);color:var(--info);cursor:pointer;text-decoration:underline}
+@media (max-width:520px){.lesson{font-size:16px;padding:15px}.tq{padding:13px}.q{font-size:17.5px}.opt{font-size:15px}.card{padding:15px}.rate{gap:6px}.brand small{display:none}}
+@media (prefers-reduced-motion:no-preference){.opt,.btn,.chip{transition:background .12s,border-color .12s}}
+</style>
+
+<script src="firebase-config.js"></script></head><body><header class="top">
+  <div class="wrap">
+    <div class="bar">
+      <span class="sec">§</span>
+      <div class="brandtxt"><div class="brand">Kurs z prawa <small>OWoP i OWoPiP · 2026/27</small></div><div class="count" id="countdown"></div></div>
+      <button class="sync" id="sync" type="button" title="Stan zapisu postępów">Wczytywanie…</button>
+    </div>
+    <nav class="tabs" id="tabs">
+      <a href="#nauka" data-v="nauka">Nauka</a>
+      <a href="#lekcje" data-v="lekcje">Lekcje</a>
+      <a href="#test" data-v="test">Testy</a>
+      <a href="#final" data-v="final">Finał</a>
+      <a href="#karty" data-v="karty">Karty</a>
+      <a href="#konstytucja" data-v="konstytucja">Konstytucja</a>
+      <a href="#postepy" data-v="postepy">Postępy</a>
+      <a href="#olimpiada" data-v="olimpiada">O olimpiadzie</a>
+      <a href="#archiwum" data-v="archiwum" class="minor">Archiwum</a>
+      <a href="#opcje" data-v="opcje">Opcje</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section id="v-nauka" class="stack"><div class="empty">Wczytywanie kart…</div></section>
+  <section id="v-sesja" class="stack" hidden></section>
+  <section id="v-lekcje" class="stack" hidden></section>
+  <section id="v-test" class="stack" hidden></section>
+  <section id="v-final" class="stack" hidden></section>
+  <section id="v-karty" class="stack" hidden></section>
+  <section id="v-konstytucja" class="stack" hidden></section>
+  <section id="v-postepy" class="stack" hidden></section>
+  <section id="v-olimpiada" class="stack info" hidden></section>
+  <section id="v-archiwum" class="stack" hidden></section>
+  <section id="v-opcje" class="stack" hidden></section>
+</main>
+<div id="modal" class="modal" hidden></div>
+<div id="toast" class="toast" hidden></div>
+
+<script>
+"use strict";
+/* ===== Stałe ===== */
+const APPKEY='owop2627';
+const STAGES={
+  s:{name:'Etap 1 – szkolny',short:'szkolny',ev:[{o:'OWoP',nm:'Etap szkolny OWoP',date:new Date('2026-11-24T10:00:00+01:00'),fmt:'24 XI 2026, 10:00'},{o:'OWoPiP',nm:'I etap OWoPiP',date:new Date('2026-12-02T09:00:00+01:00'),fmt:'2 XII 2026'}],test:{n:30,min:45,thr:25,thrTxt:'25/30 pkt – awans do etapu okręgowego OWoP'}},
+  o:{name:'Etap 2 – okręgowy',short:'okręgowy',ev:[{o:'OWoP',nm:'Etap okręgowy OWoP',date:new Date('2027-03-06T10:00:00+01:00'),fmt:'6 III 2027, 10:00'},{o:'OWoPiP',nm:'II etap OWoPiP',date:new Date('2027-03-10T09:00:00+01:00'),fmt:'10 III 2027'}],test:{n:30,min:45,thr:20,thrTxt:'20/30 pkt – dopuszczenie do pisemnego egzaminu OWoP (do finału łącznie 40/50 pkt)'}},
+  f:{name:'Etap 3 – finał',short:'finał',ev:[{o:'OWoP',nm:'Finał OWoP',date:new Date('2027-04-10T08:00:00+02:00'),fmt:'10 IV 2027, 8:00'},{o:'OWoPiP',nm:'III etap OWoPiP',date:new Date('2027-04-21T09:00:00+02:00'),fmt:'21 IV 2027'}]}
+};
+function stEv(k,now){now=now||Date.now();const e=STAGES[k].ev;return e.find(x=>x.date>now)||e[e.length-1]}
+for(const k in STAGES){Object.defineProperty(STAGES[k],'date',{get(){return stEv(k).date}});Object.defineProperty(STAGES[k],'fmt',{get(){return STAGES[k].ev.map(x=>x.o+': '+x.fmt).join(' · ')}})}
+const TESTX={si:{lvl:'s',name:'I etap OWoPiP',n:50,min:60,thr:30,thrTxt:'30/50 pkt – awans do II etapu OWoPiP (§ 5 ust. 7)',re:/^A\d\d-1-/},
+  oi:{lvl:'o',name:'II etap OWoPiP – test',n:50,min:60,thr:null,thrTxt:'bez stałego progu – do III etapu przechodzi 30 najlepszych (na olimpiadzie test 50 pkt + 6 pytań problemowych po 0–5 pkt, razem 120 min)',re:/^A\d\d-2-/},
+  sn:{lvl:'s',name:'Etap szkolny OWoP – nowy format',n:14,min:45,thr:25,thrTxt:'25/30 pkt – próg z regulaminu XXIX edycji',re:/^S29-/},
+  fi:{lvl:'f',name:'III etap OWoPiP – test',n:50,min:60,thr:null,thrTxt:'punkt tylko za zaznaczenie wszystkich poprawnych odpowiedzi; 10 najlepszych przechodzi do części ustnej',re:/^A\d\d-3-/}};
+function tcfg(k){return TESTX[k]||Object.assign({lvl:k,name:{s:'Etap szkolny OWoP',o:'Etap okręgowy OWoP'}[k],re:/^[SO]\d\d-/},STAGES[k].test)}
+const TOPICS={konstytucja:'Konstytucja',teoria:'Teoria prawa',sady:'Sądy i trybunały',cywilne:'Prawo cywilne',karne:'Prawo karne',lacina:'Łacina',prawa_czlowieka:'Prawa człowieka',miedzynarodowe:'Prawo międzynarodowe',administracyjne:'Prawo administracyjne',sejm:'Sejm i Senat',ustroj:'Organy państwa',prezydent:'Prezydent',historia:'Historia państwa i prawa',wos:'WOS',rodzinne:'Prawo rodzinne',samorzad:'Samorząd',finanse:'Finanse publiczne',wyborcze:'Prawo wyborcze',rzad:'Rada Ministrów',ue:'Unia Europejska',gospodarcze:'Prawo gospodarcze',rpo:'RPO',nik:'NIK',pracy:'Prawo pracy',kanoniczne:'Prawo kanoniczne',etpc:'Orzecznictwo ETPC',konsument:'Prawa konsumenta',nieletni:'Nieletni',zawody:'Zawody prawnicze'};
+const MIN=6e4,HOUR=36e5,DAY=864e5,ROLL=4*HOUR;
+const STEPS=[1,10],RSTEPS=[10],NB=16;
+const DEF={stage:'s',subs:{},newMode:'auto',newPerDay:30,maxIvl:21,theme:'system',nick:'',board:false};
+
+/* ===== Stan ===== */
+let DATA=null,CARD={},SUBS=[],SIB={};
+let P={};                 // id -> [stan 1 nauka/2 powtórka/3 ponowna nauka, termin ms, interwał dni, łatwość×100, powtórzenia, pomyłki, krok, ostatnio ms]
+let M={set:{},setU:0,days:{},tags:{},tests:[],finals:[],les:{}};
+let VIEW='nauka',SES=null,TEST=null,FIN=null,UNDO=null,EXAM=null;
+const stName=k=>k==='e'?'Egzamin pisemny OWoP':k==='p'?'Pytania problemowe OWoPiP':tcfg(k).name;
+const passed=t=>(t.st==='e'||t.st==='p'||t.p)?false:(tcfg(t.st).thr!=null&&t.sc>=tcfg(t.st).thr);
+const dirty=new Set();let metaDirty=false,saveTimer=null,localKey=APPKEY+':local';
+const Cloud={mode:'local',uid:null,put:null,state:'local',login:null,logout:null,board:null};
+
+/* ===== Narzędzia ===== */
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const strip=h=>String(h||'').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();
+const pad=n=>String(n).padStart(2,'0');
+function dayNum(t){const d=new Date(t-ROLL);return Math.round(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())/DAY)}
+function dayStart(n){const d=new Date(n*DAY);return new Date(d.getUTCFullYear(),d.getUTCMonth(),d.getUTCDate(),4).getTime()}
+function dayKey(t){const d=new Date(t-ROLL);return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())}
+function hash(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0}
+const bucket=id=>'p'+(hash(id)%NB);
+const isNew=p=>!p||p[0]===0;
+function lsGet(k){try{return JSON.parse(localStorage.getItem(k)||'null')}catch(e){return null}}
+function lsSet(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+function toast(msg,ms=2600){const t=$('#toast');t.textContent=msg;t.hidden=false;clearTimeout(toast._t);toast._t=setTimeout(()=>t.hidden=true,ms)}
+function S(){return Object.assign({},DEF,M.set)}
+function setS(patch){M.set=Object.assign({},M.set,patch);M.setU=Date.now();metaDirty=true;persist()}
+function fmtIvl(ms){if(ms<HOUR)return Math.max(1,Math.round(ms/MIN))+' min';if(ms<DAY)return Math.round(ms/HOUR)+' h';const d=Math.round(ms/DAY);return d+' d'}
+function plural(n,a,b,c){const m10=n%10,m100=n%100;if(n===1)return a;if(m10>=2&&m10<=4&&(m100<10||m100>=20))return b;return c}
+function today(){return dayKey(Date.now())}
+function dstat(k){return M.days[k]||(M.days[k]={n:0,r:0,ok:0,bad:0,ms:0})}
+function nextExam(now){for(const k of ['s','o','f'])if(STAGES[k].date>now)return k;return null}
+
+/* ===== Algorytm powtórek (jak w Anki: kroki nauki, potem rosnące odstępy, limit przed etapem) ===== */
+function capDays(now){let cap=S().maxIvl;const k=nextExam(now);if(k){const days=Math.floor((STAGES[k].date-now)/DAY);cap=Math.min(cap,Math.max(1,Math.floor(days/2)))}return Math.max(1,cap)}
+function sched(rec,g,now,noFuzz){
+  const r=rec?rec.slice():[0,0,0,250,0,0,0,0];const st=r[0];
+  const reviewDue=ivl=>dayStart(dayNum(now)+ivl);
+  const cap=capDays(now);
+  const fuzz=iv=>{if(noFuzz||iv<3)return iv;const f=Math.max(1,Math.round(iv*.06));return iv+Math.round((Math.random()*2-1)*f)};
+  if(st!==2){
+    const steps=st===3?RSTEPS:STEPS;const step=st===0?0:r[6];
+    if(g===1){r[0]=st===3?3:1;r[6]=0;r[1]=now+steps[0]*MIN}
+    else if(g===2){r[0]=st===3?3:1;r[6]=step;const d=step===0?(steps.length>1?(steps[0]+steps[1])/2:steps[0]*1.5):steps[step];r[1]=now+d*MIN}
+    else if(g===3){const nx=step+1;if(nx<steps.length){r[0]=st===3?3:1;r[6]=nx;r[1]=now+steps[nx]*MIN}
+      else{r[0]=2;r[6]=0;r[2]=st===3?Math.min(cap,Math.max(1,r[2])):Math.min(cap,1);r[1]=reviewDue(r[2])}}
+    else{r[0]=2;r[6]=0;r[2]=st===3?Math.min(cap,Math.max(2,r[2]+1)):Math.min(cap,3);r[1]=reviewDue(r[2])}
+  }else{
+    const late=Math.max(0,dayNum(now)-dayNum(r[1]));let iv=r[2];
+    if(g===1){r[5]++;r[3]=Math.max(130,r[3]-20);r[2]=Math.max(1,Math.round(iv*.5));r[0]=3;r[6]=0;r[1]=now+RSTEPS[0]*MIN}
+    else{
+      let n;
+      if(g===2){r[3]=Math.max(130,r[3]-15);n=Math.max(iv+1,Math.round(iv*1.2))}
+      else if(g===3){n=Math.max(iv+1,Math.round((iv+late/2)*r[3]/100))}
+      else{r[3]+=15;n=Math.max(iv+2,Math.round((iv+late)*r[3]/100*1.3))}
+      n=Math.min(cap,fuzz(n));if(g===4&&n<=iv&&cap>iv)n=iv+1;
+      r[2]=Math.max(1,n);r[1]=reviewDue(r[2])}
+  }
+  r[4]++;r[7]=now;return r;
+}
+function preview(rec,now){return [1,2,3,4].map(g=>{const r=sched(rec,g,now,true);return r[0]===2?r[2]+' d':fmtIvl(r[1]-now)})}
+
+/* ===== Wybór kart do nauki ===== */
+function subsOn(stage){const s=S();const on=s.subs[stage];return SUBS.filter(x=>x.st===stage&&(!on||on[x.id]!==false))}
+function newLimit(stage){
+  const s=S();if(s.newMode!=='auto')return s.newPerDay;
+  const left=DATA.cards.filter(c=>c.d===stage&&isNew(P[c.i])&&subsOn(stage).some(x=>x.id===c.b)).length;
+  const now=Date.now();let days=Math.ceil((STAGES[stage].date-now)/DAY)-2;if(stage==='s'||days<1)days=Math.max(1,days);
+  return Math.max(10,Math.min(80,Math.ceil(left/Math.max(1,days))));
+}
+function counts(subIds,now){
+  const end=dayStart(dayNum(now)+1);let n=0,l=0,r=0;const list=DATA.cards.filter(c=>subIds.has(c.b));const ok=reps(list);
+  for(const c of list){if(!ok(c))continue;const p=P[c.i];
+    if(isNew(p))n++;else if(p[0]===2){if(p[1]<end)r++}else if(p[1]<=now+20*MIN)l++}
+  return {n,l,r};
+}
+function reps(list){const rep={};for(const c of list){if(!c.sb)continue;const cur=rep[c.sb];if(!cur){rep[c.sb]=c;continue}const p=P[c.i],pc=P[cur.i];if(!isNew(p)&&(isNew(pc)||p[7]>pc[7]))rep[c.sb]=c}return c=>!c.sb||rep[c.sb]===c}
+function newIntroduced(){return dstat(today()).n}
+function buildQueue(stage){
+  const now=Date.now(),end=dayStart(dayNum(now)+1);const ids=new Set(subsOn(stage).map(x=>x.id));
+  const ord={};SUBS.forEach(x=>ord[x.id]=x.ord);
+  const lrn=[],rev=[],nw=[];const seen=new Set();
+  const cand=DATA.cards.filter(c=>ids.has(c.b)).sort((a,b)=>ord[a.b]-ord[b.b]);
+  const ok=reps(cand);
+  for(const c of cand){if(!ok(c))continue;const p=P[c.i];
+    if(isNew(p))nw.push(c);else if(p[0]===2){if(p[1]<end)rev.push(c)}else lrn.push(c)}
+  nw.sort((a,b)=>(ord[a.b]-ord[b.b])||(hash(a.i)-hash(b.i)));
+  rev.sort((a,b)=>hash(a.i+today())-hash(b.i+today()));
+  return {stage,ids,lrn,rev,nw,since:0};
+}
+function nextCard(q){
+  const now=Date.now();
+  q.lrn=q.lrn.filter(c=>!isNew(P[c.i])&&P[c.i][0]!==2);
+  q.rev=q.rev.filter(c=>P[c.i]&&P[c.i][0]===2&&P[c.i][1]<dayStart(dayNum(now)+1));
+  q.nw=q.nw.filter(c=>isNew(P[c.i]));
+  const dueL=q.lrn.filter(c=>P[c.i][1]<=now).sort((a,b)=>P[a.i][1]-P[b.i][1]);
+  if(dueL.length)return dueL[0];
+  const newLeft=Math.max(0,newLimit(q.stage)-newIntroduced());
+  const wantNew=newLeft>0&&q.nw.length&&(q.since>=3||!q.rev.length);
+  if(wantNew){q.since=0;return q.nw[0]}
+  if(q.rev.length){q.since++;return q.rev[0]}
+  const soon=q.lrn.filter(c=>P[c.i][1]<=now+20*MIN).sort((a,b)=>P[a.i][1]-P[b.i][1]);
+  if(soon.length)return soon[0];
+  return null;
+}
+
+/* ===== Zapis: lokalnie + chmura ===== */
+function persist(){lsSet(localKey,{P,M,t:Date.now()});scheduleSave()}
+function markCard(id){dirty.add(bucket(id));metaDirty=true;persist()}
+function scheduleSave(){if(!Cloud.put)return;clearTimeout(saveTimer);saveTimer=setTimeout(flush,2500)}
+let flushing=null;
+async function flush(){
+  if(!Cloud.put)return;if(flushing){await flushing;if(!dirty.size&&!metaDirty)return}
+  flushing=(async()=>{
+    setSync('saving');
+    try{
+      while(dirty.size){const b=[...dirty][0];dirty.delete(b);const c={};for(const id in P)if(bucket(id)===b)c[id]=P[id];await Cloud.put(b,{c,u:Date.now()})}
+      if(metaDirty){metaDirty=false;await Cloud.put('meta',{resetAt:M.resetAt||0,set:M.set,setU:M.setU,days:trimDays(M.days),tags:M.tags,tests:M.tests.slice(-60),finals:M.finals.slice(-40),les:M.les||{},u:Date.now()})}
+      if(Cloud.board&&S().board)await Cloud.board(boardEntry());
+      setSync('saved');
+    }catch(e){console.warn(e);setSync('error');}
+  })();
+  await flushing;flushing=null;
+}
+function trimDays(d){const keys=Object.keys(d).sort().slice(-400);const o={};keys.forEach(k=>o[k]=d[k]);return o}
+function mergeRemote(id,data){
+  if(!data)return false;let changed=false;
+  if(/^p\d+$/.test(id)&&data.c){
+    for(const k in data.c){const rr=data.c[k];if(!Array.isArray(rr))continue;
+      if(!P[k]||rr[7]>P[k][7]){P[k]=rr;changed=true}else if(P[k][7]>rr[7])dirty.add(id)}
+  }else if(id==='meta'){
+    if(data.set&&(data.setU||0)>(M.setU||0)){M.set=data.set;M.setU=data.setU;changed=true;applyTheme()}
+    if((data.resetAt||0)>(M.resetAt||0)){M.days={};M.tags={};M.tests=[];M.finals=[];M.les={};M.resetAt=data.resetAt;changed=true}
+    if((data.u||0)<(M.resetAt||0))return changed;
+    for(const k in (data.days||{})){const a=dstat(k),b=data.days[k];for(const f of ['n','r','ok','bad','ms'])if((b[f]||0)>(a[f]||0)){a[f]=b[f];changed=true}}
+    for(const k in (data.tags||{})){const a=M.tags[k]||[0,0],b=data.tags[k];if(b[1]>a[1]){M.tags[k]=b;changed=true}}
+    const seen=new Set(M.tests.map(t=>t.d));for(const t of (data.tests||[]))if(!seen.has(t.d)){M.tests.push(t);changed=true}
+    M.tests.sort((a,b)=>a.d-b.d);
+    const seenF=new Set(M.finals.map(t=>t.d));for(const t of (data.finals||[]))if(!seenF.has(t.d)){M.finals.push(t);changed=true}
+    M.finals.sort((a,b)=>a.d-b.d);
+    M.les=M.les||{};for(const k in (data.les||{})){const b=data.les[k];if(b&&(!M.les[k]||(b.u||0)>(M.les[k].u||0))){M.les[k]=b;changed=true}}
+  }
+  return changed;
+}
+function remoteBatch(docs,full){
+  let ch=false;for(const [id,data] of docs)ch=mergeRemote(id,data)||ch;
+  if(full){const have=new Map(docs);for(const k in P){const b=bucket(k),d=have.get(b);if(!d||!d.c||!d.c[k])dirty.add(b)}if(!have.has('meta'))metaDirty=true}
+  if(ch){lsSet(localKey,{P,M,t:Date.now()});if(VIEW!=='sesja'&&VIEW!=='test'&&VIEW!=='final'&&!(VIEW==='lekcje'&&LCUR))render()}
+  if(dirty.size)scheduleSave();
+}
+function setSync(st){
+  Cloud.state=st;const b=$('#sync');b.className='sync';
+  const map={local:['Zapis tylko na tym urządzeniu',''],saving:['Zapisywanie…',''],saved:[(Cloud.mode==='claude'?'Zapisano w Claude':'Zapisano na koncie'),'ok'],error:['Brak połączenia – zapis lokalny','warn'],login:['Zaloguj, aby zapisywać','warn'],waiting:['Łączenie z zapisem…','']};
+  const [t,c]=map[st]||map.local;b.textContent=t;if(c)b.classList.add(c);
+}
+function loadLocal(key){const d=lsGet(key);if(d&&d.P){P=d.P;M=Object.assign({set:{},setU:0,days:{},tags:{},tests:[],finals:[],les:{}},d.M||{});M.les=M.les||{}}else{P={};M={set:{},setU:0,days:{},tags:{},tests:[],finals:[],les:{}}}}
+async function initCloud(){
+  setSync('local');
+  if(window.claude&&typeof window.claude.use==='function'){
+    try{
+      const [user,db]=await Promise.all([window.claude.use('user'),window.claude.use('db')]);
+      const uid=user?await user.id():null;
+      if(db&&uid){setupClaude(db,uid);return}
+    }catch(e){console.warn(e)}
+  }
+  if(window.FIREBASE_CONFIG){try{await setupFirebase()}catch(e){console.warn(e);setSync('error')}}
+}
+function adoptAccount(uid){
+  const prevLocal=lsGet(APPKEY+':local');localKey=APPKEY+':'+uid;loadLocal(localKey);
+  if(prevLocal&&prevLocal.P&&Object.keys(prevLocal.P).length&&!lsGet(APPKEY+':moved:'+uid)){
+    for(const k in prevLocal.P){if(!P[k]||prevLocal.P[k][7]>P[k][7]){P[k]=prevLocal.P[k];dirty.add(bucket(k))}}
+    for(const k in (prevLocal.M&&prevLocal.M.days)||{}){const a=dstat(k),b=prevLocal.M.days[k];for(const f of ['n','r','ok','bad','ms'])a[f]=Math.max(a[f]||0,b[f]||0)}
+    metaDirty=true;lsSet(APPKEY+':moved:'+uid,1);toast('Postępy z tego urządzenia dołączono do Twojego zapisu');
+  }
+  lsSet(localKey,{P,M,t:Date.now()});render();
+}
+function setupClaude(db,uid){
+  Cloud.mode='claude';Cloud.uid=uid;adoptAccount(uid);
+  const col=db.collection('data/users/'+uid);
+  Cloud.put=(id,obj)=>col.doc(id).set(obj);
+  setSync('waiting');const timer=setTimeout(()=>{if(Cloud.state==='waiting')setSync('error')},10000);
+  col.onSnapshot(snap=>{clearTimeout(timer);remoteBatch(snap.docs.filter(d=>d.exists).map(d=>[d.id,d.data()]),!snap.metadata.fromCache);if(!snap.metadata.fromCache&&Cloud.state!=='saving')setSync('saved');if(dirty.size||metaDirty)scheduleSave()},
+    err=>{clearTimeout(timer);console.warn(err);setSync('error')});
+}
+async function setupFirebase(){
+  const V='10.12.2',base='https://www.gstatic.com/firebasejs/'+V+'/';
+  const [fa,fu,fs]=await Promise.all([import(base+'firebase-app.js'),import(base+'firebase-auth.js'),import(base+'firebase-firestore.js')]);
+  const app=fa.initializeApp(window.FIREBASE_CONFIG);const auth=fu.getAuth(app);const db=fs.getFirestore(app);
+  Cloud.mode='firebase';
+  Cloud.login=async()=>{try{await fu.signInWithPopup(auth,new fu.GoogleAuthProvider())}catch(e){console.warn(e);toast('Logowanie nie powiodło się: '+(e.code||e.message))}};
+  Cloud.logout=async()=>{await flush();await fu.signOut(auth);location.reload()};
+  let unsub=null,unsubB=null;
+  fu.onAuthStateChanged(auth,u=>{
+    if(unsub){unsub();unsub=null}if(unsubB){unsubB();unsubB=null}
+    if(!u){Cloud.uid=null;Cloud.put=null;Cloud.board=null;Cloud.user=null;setSync('login');render();return}
+    Cloud.uid=u.uid;Cloud.user={name:u.displayName||'',email:u.email||''};adoptAccount(u.uid);
+    const col=fs.collection(db,'users',u.uid,'prog');
+    Cloud.put=(id,obj)=>fs.setDoc(fs.doc(col,id),obj);
+    Cloud.board=e=>fs.setDoc(fs.doc(db,'board',u.uid),e);
+    Cloud.unboard=()=>fs.deleteDoc(fs.doc(db,'board',u.uid));
+    setSync('waiting');
+    unsub=fs.onSnapshot(col,snap=>{const docs=[];snap.forEach(d=>docs.push([d.id,d.data()]));remoteBatch(docs,!snap.metadata.fromCache);if(dirty.size||metaDirty)scheduleSave();if(!snap.metadata.fromCache&&Cloud.state!=='saving')setSync('saved')},e=>{console.warn(e);setSync('error')});
+    unsubB=fs.onSnapshot(fs.collection(db,'board'),snap=>{Cloud.boardRows=[];snap.forEach(d=>Cloud.boardRows.push(Object.assign({id:d.id},d.data())));if(VIEW==='postepy')render()},e=>console.warn(e));
+  });
+}
+function boardEntry(){const now=Date.now();let rev=0,mature=0;for(const k in P){if(P[k][0]===2){rev++;if(P[k][2]>=7)mature++}}
+  const best={};for(const t of M.tests){if(t.p)continue;best[t.st]=Math.max(best[t.st]||0,t.sc)}
+  return {nick:String(S().nick||'').slice(0,30)||'Bez nazwy',learned:rev,mature,streak:streak(),today:dstat(today()).r,best,u:now}}
+window.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')flush()});
+window.addEventListener('pagehide',()=>flush());
+window.addEventListener('resize',()=>hdrH());
+
+/* ===== Nawigacja ===== */
+const VIEWS=['nauka','lekcje','sesja','test','final','karty','konstytucja','postepy','olimpiada','archiwum','opcje'];
+function go(v){if(!VIEWS.includes(v))v='nauka';VIEW=v;for(const x of VIEWS)$('#v-'+x).hidden=x!==v;
+  document.querySelectorAll('#tabs a').forEach(a=>a.classList.toggle('on',a.dataset.v===(v==='sesja'?'nauka':v)));render();window.scrollTo(0,0)}
+window.addEventListener('hashchange',()=>{const v=location.hash.slice(1);if(v!==VIEW&&!(VIEW==='sesja'&&v==='nauka'&&SES))go(v||'nauka')});
+function render(){
+  renderCountdown();
+  if(!DATA)return;
+  ({nauka:rHome,lekcje:rLessons,sesja:rSes,test:rTest,final:rFinal,karty:rBrowse,konstytucja:rKonst,postepy:rStats,olimpiada:rInfo,archiwum:rArch,opcje:rOpts})[VIEW]();
+}
+function renderCountdown(){
+  const now=Date.now(),k=nextExam(now);if(!k){$('#countdown').textContent='';return}
+  const e=stEv(k,now),d=Math.ceil((e.date-now)/DAY);
+  $('#countdown').innerHTML=`${esc(e.nm)}: <b>${d} ${plural(d,'dzień','dni','dni')}</b> · ${esc(e.fmt)}`;
+}
+function applyTheme(){if(window.claude)return;const t=S().theme;if(t==='system')document.documentElement.removeAttribute('data-theme');else document.documentElement.dataset.theme=t}
+
+/* ===== Widok: Nauka ===== */
+function rHome(){
+  const s=S(),now=Date.now(),el=$('#v-nauka');
+  const st=s.stage;const subs=SUBS.filter(x=>x.st===st);
+  const on=s.subs[st]||{};
+  const sel=new Set(subsOn(st).map(x=>x.id));const tot=counts(sel,now);
+  const nl=Math.max(0,newLimit(st)-newIntroduced());
+  const days=Math.ceil((STAGES[st].date-now)/DAY);
+  let h=`<div class="tabs2" role="tablist">${['s','o','f'].map(k=>`<button class="chip ${k===st?'on':''}" data-stage="${k}" type="button">${esc(STAGES[k].name)}</button>`).join('')}</div>`;
+  h+=`<div class="panel stack"><div class="stagehead"><h2>${esc(STAGES[st].name)}</h2><span class="pill">${esc(STAGES[st].fmt)}</span>${days>0?`<span class="pill">za ${days} ${plural(days,'dzień','dni','dni')}</span>`:'<span class="pill">etap już się odbył</span>'}</div>
+  <div class="row"><div class="nums" style="font-size:15px"><span class="n-new">nowe ${Math.min(nl,tot.n)}</span><span class="n-lrn">w nauce ${tot.l}</span><span class="n-rev">powtórki ${tot.r}</span></div></div>
+  <div class="row"><button class="btn pri big" id="startbtn" type="button" ${(Math.min(nl,tot.n)+tot.l+tot.r)?'':'disabled'}>Ucz się</button>
+  <span class="small muted">Dziś nowych: ${newIntroduced()} z ${newLimit(st)} (${s.newMode==='auto'?'wyliczone do daty etapu':'ustawione ręcznie'}). Pozostało nowych w wybranych: ${tot.n}.</span></div></div>`;
+  if(LES){const nx=lesNext(),dn=LES.lessons.filter(L=>(lesStat(L.id)||{}).r).length;if(nx)h+=`<div class="panel row"><div style="flex:1;min-width:200px"><b>Lekcje: ${dn}/${LES.lessons.length}</b><div class="small muted">Następna: ${esc(nx.t)} (ok. ${nx.min} min)</div></div><button class="btn" id="hles" type="button">Otwórz lekcję →</button></div>`}else loadLes().then(()=>{if(LES&&VIEW==='nauka')rHome()});
+  h+=`<h3>Podtalie</h3><div class="subs">`;
+  for(const x of subs){const c=counts(new Set([x.id]),now);
+    h+=`<div class="sub"><input type="checkbox" id="sb-${x.id}" data-sub="${x.id}" ${on[x.id]===false?'':'checked'}><label for="sb-${x.id}">${esc(x.name)} <span class="muted small">· ${x.n}</span></label><div class="nums"><span class="n-new">${c.n}</span><span class="n-lrn">${c.l}</span><span class="n-rev">${c.r}</span></div></div>`}
+  h+=`</div><p class="small muted">Niebieskie – nowe, czerwone – w nauce, zielone – powtórki na dziś. Nowe karty wchodzą w kolejności podtalii: najpierw testy archiwalne OWoP i OWoPiP (organizatorzy często powtarzają pytania), potem prognoza i nowe pytania. Kurs łączy obie olimpiady – etapy odbywają się w podobnych terminach.</p>`;
+  const lastT=M.tests.filter(t=>t.st===st).slice(-1)[0];
+  h+=`<div class="tiles"><div class="tile"><b>${streak()}</b><span>dni nauki z rzędu</span></div><div class="tile"><b>${dstat(today()).r}</b><span>odpowiedzi dziś</span></div><div class="tile"><b>${lastT?lastT.sc+'/'+lastT.n:'—'}</b><span>ostatni test próbny</span></div></div>`;
+  el.innerHTML=h;
+  el.querySelectorAll('[data-stage]').forEach(b=>b.onclick=()=>{setS({stage:b.dataset.stage});rHome()});
+  el.querySelectorAll('[data-sub]').forEach(cb=>cb.onchange=()=>{const all=Object.assign({},S().subs);const m=Object.assign({},all[st]||{});m[cb.dataset.sub]=cb.checked;all[st]=m;setS({subs:all});rHome()});
+  const sb=$('#startbtn');if(sb)sb.onclick=()=>startSession(st);
+  const hl=$('#hles');if(hl)hl.onclick=()=>{const nx=lesNext();if(nx)openLesson(nx.id)};
+}
+function streak(){let n=0;let d=dayNum(Date.now());const has=k=>(M.days[k]||{}).r>0;
+  const key=n2=>{const t=dayStart(n2)+HOUR;return dayKey(t)};
+  if(!has(key(d)))d--;while(has(key(d))){n++;d--}return n}
+
+/* ===== Widok: Sesja ===== */
+function startSession(stage,practice){
+  SES={q:practice?null:buildQueue(stage),practice:practice||null,pi:0,card:null,sel:new Set(),shown:false,t0:0,done:0};
+  location.hash='nauka';VIEW='sesja';for(const x of VIEWS)$('#v-'+x).hidden=x!=='sesja';nextInSession();
+}
+function nextInSession(){
+  if(SES.practice){SES.card=SES.practice[SES.pi]||null}else SES.card=nextCard(SES.q);
+  SES.sel=new Set();SES.shown=false;SES.t0=Date.now();rSes();window.scrollTo(0,0);
+}
+function cardHead(c){const p=P[c.i];const stg=isNew(p)?'<span class="st new">nowa</span>':p[0]===2?'<span class="st rev">powtórka</span>':'<span class="st lrn">w nauce</span>';
+  const rep=c.sb&&SIB[c.sb].length>1?`<div class="small" style="color:var(--accent);font-weight:600">To pytanie padło ${SIB[c.sb].length} razy: ${SIB[c.sb].map(x=>`<span class="idlink" data-open="${x}">${x}</span>`).join(', ')}</div>`:'';
+  return `<div class="cardtop"><span class="src">${esc(c.i)} · ${esc((SUBS.find(x=>x.id===c.b)||{}).name||'')}</span>${stg}</div>${rep}`}
+function linkIds(h){return konstLinks(h).replace(/\b((?:[SOEFZGHJKRUVPNWY]|ZS)\d{0,2}-\d{2,3}[a-z]?\d?|[AD]\d\d-\d-\d{1,2}|C-\d{3}|T-[A-Z]{2,3}-\d{3})\b/g,(m)=>CARD[m]?`<span class="idlink" data-open="${m}">${m}</span>`:m)}
+function rSes(){
+  const el=$('#v-sesja');if(!SES){go('nauka');return}
+  const c=SES.card;
+  const top=SES.practice?`<div class="sesbar"><button class="btn link" id="back" type="button">← Zakończ ćwiczenie</button><span class="mono">${SES.pi+1}/${SES.practice.length} · ćwiczenie bez wpływu na powtórki</span></div>`
+   :(()=>{const cn=counts(SES.q.ids,Date.now());const nl=Math.max(0,newLimit(SES.q.stage)-newIntroduced());
+     return `<div class="sesbar"><button class="btn link" id="back" type="button">← Talie</button><div class="nums"><span class="n-new">${Math.min(nl,cn.n)}</span><span class="n-lrn">${cn.l}</span><span class="n-rev">${cn.r}</span></div>${UNDO?'<button class="btn link" id="undo" type="button">Cofnij ocenę</button>':''}</div>`})();
+  if(!c){
+    const now=Date.now();const later=SES.q?SES.q.lrn.filter(x=>!isNew(P[x.i])&&P[x.i][0]!==2).map(x=>P[x.i][1]).sort((a,b)=>a-b)[0]:null;
+    el.innerHTML=top+`<div class="card"><h2>${SES.practice?'Koniec ćwiczenia':'Na dziś koniec'}</h2><p>${SES.done?`Odpowiedzi w tej sesji: ${SES.done}.`:''} ${later?`Karty w nauce wrócą za ${fmtIvl(later-now)}.`:SES.practice?'':'Wszystkie zaplanowane karty przerobione. Kolejne powtórki pojawią się jutro.'}</p>
+    <div class="row">${later?'<button class="btn pri" id="again" type="button">Pokaż od razu</button>':''}<button class="btn" id="tohome" type="button">Wróć do talii</button><a class="btn" href="#test">Zrób test próbny</a></div></div>`;
+    $('#back').onclick=endSession;$('#tohome').onclick=endSession;
+    if(later)$('#again').onclick=()=>{const x=SES.q.lrn.filter(y=>!isNew(P[y.i])&&P[y.i][0]!==2).sort((a,b)=>P[a.i][1]-P[b.i][1])[0];SES.card=x;SES.sel=new Set();SES.shown=false;SES.t0=Date.now();rSes()};
+    if(UNDO&&$('#undo'))$('#undo').onclick=undo;return;
+  }
+  let h=top+`<div class="card" id="cardel">${cardHead(c)}<div class="q">${c.q}</div>`;
+  if(c.t==='m'){
+    h+=`<div class="opts">`+c.o.map((o,i)=>{const l='abcd'[i];let cls='opt';
+      if(SES.shown){cls+=' done';if(c.k.includes(l))cls+=' right';else if(SES.sel.has(l))cls+=' wrong'}else if(SES.sel.has(l))cls+=' sel';
+      return `<button class="${cls}" data-l="${l}" type="button"><span class="l">${l})</span><span>${o}</span></button>`}).join('')+`</div>`;
+    if(SES.shown){const ok=isRight(c);h+=`<div class="verdict ${ok?'ok':'bad'}">${ok?'Dobrze.':'Źle – poprawna odpowiedź: '+esc(c.k.split('').join(', '))+'.'}</div>`;
+      if(c.e)h+=`<div class="exp">${linkIds(c.e)}</div>`;if(c.u)h+=`<div class="uw"><b>Uwaga:</b> ${c.u}</div>`;h+=`<div class="src">${esc(c.s||'')}</div>`}
+  }else if(SES.shown){
+    h+=`<div class="ans">${linkIds(c.a)}</div>`;if(c.x)h+=`<div class="exp">${linkIds(c.x)}</div>`;h+=`<div class="src">${esc(c.s||'')}</div>`;
+  }
+  if(!SES.shown){h+=`<div class="row"><button class="btn pri big" id="reveal" type="button">${c.t==='m'?'Sprawdź':'Pokaż odpowiedź'}</button><span class="small muted">${c.t==='m'?'Wybierz odpowiedź (klawisze a–d), potem Enter.':'Odpowiedz w myślach albo na głos, potem odkryj (spacja).'}</span></div>`}
+  else if(SES.practice){h+=`<div class="row"><button class="btn pri big" id="nextp" type="button">Dalej</button></div>`}
+  else{const pv=preview(P[c.i],Date.now());const hint=c.t==='m'?(isRight(c)?3:1):0;
+    h+=`<div class="rate">${['Powtórz','Trudne','Dobrze','Łatwe'].map((n,i)=>`<button class="g${i+1} ${hint===i+1?'hint':''}" data-g="${i+1}" type="button">${n}<small>${pv[i]}</small></button>`).join('')}</div><p class="small muted">Klawisze 1–4. ${c.t==='m'&&!isRight(c)?'Przy błędnej odpowiedzi wybierz „Powtórz” – karta wróci za minutę.':'„Powtórz” – karta wróci za chwilę; „Dobrze” – zwykły odstęp.'}</p>`}
+  h+=`</div>`;el.innerHTML=h;
+  $('#back').onclick=endSession;if(UNDO&&$('#undo'))$('#undo').onclick=undo;
+  el.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{if(SES.shown)return;toggleOpt(c,b.dataset.l)});
+  if($('#reveal'))$('#reveal').onclick=reveal;if($('#nextp'))$('#nextp').onclick=()=>{SES.pi++;nextInSession()};
+  el.querySelectorAll('[data-g]').forEach(b=>b.onclick=()=>rate(+b.dataset.g));
+  bindIdLinks(el);
+}
+function toggleOpt(c,l){if(c.k.length>1){SES.sel.has(l)?SES.sel.delete(l):SES.sel.add(l)}else{SES.sel=new Set([l])}rSes()}
+function isRight(c){const k=new Set(c.k.split(''));return SES.sel.size===k.size&&[...SES.sel].every(x=>k.has(x))}
+function reveal(){const c=SES.card;if(c.t==='m'&&!SES.sel.size){toast('Najpierw wybierz odpowiedź');return}SES.shown=true;
+  if(c.t==='m')tagStat(c,isRight(c));rSes()}
+function tagStat(c,ok){for(const g of c.g)if(TOPICS[g]){const a=M.tags[g]||[0,0];M.tags[g]=[a[0]+(ok?1:0),a[1]+1]}}
+function rate(g){
+  const c=SES.card;if(!c||!SES.shown)return;const now=Date.now();const k=today();const ds=dstat(k);
+  const sibs=c.sb?SIB[c.sb].filter(x=>x!==c.i):[];
+  UNDO={id:c.i,prev:P[c.i]?P[c.i].slice():null,sp:sibs.map(x=>[x,P[x]?P[x].slice():null]),ds:Object.assign({},ds),k,card:c};
+  if(isNew(P[c.i]))ds.n++;ds.r++;if(g>1)ds.ok++;else ds.bad++;ds.ms+=Math.min(120000,now-SES.t0);
+  if(c.t==='q')tagStat(c,g>=3);
+  P[c.i]=sched(P[c.i],g,now);SES.done++;
+  for(const x of sibs){P[x]=P[c.i].slice();markCard(x)}
+  if(P[c.i][0]!==2&&!SES.q.lrn.includes(c))SES.q.lrn.push(c);
+  markCard(c.i);nextInSession();
+}
+function undo(){if(!UNDO)return;const u=UNDO;if(u.prev)P[u.id]=u.prev;else delete P[u.id];for(const [x,pr] of (u.sp||[])){if(pr)P[x]=pr;else P[x]=[0,0,0,250,0,0,0,Date.now()];markCard(x)}M.days[u.k]=u.ds;markCard(u.id);
+  if(SES&&SES.q){if(isNew(u.prev)&&!SES.q.nw.includes(u.card))SES.q.nw.unshift(u.card)}
+  SES.card=u.card;SES.sel=new Set();SES.shown=false;SES.done=Math.max(0,SES.done-1);UNDO=null;rSes()}
+function endSession(){SES=null;UNDO=null;flush();go('nauka');location.hash='nauka'}
+document.addEventListener('keydown',e=>{
+  if(e.target.closest('input,textarea,select'))return;
+  if(!$('#modal').hidden){if(e.key==='Escape')closeModal();return}
+  if(VIEW==='sesja'&&SES&&SES.card){
+    const c=SES.card;
+    if(!SES.shown){const l={a:'a',b:'b',c:'c',d:'d','1':'a','2':'b','3':'c','4':'d'}[e.key.toLowerCase()];
+      if(c.t==='m'&&l&&'abcd'.indexOf(l)<c.o.length){toggleOpt(c,l);e.preventDefault()}
+      else if(e.key==='Enter'||e.key===' '){reveal();e.preventDefault()}}
+    else if(SES.practice){if(e.key==='Enter'||e.key===' '){SES.pi++;nextInSession();e.preventDefault()}}
+    else if(['1','2','3','4'].includes(e.key)){rate(+e.key);e.preventDefault()}
+    else if(e.key===' '||e.key==='Enter'){rate(c.t==='m'?(isRight(c)?3:1):3);e.preventDefault()}
+  }
+});
+
+/* ===== Okno karty ===== */
+function bindIdLinks(el){el.querySelectorAll('[data-open]').forEach(x=>x.onclick=()=>openCard(x.dataset.open));el.querySelectorAll('[data-art]').forEach(x=>x.onclick=e=>{e.stopPropagation();openArt(x.dataset.art)})}
+function openCard(id){
+  const c=CARD[id];if(!c)return;const p=P[id];
+  let h=`<div class="card">${cardHead(c)}<div class="q">${c.q}</div>`;
+  if(c.t==='m')h+=`<div class="opts">`+c.o.map((o,i)=>{const l='abcd'[i];return `<div class="opt done ${c.k.includes(l)?'right':''}"><span class="l">${l})</span><span>${o}</span></div>`}).join('')+`</div>${c.e?`<div class="exp">${linkIds(c.e)}</div>`:''}${c.u?`<div class="uw"><b>Uwaga:</b> ${c.u}</div>`:''}`;
+  else h+=`<div class="ans">${linkIds(c.a)}</div>${c.x?`<div class="exp">${linkIds(c.x)}</div>`:''}`;
+  h+=`<div class="src">${esc(c.s||'')}</div><div class="src">Tagi: ${c.g.map(esc).join(', ')}</div>`;
+  h+=`<div class="small muted">${!isNew(p)?`Powtórzeń ${p[4]}, pomyłek ${p[5]}, następna: ${new Date(p[1]).toLocaleString('pl-PL',{dateStyle:'medium',timeStyle:'short'})}, odstęp ${p[2]} d.`:'Karta jeszcze niewprowadzona do nauki.'}</div>`;
+  h+=`<div class="row"><button class="btn pri" id="m-now" type="button">Ucz się jej teraz</button>${!isNew(p)?'<button class="btn" id="m-reset" type="button">Wyzeruj postęp karty</button>':''}<button class="btn" id="m-close" type="button">Zamknij</button></div></div>`;
+  const m=$('#modal');m.innerHTML=h;m.hidden=false;bindIdLinks(m);
+  m.onclick=e=>{if(e.target===m)closeModal()};$('#m-close').onclick=closeModal;
+  $('#m-now').onclick=()=>{const r=P[id]?P[id].slice():[0,0,0,250,0,0,0,0];r[0]=r[0]===2?3:1;r[6]=0;r[1]=Date.now();r[7]=Date.now();P[id]=r;markCard(id);closeModal();setS({stage:c.d});startSession(c.d)};
+  if($('#m-reset'))$('#m-reset').onclick=()=>{P[id]=[0,0,0,250,0,0,0,Date.now()];markCard(id);closeModal();toast('Postęp karty wyzerowany');render()};
+}
+function closeModal(){const m=$('#modal');m.hidden=true;m.innerHTML=''}
+
+/* ===== Testy jako lista zadań (wspólne dla testów, lekcji i mini-quizów) ===== */
+const TMODES={now:'nauka – sprawdzam od razu',end:'egzamin – wynik na końcu'};
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function fmtClock(ms){const s=Math.ceil(Math.max(0,ms)/1000);return pad(Math.floor(s/60))+':'+pad(s%60)}
+function hdrH(){const h=$('header.top');const v=h?h.offsetHeight:0;document.documentElement.style.setProperty('--hdr',v+'px');return v}
+function scrollToEl(e){if(!e)return;const y=e.getBoundingClientRect().top+window.scrollY-hdrH()-56;window.scrollTo({top:Math.max(0,y),behavior:'smooth'})}
+function modeChips(cur,attr){return Object.entries(TMODES).map(([k,v])=>`<button class="chip ${k===cur?'on':''}" data-${attr}="${k}" type="button" aria-pressed="${k===cur}">${v}</button>`).join('')}
+const LET='abcdefghij';
+function isTask(c){return c&&c.t==='z'}
+function nrm(s){return String(s||'').toLowerCase().normalize('NFD').replace(/\p{M}/gu,'').replace(/ł/g,'l').replace(/[^a-z0-9 ]+/g,' ').replace(/\s+/g,' ').trim()}
+function lev(a,b){if(Math.abs(a.length-b.length)>2)return 9;const d=Array.from({length:a.length+1},(_,i)=>[i]);for(let j=1;j<=b.length;j++)d[0][j]=j;for(let i=1;i<=a.length;i++)for(let j=1;j<=b.length;j++)d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]===b[j-1]?0:1));return d[a.length][b.length]}
+const OPEN_EXTRA=new Set(['w','we','miasto','holandia','francja','polska','niemcy','belgia','luksemburg','szwajcaria','usa','austria','wlochy','hiszpania','dania','szwecja','lat','lata','dni','miesiecy','miesiace','tygodnie','tygodni','rok','godzin','proc','procent']);
+function openOk(ans,acc){const x=nrm(ans);if(!x)return false;return acc.some(a=>{const y=nrm(a);if(!y)return false;
+  if(/\d/.test(y))return x.replace(/\D+/g,' ').trim()===y.replace(/\D+/g,' ').trim();
+  if(x===y||(y.length>=6&&lev(x,y)<=1))return true;
+  const xs=x.split(' '),ys=new Set(y.split(' '));if(![...ys].every(w=>xs.includes(w)))return false;const extra=xs.filter(w=>!ys.has(w));return extra.length<=2&&extra.every(w=>OPEN_EXTRA.has(w))})}
+function qlMulti(Q,c){return !isTask(c)&&(Q.multiAll||c.k.length>1)}
+function qlMax(c){return isTask(c)?c.pts:1}
+function qlNewItem(c){return {c,sel:new Set(),ans:[],self:[],chk:false,ok:false,pts:0,max:qlMax(c),res:[]}}
+function qlNew(o){const Q=Object.assign({t0:Date.now(),end:false,sc:0,filter:'all'},o,{cards:undefined});Q.items=o.cards.map(qlNewItem);Q.max=Q.items.reduce((s,x)=>s+x.max,0);return Q}
+function qlAnswered(x){if(!isTask(x.c))return x.sel.size>0;return x.ans.some(a=>a!=null&&a!=='')}
+function qlGrade(x){const c=x.c;
+  if(!isTask(c)){const k=new Set(c.k.split(''));x.ok=x.sel.size===k.size&&[...x.sel].every(y=>k.has(y));x.pts=x.ok?1:0;return}
+  const per=c.typ==='match'&&c.half?.5:1;x.res=c.items.map((it,j)=>{
+    if(c.typ==='pf')return x.ans[j]===it.a;
+    if(c.typ==='match')return x.ans[j]===it.a;
+    if(c.self)return x.self[j]===true;
+    return openOk(x.ans[j],it.a)});
+  x.pts=x.res.filter(Boolean).length*per;x.ok=x.pts>=x.max}
+function qlSelfPending(x){return isTask(x.c)&&x.c.typ==='open'&&x.c.self&&x.c.items.some((_,j)=>x.self[j]==null)}
+function qlStart(Q){clearInterval(Q.iv);Q.iv=setInterval(()=>{if(Q.end||!document.body.contains(Q.el)){if(Q.end)clearInterval(Q.iv);return}
+  const used=Date.now()-Q.t0;if(Q.limit&&used>=Q.limit){toast('Koniec czasu');qlEnd(Q);return}
+  const el=document.getElementById(Q.k+'clock');if(el){el.textContent=fmtClock(Q.limit?Q.limit-used:used);el.classList.toggle('low',!!Q.limit&&Q.limit-used<5*MIN)}},1000)}
+function fmtPts(p){return String(Math.round(p*10)/10).replace('.',',')}
+function qlBar(Q){const n=Q.items.length,ans=Q.items.filter(qlAnswered).length,chk=Q.items.filter(x=>x.chk).length,pts=Q.items.filter(x=>x.chk).reduce((s,x)=>s+x.pts,0);
+  const pct=Math.round(100*(Q.end?n:Q.mode==='now'?chk:ans)/n),unit=Q.max!==n?' pkt':'';
+  if(Q.mini)return `<div class="tbar-in"><span class="mono">${Q.end?`wynik <b>${fmtPts(Q.sc)}/${fmtPts(Q.max)}</b>`:`sprawdzone ${chk}/${n}`}</span></div>`;
+  return `<div class="tbar-in"><span class="mono">${esc(Q.title)}</span><span class="mono">${Q.end?`wynik <b>${fmtPts(Q.sc)}/${fmtPts(Q.max)}${unit}</b>`:Q.mode==='now'?`sprawdzone ${chk}/${n} · ${fmtPts(pts)}${unit||' dobrze'}`:`odpowiedzi ${ans}/${n}`}</span>${Q.end?'':`<span class="timer sm${Q.limit&&Q.limit-(Date.now()-Q.t0)<5*MIN?' low':''}" id="${Q.k}clock" title="${Q.limit?'Pozostały czas':'Czas od początku'}">${fmtClock(Q.limit?Math.max(0,Q.limit-(Date.now()-Q.t0)):Date.now()-Q.t0)}</span><button class="btn pri" data-qend type="button">${Q.mode==='now'?'Zakończ':'Zakończ i sprawdź'}</button>`}</div><div class="meter"><i style="width:${pct}%"></i></div>`}
+function srcLabel(id){let m=/^([SO])(\d\d)-/.exec(id);if(m)return 'OWoP';m=/^A\d\d-/.exec(id);if(m||/^[CT]-/.test(id))return 'OWoPiP';return 'kurs'}
+function grpLabel(c){const i=c.i;if(/^[SO]\d\d-/.test(i))return 'Pytania z testów OWoP';if(/^A\d\d-/.test(i))return 'Pytania z testów OWoPiP';if(/^(C|T)-/.test(i))return 'Pytania kursu w formacie OWoPiP';return 'Pytania kursu w formacie OWoP'}
+function qlTaskBody(Q,i){const x=Q.items[i],c=x.c,show=Q.end||x.chk;let h='';
+  if(c.typ==='pf'){h+='<div class="pfl">'+c.items.map((it,j)=>{const a=x.ans[j],r=x.res[j];return `<div class="pfrow${show?(r?' ok':' bad'):''}"><div class="pft"><span class="l">${LET[j]})</span> ${it.t}</div><div class="pfb">${['P','F'].map(v=>`<button class="chip ${a===v?'on':''}" type="button" data-pf="${i}:${j}:${v}" ${show?'disabled':''} aria-pressed="${a===v}">${v==='P'?'P – prawda':'F – fałsz'}</button>`).join('')}</div>${show?`<div class="small"><b>${r?'✓':'✗'} ${it.a==='P'?'Prawda':'Fałsz'}.</b> ${it.e?linkIds(it.e.replace(/^(Prawda|Fałsz)\.\s*/,'')):''}</div>`:''}</div>`}).join('')+'</div>'}
+  else if(c.typ==='open'){h+='<div class="opl">'+c.items.map((it,j)=>{const a=x.ans[j]||'',r=x.res[j];return `<div class="oprow${show&&!c.self?(r?' ok':' bad'):''}${show&&c.self&&x.self[j]!=null?(x.self[j]?' ok':' bad'):''}"><label class="opt-l" for="${Q.k}in-${i}-${j}"><span class="l">${LET[j]})</span> ${it.t}</label><input id="${Q.k}in-${i}-${j}" class="opin" data-op="${i}:${j}" value="${esc(a)}" ${show?'disabled':''} autocomplete="off" placeholder="${c.self?'wpisz znaczenie':'wpisz odpowiedź'}">${show?`<div class="small">${c.self?`<b>Wzorzec:</b> ${esc(it.a[0])}${it.a.length>1?` <span class="muted">(też: ${esc(it.a.slice(1).join('; '))})</span>`:''} ${x.self[j]==null?`<span class="selfq">Czy Twoja odpowiedź ma ten sens? <button class="chip" type="button" data-sg="${i}:${j}:1">✓ tak</button><button class="chip" type="button" data-sg="${i}:${j}:0">✗ nie</button></span>`:`<b>${x.self[j]?'✓ uznane':'✗ nieuznane'}</b>`}`:`<b>${r?'✓':'✗'}</b> ${esc(it.a[0])}${it.a.length>1?` <span class="muted">(uznajemy też: ${esc(it.a.slice(1).join('; '))})</span>`:''}`}</div>`:''}</div>`}).join('')+'</div>'}
+  else if(c.typ==='match'){h+=`<div class="mcats">${c.cats.map((k,ci)=>`<span><b>${ci+1}.</b> ${esc(k)}</span>`).join('')}</div><div class="mtl">`+c.items.map((it,j)=>{const a=x.ans[j],r=x.res[j];return `<div class="mtrow${show?(r?' ok':' bad'):''}"><div class="pft"><span class="l">${LET[j]})</span> ${it.t}</div><div class="pfb">${c.cats.map((k,ci)=>`<button class="chip ${a===ci?'on':''}" type="button" data-mt="${i}:${j}:${ci}" ${show?'disabled':''} title="${esc(k)}" aria-pressed="${a===ci}">${ci+1}</button>`).join('')}</div>${show?`<div class="small"><b>${r?'✓':'✗'}</b> ${ci2(c,it.a)}</div>`:''}</div>`}).join('')+'</div>'}
+  return h}
+function ci2(c,a){return `${a+1}. ${esc(c.cats[a])}`}
+function qlItem(Q,i){const x=Q.items[i],c=x.c,show=Q.end||x.chk,multi=qlMulti(Q,c);
+  let h=`<div class="tq${show?(x.ok?' ok':(x.pts>0?' part':' bad')):''}" id="${Q.k}q-${i}"${Q.end&&Q.filter==='bad'&&x.ok?' hidden':''}><div class="tqh"><span class="no">${Q.nums&&Q.nums[i]?Q.nums[i]:i+1}</span>`;
+  if(isTask(c))h+=`<span class="small muted">${fmtPts(c.pts)} pkt · ${{pf:'prawda / fałsz',open:'zadanie otwarte',match:'przyporządkowanie'}[c.typ]||''}</span>`;
+  if(show)h+=isTask(c)?`<span class="verdict ${x.ok?'ok':x.pts>0?'part':'bad'}">${fmtPts(x.pts)}/${fmtPts(x.max)} pkt${qlSelfPending(x)?' – oceń odpowiedzi':''}</span>`:`<span class="verdict ${x.ok?'ok':'bad'}">${x.ok?'✓ dobrze':x.sel.size?'✗ źle':'– bez odpowiedzi'}</span>`;
+  else if(!Q.multiAll&&multi)h+=`<span class="small muted">kilka poprawnych odpowiedzi</span>`;
+  if(Q.srcTag)h+=`<span class="src-tag">${srcLabel(c.i)}</span>`;
+  h+=`</div><div class="q">${c.q}</div>`;
+  if(isTask(c))h+=qlTaskBody(Q,i);
+  else{h+=`<div class="opts">`+c.o.map((o,j)=>{const l='abcd'[j];let cls='opt';
+    if(show){cls+=' done';if(c.k.includes(l))cls+=' right';else if(x.sel.has(l))cls+=' wrong';if(x.sel.has(l))cls+=' mine'}else if(x.sel.has(l))cls+=' sel';
+    return `<button class="${cls}" type="button" data-q="${i}" data-l="${l}" aria-pressed="${x.sel.has(l)}"${show?' aria-disabled="true"':''}><span class="l">${l})</span><span>${o}</span></button>`}).join('')+'</div>'}
+  if(!show&&Q.mode==='now'&&(multi||isTask(c)))h+=`<div class="row"><button class="btn" type="button" data-chk="${i}" ${qlAnswered(x)?'':'disabled'}>Sprawdź</button></div>`;
+  if(show){const e=isTask(c)?c.e:c.e;if(e)h+=`<div class="exp">${linkIds(e)}</div>`;if(c.u)h+=`<div class="uw"><b>Uwaga:</b> ${c.u}</div>`;h+=`<div class="src">${esc(c.i)} · ${esc(c.s||'')}</div>`}
+  return h+'</div>'}
+function qlWeak(Q){const agg={};for(const x of Q.items)for(const g of (x.c.g||[]))if(TOPICS[g]){agg[g]=agg[g]||[0,0];agg[g][1]+=x.max;agg[g][0]+=x.pts}
+  const rows=Object.entries(agg).filter(([,v])=>v[1]>=2).sort((a,b)=>a[1][0]/a[1][1]-b[1][0]/b[1][1]).slice(0,5);
+  return rows.length?`<div class="small"><b>Działy w tym teście:</b> ${rows.map(([g,v])=>`${esc(TOPICS[g])} ${fmtPts(v[0])}/${fmtPts(v[1])}`).join(' · ')}</div>`:''}
+function qlSummary(Q){const n=Q.items.length,thr=Q.thr,pass=thr!=null&&Q.sc>=thr,nb=Q.items.filter(x=>!x.ok).length,unit=Q.max!==n?' pkt':'';
+  const head=thr!=null?(pass?'Próg zaliczony':'Poniżej progu'):Q.k!=='t'?(Q.sc>=Math.ceil(.8*Q.max)?'Temat opanowany':'Wróć do lekcji i powtórz błędne'):'Wynik orientacyjny';
+  const pend=Q.items.filter(qlSelfPending).length;
+  return `<div class="panel stack" id="${Q.k}sum"><div class="row"><div class="score">${fmtPts(Q.sc)}/${fmtPts(Q.max)}${unit}</div><div><b>${head}</b><div class="small muted">${Q.thrTxt?esc(Q.thrTxt)+' · ':''}czas ${Math.max(1,Math.round(Q.used/60))} min${pend?` · oceń jeszcze ${pend} ${plural(pend,'zadanie','zadania','zadań')} z paremiami – wynik się zaktualizuje`:''}</div></div></div>
+  ${Q.mini?'':`<div class="row"><button class="btn pri" data-qwrong type="button" ${nb?'':'disabled'}>Dodaj błędne do powtórek (${nb})</button>${Q.k==='t'?'<button class="btn" data-qnew type="button">Nowy test</button>':'<button class="btn" data-qagain type="button">Jeszcze raz</button>'}</div>
+  ${nb&&nb<n?`<div class="tabs2"><span class="small muted">Pokaż:</span><button class="chip ${Q.filter==='all'?'on':''}" data-qf="all" type="button">wszystkie</button><button class="chip ${Q.filter==='bad'?'on':''}" data-qf="bad" type="button">tylko błędne i pominięte (${nb})</button></div>`:''}${qlWeak(Q)}`}</div>`}
+function qlFoot(Q){
+  if(Q.end)return Q.mode==='now'||Q.mini?qlSummary(Q):`<div class="row"><button class="btn" data-qtop type="button">↑ Do wyniku</button>${Q.k==='t'?'<button class="btn pri" data-qnew type="button">Nowy test</button>':'<button class="btn pri" data-qagain type="button">Jeszcze raz</button>'}</div>`;
+  if(Q.mini)return '';
+  const miss=Q.items.map((x,i)=>[x,i]).filter(([x])=>Q.mode==='now'?!x.chk:!qlAnswered(x));
+  return `<div class="panel stack"><div class="small muted">${miss.length?`${Q.mode==='now'?'Niesprawdzone':'Bez odpowiedzi'}: ${miss.length} – ${miss.slice(0,25).map(([,i])=>`<button class="btn link" data-qgo="${i}" type="button">${Q.nums&&Q.nums[i]?Q.nums[i]:i+1}</button>`).join(' ')}${miss.length>25?' …':''}`:'Wszystkie zadania mają odpowiedź.'}</div>
+  <div class="row"><button class="btn pri big" data-qend type="button">${Q.mode==='now'?'Zakończ':'Zakończ i sprawdź'}</button><button class="btn" data-qquit type="button">Przerwij</button></div></div>`}
+function qlRender(Q,el){Q.el=el;
+  let h='';if(Q.end&&Q.mode==='end'&&!Q.mini)h+=qlSummary(Q);
+  if(!Q.mini)h+=`<div class="tbar" id="${Q.k}bar">${qlBar(Q)}</div>`;
+  if(!Q.end&&!Q.mini){if(Q.intro)h+=`<p class="small muted">${Q.intro}</p>`;
+    if(Q.multiAll)h+=`<p class="small muted">Zaznacz wszystkie poprawne odpowiedzi – w pytaniu może być jedna albo kilka. Punkt tylko za komplet.</p>`;
+    else if(Q.mode==='now')h+=`<p class="small muted">Kliknij odpowiedź – od razu zobaczysz, czy jest poprawna, i wyjaśnienie. Przy zadaniach otwartych, prawda/fałsz, przyporządkowaniu i pytaniach z kilkoma odpowiedziami kliknij „Sprawdź”.</p>`}
+  let last='';h+=`<div class="tlist">`+Q.items.map((x,i)=>{let g='';if(Q.groups){const lb=grpLabel(x.c);if(lb!==last){g=`<div class="tgrp">${esc(lb)}</div>`;last=lb}}return g+qlItem(Q,i)}).join('')+`</div><div id="${Q.k}foot">${qlFoot(Q)}</div>`;
+  el.innerHTML=h;bindIdLinks(el);hdrH();
+  el.oninput=e=>{const t=e.target;if(t.dataset&&t.dataset.op){const [i,j]=t.dataset.op.split(':').map(Number);const x=Q.items[i];if(Q.end||x.chk)return;x.ans[j]=t.value;Q.confirm=false;
+    const b=document.querySelector(`#${Q.k}q-${i} [data-chk]`);if(b)b.disabled=!qlAnswered(x);if(!Q.mini)qlBarLite(Q)}};
+  el.onclick=e=>{const t=e.target.closest('button');if(!t||!el.contains(t))return;const d=t.dataset;
+    if(d.l&&d.q!=null){qlPick(Q,+d.q,d.l);return}
+    if(d.pf||d.mt){const [i,j,v]=(d.pf||d.mt).split(':');const x=Q.items[+i];if(Q.end||x.chk)return;const val=d.pf?v:+v;x.ans[+j]=x.ans[+j]===val?undefined:val;Q.confirm=false;qlUpd(Q,+i);if(!Q.mini)qlBarLite(Q);return}
+    if(d.sg){const [i,j,v]=d.sg.split(':').map(Number);const x=Q.items[i];x.self[j]=!!v;const old=x.pts;qlGrade(x);if(x.chk||Q.end){Q.sc+=x.pts-old;if(Q.rec){Q.rec.sc=Q.sc;metaDirty=true;persist()}}qlUpd(Q,i);qlBarUpd(Q);return}
+    if(d.chk!=null){qlCheck(Q,+d.chk);return}
+    if(d.qgo!=null){scrollToEl(document.getElementById(Q.k+'q-'+d.qgo));return}
+    if('qend' in d){const un=Q.items.filter(x=>Q.mode==='now'?!x.chk:!qlAnswered(x)).length;
+      if(un&&!Q.confirm){Q.confirm=true;toast(`${Q.mode==='now'?'Niesprawdzone':'Bez odpowiedzi'}: ${un}. Kliknij jeszcze raz, aby zakończyć.`);return}qlEnd(Q);return}
+    if('qquit' in d){if(!Q.quitc){Q.quitc=true;toast('Kliknij jeszcze raz, aby przerwać bez zapisu wyniku');return}clearInterval(Q.iv);Q.end=true;Q.onQuit&&Q.onQuit();return}
+    if('qwrong' in d){qlWrong(Q);t.disabled=true;return}
+    if('qnew' in d){TEST=null;rTest();window.scrollTo(0,0);return}
+    if('qagain' in d){Q.onAgain&&Q.onAgain();return}
+    if('qtop' in d){scrollToEl(document.getElementById(Q.k+'sum'));return}
+    if(d.qf){Q.filter=d.qf;Q.items.forEach((x,i)=>{const n=document.getElementById(Q.k+'q-'+i);if(n)n.hidden=Q.filter==='bad'&&x.ok});
+      el.querySelectorAll('[data-qf]').forEach(b=>b.classList.toggle('on',b.dataset.qf===Q.filter));return}
+  }}
+function qlUpd(Q,i,l){const o=document.getElementById(Q.k+'q-'+i);if(!o)return;o.outerHTML=qlItem(Q,i);const n=document.getElementById(Q.k+'q-'+i);bindIdLinks(n);
+  const f=l&&n.querySelector(`[data-l="${l}"]`);if(f)f.focus({preventScroll:true})}
+function qlBarLite(Q){const b=document.getElementById(Q.k+'bar');if(b)b.innerHTML=qlBar(Q)}
+function qlBarUpd(Q){qlBarLite(Q);const f=document.getElementById(Q.k+'foot');if(f){f.innerHTML=qlFoot(Q);bindIdLinks(f)}}
+function qlPick(Q,i,l){const x=Q.items[i];if(Q.end||x.chk||'abcd'.indexOf(l)>=x.c.o.length)return;const multi=qlMulti(Q,x.c);
+  if(multi){x.sel.has(l)?x.sel.delete(l):x.sel.add(l)}else x.sel=new Set([l]);Q.confirm=false;
+  if(Q.mode==='now'&&!multi)qlCheck(Q,i,l);else{qlUpd(Q,i,l);qlBarLite(Q)}}
+function qlStat(x){if(isTask(x.c)){if(x.c.cards)for(const id of x.c.cards){const c=CARD[id];if(c)tagStat(c,x.ok)}else tagStat(x.c,x.ok)}else tagStat(x.c,x.ok)}
+function qlCheck(Q,i,l){const x=Q.items[i];if(!qlAnswered(x)||x.chk||Q.end)return;x.chk=true;qlGrade(x);qlStat(x);metaDirty=true;persist();
+  qlUpd(Q,i,l);qlBarUpd(Q);if(Q.items.every(y=>y.chk))qlEnd(Q)}
+function qlEnd(Q){if(Q.end)return;Q.end=true;Q.used=Math.round((Date.now()-Q.t0)/1000);clearInterval(Q.iv);
+  const allChk=Q.items.every(x=>x.chk);
+  for(const x of Q.items)if(!x.chk){qlGrade(x);if(!qlAnswered(x)){x.ok=false;x.pts=0}qlStat(x)}
+  Q.sc=Q.items.reduce((s,x)=>s+x.pts,0);if(Q.onEnd)Q.onEnd(Q);metaDirty=true;persist();
+  if(Q.mode==='end'&&!Q.mini){qlRender(Q,Q.el);scrollToEl(document.getElementById(Q.k+'sum'))}
+  else{if(!allChk)Q.items.forEach((x,i)=>{if(!x.chk)qlUpd(Q,i)});qlBarUpd(Q);if(!allChk&&!Q.mini)scrollToEl(document.getElementById(Q.k+'sum'))}}
+function qlWrong(Q){const now=Date.now();let n=0;const ids=[];for(const x of Q.items)if(!x.ok){if(isTask(x.c)){if(x.c.cards)ids.push(...x.c.cards)}else ids.push(x.c.i)}
+  for(const id of ids){if(!CARD[id])continue;const r=P[id]?P[id].slice():[0,0,0,250,0,0,0,0];if(r[0]===2){r[5]++;r[3]=Math.max(130,r[3]-20);r[2]=Math.max(1,Math.round(r[2]*.5))}r[0]=r[0]===2?3:1;r[6]=0;r[1]=now;r[7]=now;P[id]=r;dirty.add(bucket(id));n++}
+  metaDirty=true;persist();toast(n?`Dodano ${n} ${plural(n,'kartę','karty','kart')} do nauki – pojawią się w najbliższej sesji`:'Zadania otwarte nie mają fiszek – powtórz je w ćwiczeniach nowego formatu')}
+
+/* ===== Pule pytań i testy archiwalne ===== */
+const OWOP_RE=/^([SO]\d\d|[GHKNRUVWY])-/, OWOPIP_RE=/^(A\d\d|C|T)-/;
+function famOf(st){return /^(si|oi|fi)$/.test(st)?'owopip':'owop'}
+function testPool(st){const T=tcfg(st),re=famOf(st)==='owopip'?OWOPIP_RE:OWOP_RE;return DATA.cards.filter(c=>c.t==='m'&&c.d===T.lvl&&re.test(c.i))}
+function natKey(id){return id.replace(/\d+/g,m=>m.padStart(4,'0'))}
+const ROMAN={19:'XIX',20:'XX',21:'XXI',22:'XXII',23:'XXIII',24:'XXIV',25:'XXV',26:'XXVI',27:'XXVII',28:'XXVIII',29:'XXIX'};
+let ARCH=null;
+function archTests(){if(ARCH)return ARCH;const g={};
+  for(const c of DATA.cards){if(c.t!=='m')continue;let m=/^([SO])(\d\d)-/.exec(c.i),k;
+    if(m)k=m[1]+m[2];else if((m=/^A(\d\d)-(\d)-/.exec(c.i)))k='A'+m[1]+'-'+m[2];else continue;(g[k]=g[k]||[]).push(c.i)}
+  const out=[];const official={};for(const t of (DATA.tests||[]))official[t.id]=t;
+  for(const k in g){let o={id:k,ids:g[k].sort((a,b)=>natKey(a)<natKey(b)?-1:1)};let m;
+    if((m=/^([SO])(\d\d)$/.exec(k))){const ed=+m[2];o.fam='owop';o.st=m[1]==='S'?'s':'o';o.yr=1997+ed;o.name=`OWoP ${ROMAN[ed]||ed} (${1997+ed}/${String(1998+ed).slice(-2)}) – ${m[1]==='S'?'etap szkolny':'etap okręgowy, część testowa'}`;if(official[k]){o.official=official[k];o.name=official[k].name+' – nowy format'}}
+    else{m=/^A(\d\d)-(\d)$/.exec(k);const yy=+m[1],e=+m[2];o.fam='owopip';o.st=['','si','oi','fi'][e];o.yr=1999+yy;o.name=`OWoPiP ${1999+yy}/${String(yy).padStart(2,'0')} – ${['','I','II','III'][e]} etap`}
+    out.push(o)}
+  const SO=['sn','s','o','si','oi','fi'];out.sort((a,b)=>b.yr-a.yr||SO.indexOf(a.st)-SO.indexOf(b.st));return ARCH=out}
+function pfGroup(ids,no){const cs=ids.map(i=>CARD[i]).filter(Boolean);return {i:cs[0].i.replace(/[a-z]$/,''),t:'z',typ:'pf',pts:cs.length,q:'Oceń prawdziwość zdań. Przy każdym wybierz P (prawda) albo F (fałsz).',items:cs.map(c=>({t:c.q.replace(/^(Oceń prawdziwość zdania|Prawda czy fałsz):\s*/i,''),a:c.k==='a'?'P':'F',e:c.e})),e:'',s:cs[0].s,g:[...new Set(cs.flatMap(c=>c.g))],cards:cs.map(c=>c.i),d:cs[0].d}}
+function archCards(o){if(o.official){return o.official.order.map(x=>Array.isArray(x)?pfGroup(x):CARD[x]).filter(Boolean)}return o.ids.map(i=>CARD[i]).filter(Boolean)}
+
+/* ===== Nowy format testu szkolnego OWoP (od 24 XI 2026) ===== */
+function tasksOf(f){return (DATA.tasks||[]).filter(t=>!/^S\d\d-/.test(t.i)&&f(t))}
+function pickOne(a,used){const b=shuffle(a.filter(t=>!used.has(t.i)));if(!b.length)return null;used.add(b[0].i);return b[0]}
+function newFormatTest(lvl){const used=new Set();
+  const mcPool=shuffle(DATA.cards.filter(c=>c.t==='m'&&c.d===lvl&&OWOP_RE.test(c.i)&&c.k.length===1&&c.o.filter(Boolean).length>=3));
+  const mc=[];for(const c of mcPool){if(mc.length>=8)break;if(!mc.some(m=>m.sb&&m.sb===c.sb))mc.push(c)}
+  const lv=t=>t.lvl===lvl||lvl==='o';
+  const open=tasksOf(t=>t.typ==='open'&&!t.self&&t.pts===4&&lv(t)),lat=tasksOf(t=>t.typ==='open'&&t.self&&t.pts===3&&lv(t)),pf=tasksOf(t=>t.typ==='pf'&&lv(t)),mt=tasksOf(t=>t.typ==='match'&&lv(t));
+  const T=[mc[0],pickOne(open,used),mc[1],mc[2],pickOne(pf,used),mc[3],pickOne(lat,used),pickOne(open,used),mc[4],mc[5],mc[6],mc[7],pickOne(mt.filter(t=>t.half&&t.pts===3),used)||pickOne(mt.filter(t=>t.half),used)||pickOne(mt,used),pickOne(mt.filter(t=>!t.half&&t.pts===4),used)||pickOne(mt,used)];
+  return T.filter(Boolean)}
+
+/* ===== Widok: Testy ===== */
+function rTest(){
+  const el=$('#v-test');
+  if(EXAM){rExam();return}
+  if(TEST){qlRender(TEST,el);return}
+  el.onclick=null;el.oninput=null;
+  const s=S();const fam=s.tol||'owop',mode=s.tmode||'now',cnt=s.tcount||0,eset=s.eset||'';
+  let st=s.testStage||(fam==='owop'?'sn':'si');if(famOf(st)!==fam&&st!=='sn')st=fam==='owop'?'sn':'si';if(fam==='owopip'&&st==='sn')st='si';
+  const arch=archTests().filter(o=>o.fam===fam);const aSel=arch.find(o=>o.id===s.tarch)||arch[0];
+  const nf=st==='sn';const T=nf?null:tcfg(st);const pool=nf?[]:testPool(st);
+  const tops=nf?[]:Object.keys(TOPICS).map(g=>[g,pool.filter(c=>c.g.includes(g)).length]).filter(([,n])=>n>=10).sort((a,b)=>b[1]-a[1]);
+  const tp=tops.some(([g])=>g===s.ttopic)?s.ttopic:'';
+  const avail=nf?0:tp?pool.filter(c=>c.g.includes(tp)).length:pool.length;
+  const n=nf?14:Math.min(cnt||T.n,avail),min=nf?45:Math.max(5,Math.round(T.min*n/T.n)),full=nf||(!tp&&n===T.n);
+  const nTasks=(DATA.tasks||[]).filter(t=>!/^S\d\d-/.test(t.i)).length;
+  const fmts=fam==='owop'?[['sn','Etap szkolny – nowy format (od 2026)'],['s','Etap szkolny – dawny format (30 pytań)'],['o','Etap okręgowy – test']]:[['si','I etap'],['oi','II etap – test'],['fi','III etap – test']];
+  const hist=M.tests.filter(t=>(famOf(t.st)==='owopip'||t.st==='p')===(fam==='owopip')).slice(-8).reverse();
+  el.innerHTML=`<div class="panel stack"><h2>Testy</h2>
+  <div class="fld"><span class="lbl">Olimpiada</span><div class="tabs2 big">${[['owop','OWoP – Olimpiada Wiedzy o Prawie'],['owopip','OWoPiP – Olimpiada Wiedzy o Państwie i Prawie']].map(([k,t])=>`<button class="chip ${k===fam?'on':''}" data-tol="${k}" type="button" aria-pressed="${k===fam}">${t}</button>`).join('')}</div></div>
+  <div class="fld"><span class="lbl">Tryb</span><div class="tabs2">${modeChips(mode,'tm')}</div></div>
+  <p class="small muted">${mode==='now'?'Po każdej odpowiedzi od razu widzisz wynik i wyjaśnienie. Czas nie jest ograniczony.':'Jak na olimpiadzie: odpowiadasz na wszystko, wynik i wyjaśnienia zobaczysz po zakończeniu albo po upływie czasu.'} Wszystkie pytania są na jednej stronie jako lista zadań. Pytania ${fam==='owop'?'OWoP':'OWoPiP'} są osobno – nie mieszają się z drugą olimpiadą.</p></div>
+  <div class="panel stack"><h2>Test archiwalny</h2><p>Prawdziwy test z danego roku – pytania w oryginalnej kolejności${fam==='owopip'?'; pytania, w których zmieniło się prawo, są dostosowane do stanu z XI 2026 r. (opisane w wyjaśnieniach)':''}. Wydruk z kluczem – w zakładce Archiwum.</p>
+  <div class="fld"><label class="lbl" for="tarch">Test</label><select id="tarch">${arch.map(o=>`<option value="${o.id}" ${o===aSel?'selected':''}>${esc(o.name)} (${o.official?o.official.pts+' pkt':o.ids.length+' pyt.'})</option>`).join('')}</select></div>
+  <div class="row"><button class="btn pri big" id="tastart" type="button">Rozwiąż test archiwalny</button></div></div>
+  <div class="panel stack"><h2>Test próbny</h2>
+  <div class="fld"><span class="lbl">Format</span><div class="tabs2">${fmts.map(([k,t])=>`<button class="chip ${k===st?'on':''}" data-ts="${k}" type="button">${t}</button>`).join('')}</div></div>
+  ${nf?`<p>Układ jak na teście szkolnym 24 XI 2026: 14 zadań za 30 pkt – 8 pytań wyboru, zadanie prawda/fałsz, zadania otwarte (siedziby, nazwy organów i pojęć, znaczenie paremii) i dwa zadania na przyporządkowanie. Zadania nowego typu losowane z banku ${nTasks} zadań kursu, pytania wyboru – z testów OWoP.</p>`:`<p>Około 60% pytań pochodzi z testów archiwalnych ${fam==='owop'?'OWoP':'OWoPiP'}, reszta z pytań kursu w tym samym formacie.</p>
+  <div class="fld"><span class="lbl">Liczba pytań</span><div class="tabs2">${[[10,'10'],[20,'20'],[0,`pełny test (${T.n})`]].map(([v,t])=>`<button class="chip ${v===cnt?'on':''}" data-tc="${v}" type="button">${t}</button>`).join('')}</div></div>
+  <div class="fld"><label class="lbl" for="ttop">Zakres</label><select id="ttop"><option value="">wszystkie działy etapu (${pool.length})</option>${tops.map(([g,k])=>`<option value="${g}" ${g===tp?'selected':''}>${esc(TOPICS[g])} (${k})</option>`).join('')}</select></div>`}
+  <p class="small muted">${nf?'30 pkt':n+' pytań'}${mode==='end'?`, ${min} min`:''}. ${nf?'Próg z regulaminu XXIX edycji: 25 pkt.':full?`${T.thr!=null?'Próg':'Uwaga'}: ${esc(T.thrTxt)}.`:'Wynik orientacyjny – próg olimpiady dotyczy pełnego testu ze wszystkich działów.'}</p>
+  <div class="row"><button class="btn pri big" id="tstart" type="button">Rozpocznij test</button>${mode==='end'?'<label class="small"><input type="checkbox" id="tnotime"> bez limitu czasu</label>':''}</div></div>
+  ${fam==='owop'?`<div class="panel stack"><h2>Ćwiczenia zadań nowego typu</h2><p>Po 8 zadań jednego rodzaju z banku kursu – do nauki formatu z testu szkolnego 2026 (może pojawić się też na etapie okręgowym).</p><div class="row">${[['open','Zadania otwarte'],['lat','Znaczenie paremii'],['pf','Prawda / fałsz'],['match','Przyporządkowanie']].map(([k,t])=>{const c=k==='lat'?tasksOf(x=>x.typ==='open'&&x.self).length:k==='open'?tasksOf(x=>x.typ==='open'&&!x.self).length:tasksOf(x=>x.typ===k).length;return `<button class="btn" data-zt="${k}" type="button" ${c?'':'disabled'}>${t} (${c})</button>`}).join('')}</div></div>
+  <div class="panel stack"><h2>Egzamin pisemny OWoP</h2><p>Druga część etapu okręgowego: 20 pkt, 60 minut, kilka zadań otwartych o różnej punktacji. Wybierz prawdziwy zestaw z danego roku albo 10 losowych zadań. Odpowiadasz w polach pod zadaniami, potem porównujesz z odpowiedzią wzorcową i oceniasz każde zadanie.</p>
+  <div class="fld"><span class="lbl">Zestaw</span><div class="tabs2">${[['','10 losowych zadań'],...['28','27','26','25','24','23','22','21','20'].map(y=>[y,String(1998+ +y)])].map(([v,t])=>`<button class="chip ${v===eset?'on':''}" data-es="${v}" type="button">${t}</button>`).join('')}</div></div>
+  <p class="small muted">${eset?(+eset<=22?`Egzamin z ${1998+ +eset} r. miał formę jednej pracy pisemnej na 20 pkt.`:`Wszystkie zadania z egzaminu ${1998+ +eset} r. w oryginalnej kolejności. ${eset==='23'?'Punktacja zadań jak na egzaminie.':'Każde zadanie oceniasz 0–2 pkt, a wynik przeliczamy na 20 pkt (organizator nie publikuje punktacji poszczególnych części).'}`):'Każde zadanie 0–2 pkt, razem 20 pkt.'}</p>
+  <div class="row"><button class="btn pri big" id="estart" type="button">Rozpocznij egzamin (60 min)</button></div></div>`:
+  `<div class="panel stack"><h2>Pytania problemowe OWoPiP</h2><p>Druga część II etapu: 6 pytań problemowych po 0–5 pkt (na olimpiadzie razem z testem 120 min). Losujesz 6 pytań z lat 2017–2026, piszesz odpowiedź, potem porównujesz z planem odpowiedzi i oceniasz się.</p><div class="row"><button class="btn pri big" id="pstart" type="button">Rozpocznij (60 min)</button></div></div>`}
+  ${hist.length?`<h3>Ostatnie wyniki – ${fam==='owop'?'OWoP':'OWoPiP'}</h3><div class="scroll"><table><tr><th>Data</th><th>Test</th><th class="num">Wynik</th><th class="num">Czas</th></tr>${hist.map(t=>`<tr><td>${new Date(t.d).toLocaleString('pl-PL',{dateStyle:'short',timeStyle:'short'})}</td><td>${esc(t.nm||stName(t.st))}${t.p?' <span class="muted small">(część)</span>':''}</td><td class="num">${fmtPts(t.sc)}/${fmtPts(t.n)}${!t.p&&passed(t)?' ✓':''}</td><td class="num">${Math.round(t.t/60)} min</td></tr>`).join('')}</table></div>`:''}`;
+  el.querySelectorAll('[data-tol]').forEach(b=>b.onclick=()=>{setS({tol:b.dataset.tol,testStage:b.dataset.tol==='owop'?'sn':'si',tarch:''});rTest()});
+  el.querySelectorAll('[data-ts]').forEach(b=>b.onclick=()=>{setS({testStage:b.dataset.ts});rTest()});
+  el.querySelectorAll('[data-tm]').forEach(b=>b.onclick=()=>{setS({tmode:b.dataset.tm});rTest()});
+  el.querySelectorAll('[data-tc]').forEach(b=>b.onclick=()=>{setS({tcount:+b.dataset.tc});rTest()});
+  el.querySelectorAll('[data-es]').forEach(b=>b.onclick=()=>{setS({eset:b.dataset.es});rTest()});
+  el.querySelectorAll('[data-zt]').forEach(b=>b.onclick=()=>startDrill(b.dataset.zt,mode));
+  const tt=$('#ttop');if(tt)tt.onchange=e=>{setS({ttopic:e.target.value});rTest()};
+  $('#tarch').onchange=e=>setS({tarch:e.target.value});
+  $('#tastart').onclick=()=>{const o=archTests().find(x=>x.id===$('#tarch').value);if(o)startArch(o,mode)};
+  $('#tstart').onclick=()=>{const lim=mode==='end'&&!($('#tnotime')&&$('#tnotime').checked)?min*MIN:0;if(nf)startNewFormat(mode,lim);else startTest(st,{mode,n,topic:tp,full,limit:lim})};
+  if($('#estart'))$('#estart').onclick=()=>startExam('e',eset);if($('#pstart'))$('#pstart').onclick=()=>startExam('p');
+}
+function pickTest(st,n,topic){
+  const T=tcfg(st);const pool=testPool(st).filter(c=>!topic||c.g.includes(topic));
+  const sa=shuffle(pool.filter(c=>T.re.test(c.i))),sr=shuffle(pool.filter(c=>!T.re.test(c.i)));
+  const na=Math.min(sa.length,Math.round(n*.6)),nr=Math.min(sr.length,n-na);
+  const out=sa.slice(0,na).concat(sr.slice(0,nr));if(out.length<n)out.push(...sa.slice(na,na+n-out.length));
+  return shuffle(out);
+}
+function testRec(nm,st,p){return Q=>{Q.rec=Object.assign({d:Date.now(),st,sc:Q.sc,n:Q.max,t:Q.used,nm},p?{p:1}:{});M.tests.push(Q.rec)}}
+function launch(Q){TEST=Q;rTest();qlStart(TEST);window.scrollTo(0,0)}
+function startTest(st,o){const T=tcfg(st);const nm=T.name+(o.topic?' · '+TOPICS[o.topic]:'');
+  launch(qlNew({k:'t',st,mode:o.mode,cards:pickTest(st,o.n,o.topic),multiAll:famOf(st)==='owopip',limit:o.limit,title:nm,thr:o.full?T.thr:null,thrTxt:o.full?T.thrTxt:'próg olimpiady dotyczy pełnego testu',onEnd:testRec(nm,st,!o.full),onQuit:()=>{TEST=null;rTest();window.scrollTo(0,0)}}))}
+function startArch(o,mode){const st=o.official?'sn':o.st;const T=o.official?{min:o.official.min,thr:25,thrTxt:'próg z regulaminu XXIX edycji: 25 pkt'}:tcfg(o.st);
+  const cards=archCards(o);const nums=o.official?o.official.order.map((x,i)=>String(i+1)):cards.map(c=>{const m=/-(\d+)([a-z]\d?)?$/.exec(c.i);return m?String(+m[1])+(m[2]||''):''});
+  launch(qlNew({k:'t',st,mode,cards,nums,multiAll:o.fam==='owopip',limit:mode==='end'?T.min*MIN:0,title:o.name,thr:T.thr!=null&&(o.official||cards.length===T.n)?T.thr:null,thrTxt:T.thrTxt,
+    intro:o.fam==='owop'&&!o.official?'Test z dawnych lat ma jedną poprawną odpowiedź w każdym pytaniu; zadania z literą (np. 14a–j) to części zadania ocenianego po punkcie.':'',
+    onEnd:testRec(o.name,st,false),onQuit:()=>{TEST=null;rTest();window.scrollTo(0,0)}}))}
+function startNewFormat(mode,lim){const cards=newFormatTest('s');
+  launch(qlNew({k:'t',st:'sn',mode,cards,limit:lim,title:'Etap szkolny OWoP – nowy format',thr:25,thrTxt:'próg z regulaminu XXIX edycji: 25 pkt',intro:'Test w układzie z 24 XI 2026: 14 zadań, 30 pkt, 45 min. W zadaniach otwartych liczy się sens odpowiedzi; przy paremiach ocenisz się sam według wzorca.',
+    onEnd:testRec('Etap szkolny OWoP – nowy format','sn',false),onQuit:()=>{TEST=null;rTest();window.scrollTo(0,0)}}))}
+function startDrill(kind,mode){const all=kind==='lat'?tasksOf(x=>x.typ==='open'&&x.self):kind==='open'?tasksOf(x=>x.typ==='open'&&!x.self):tasksOf(x=>x.typ===kind);
+  const nm={open:'Zadania otwarte',lat:'Znaczenie paremii',pf:'Prawda / fałsz',match:'Przyporządkowanie'}[kind];
+  launch(qlNew({k:'t',st:'sn',mode,cards:shuffle(all).slice(0,8),limit:0,title:'Ćwiczenie: '+nm,thr:null,onEnd:testRec('Ćwiczenie: '+nm,'sn',true),onQuit:()=>{TEST=null;rTest();window.scrollTo(0,0)}}))}
+
+function startExam(kind,yy){for(const k in AIG)if(k[0]==='e')delete AIG[k];
+  const P2=kind==='p';let items;
+  if(!P2&&yy){const set=DATA.cards.filter(c=>c.t==='q'&&c.i.startsWith('E'+yy+'-')).sort((a,b)=>a.i<b.i?-1:1);
+    items=set.map(c=>{const m=/\((\d+) pkt\)/.exec(c.s||'');return {c,txt:'',sc:0,shown:false,mx:set.length===1?20:m?+m[1]:2}})}
+  else{const pool=DATA.cards.filter(c=>c.t==='q'&&(P2?(c.g.includes('pytanie_problemowe')&&c.d==='o'):c.g.includes('egzamin_pisemny')));
+    items=shuffle(pool).slice(0,P2?6:10).map(c=>({c,txt:'',sc:0,shown:false,mx:P2?5:2}))}
+  EXAM={kind:P2?'p':'e',yy:P2?'':(yy||''),mode:S().tmode||'now',items,t0:Date.now(),phase:'write'};
+  clearInterval(rExam._iv);rExam._iv=setInterval(()=>{if(!EXAM||EXAM.phase!=='write'){clearInterval(rExam._iv);return}const el=$('#eclock');if(!el)return;const l=60*MIN-(Date.now()-EXAM.t0);el.textContent=l>=0?fmtClock(l):'+'+fmtClock(-l);el.classList.toggle('low',l<5*MIN)},1000);
+  rExam();window.scrollTo(0,0);
+}
+function aiExam(i){const E=EXAM;if(!E)return;const x=E.items[i];
+  return aiGrade('e'+i,{org:E.kind==='p'?'II etapu Ogólnopolskiej Olimpiady Wiedzy o Państwie i Prawie (pytanie problemowe)':'etapu okręgowego Olimpiady Wiedzy o Prawie (egzamin pisemny)',q:strip(x.c.q),ref:refText([x.c.i]),ans:x.txt,max:x.mx,
+    rubric:x.mx>5?`${x.mx} pkt – pełna, uporządkowana praca z podstawą prawną i wszystkimi elementami z odpowiedzi wzorcowej; mniej – proporcjonalnie do braków i błędów`:x.mx!==2&&E.kind!=='p'?`${x.mx} pkt – pełna i poprawna odpowiedź; proporcjonalnie mniej za każdy brakujący lub błędny element`:E.kind==='p'?'5 – pełna, uporządkowana odpowiedź z podstawą prawną; 3–4 – dobra z brakami; 1–2 – fragmentaryczna; 0 – brak lub błędna':'2 – pełna i poprawna; 1 – częściowa; 0 – brak lub błędna',
+    apply:r=>{if(EXAM===E)x.sc=r.punkty}})}
+function exShown(x){return EXAM.phase==='grade'||x.shown}
+function exTot(){return EXAM.items.reduce((s,x)=>s+(exShown(x)?x.sc:0),0)}
+function exMX(){return EXAM.items.reduce((s,x)=>s+x.mx,0)}
+function exScaled(){const MX=exMX();return EXAM.yy&&MX!==20?` (= ${Math.round(20*exTot()/MX)}/20 pkt)`:''}
+function exBar(){const E=EXAM,MX=exMX(),sh=E.items.filter(exShown).length,l=60*MIN-(Date.now()-E.t0);
+  return `<div class="tbar-in"><span class="mono">${E.kind==='p'?'Pytania problemowe OWoPiP':'Egzamin pisemny OWoP'+(E.yy?' '+(1998+ +E.yy):'')} · ${E.items.length} ${plural(E.items.length,'zadanie','zadania','zadań')} · ${MX} pkt</span>${E.phase==='write'?`${E.mode==='now'?`<span class="mono">sprawdzone ${sh}/${E.items.length} · ${exTot()} pkt</span>`:''}<span class="timer sm" id="eclock">${l>=0?fmtClock(l):'+'+fmtClock(-l)}</span>`:`<span class="mono">wynik <b>${exTot()}/${MX}</b>${exScaled()}</span>`}</div>`}
+function exItem(i){const E=EXAM,x=E.items[i],c=x.c;
+  let h=`<div class="topic" id="exq-${i}"><div><span class="no">Zadanie ${E.yy?(m=>m?(+m[1])+(m[2]||''):i+1)(/-(\d+)([a-z]\d?)?$/.exec(c.i)):i+1}</span> <span class="src">${esc(c.i)} · ${x.mx} pkt</span></div><div class="q">${c.q}</div>`;
+  if(!exShown(x)){h+=`<textarea id="ex-${i}" data-ei="${i}" rows="5" placeholder="${AI?(E.mode==='now'?'Twoja odpowiedź – po kliknięciu „Sprawdź” Claude oceni ją według skali komisji':'Twoja odpowiedź – wpisz ją, a po zakończeniu Claude oceni ją według skali komisji'):'Twoja odpowiedź (możesz też pisać na kartce)'}">${esc(x.txt)}</textarea>`;
+    if(E.mode==='now')h+=`<div class="row"><button class="btn" data-exshow="${i}" type="button">Sprawdź – pokaż odpowiedź</button></div>`}
+  else{if(x.txt)h+=`<div class="small"><b>Twoja odpowiedź:</b> ${esc(x.txt)}</div>`;
+    if(AI&&x.txt.trim().length>=20&&!AIG['e'+i])h+=`<div class="row"><button class="btn" data-aie="${i}" type="button">Oceń z Claude</button></div>`;
+    h+=aiBox('e'+i);
+    h+=`<div class="ans">${linkIds(c.a)}</div>${c.x?`<div class="exp">${linkIds(c.x)}</div>`:''}<div class="crit"><label for="es-${i}">Ocena zadania (0–${x.mx})</label><span class="mono"><b id="ev-${i}">${x.sc}</b></span><input type="range" id="es-${i}" min="0" max="${x.mx}" step="1" value="${x.sc}" data-ei="${i}" style="grid-column:1/-1"></div>`}
+  return h+'</div>'}
+function exFoot(){const E=EXAM,MX=exMX();
+  if(E.phase==='write')return `<div class="panel row"><button class="btn pri big" id="eend" type="button">${E.mode==='now'?'Zakończ (pokaż wszystkie odpowiedzi)':'Zakończ i porównaj z odpowiedziami'}</button><button class="btn" id="ecancel" type="button">Przerwij</button></div>`;
+  return `<div class="panel row"><div class="score" id="etot">${exTot()}/${MX}${exScaled()}</div><div class="small">${E.kind==='p'?'5 pkt – pełna, uporządkowana odpowiedź z podstawą prawną; 3–4 – dobra z brakami; 1–2 – fragmentaryczna; 0 – brak lub błędna.':'2 pkt – odpowiedź pełna i poprawna; 1 pkt – częściowa; 0 – brak lub błędna.'}</div>${AI&&E.items.some(x=>x.txt.trim().length>=20)?'<button class="btn" id="eaiall" type="button">Oceń wszystkie z Claude</button>':''}<button class="btn pri" id="esave" type="button">Zapisz wynik</button><button class="btn" id="ecancel" type="button">Zamknij</button></div>`}
+function exUpd(i){const o=$('#exq-'+i);if(!o)return;o.outerHTML=exItem(i);bindIdLinks($('#exq-'+i))}
+function exTotUpd(){const b=$('#ebar');if(b)b.innerHTML=exBar();const t=$('#etot');if(t)t.textContent=exTot()+'/'+exMX()+exScaled()}
+function rExam(){
+  const el=$('#v-test');const E=EXAM;
+  let h=`<div class="tbar" id="ebar">${exBar()}</div>`;
+  if(E.phase==='write')h+=`<p class="small muted">${E.mode==='now'?'Napisz odpowiedź i kliknij „Sprawdź” pod zadaniem – zobaczysz odpowiedź wzorcową i ocenisz zadanie (albo oceni je Claude).':'Odpowiedz na wszystkie zadania, potem kliknij „Zakończ i porównaj” na dole strony.'}</p>`;
+  h+=`<div class="stack">${E.items.map((x,i)=>exItem(i)).join('')}</div><div id="efoot">${exFoot()}</div>`;
+  el.innerHTML=h;bindIdLinks(el);hdrH();
+  el.oninput=e=>{const t=e.target;if(t.matches('textarea[data-ei]'))E.items[+t.dataset.ei].txt=t.value;
+    else if(t.matches('input[type=range][data-ei]')){const i=+t.dataset.ei;E.items[i].sc=+t.value;$('#ev-'+i).textContent=t.value;exTotUpd()}};
+  el.onclick=async e=>{const b=e.target.closest('button');if(!b||!el.contains(b))return;const d=b.dataset;
+    if(d.aie!=null){aiExam(+d.aie);return}
+    if(d.exshow!=null){const i=+d.exshow;const x=E.items[i];x.shown=true;exUpd(i);exTotUpd();if(AI&&x.txt.trim().length>=20)aiExam(i);return}
+    if(b.id==='eend'){E.phase='grade';E.used=Math.round((Date.now()-E.t0)/1000);clearInterval(rExam._iv);rExam();if(E.mode==='now')scrollToEl($('#efoot'));else window.scrollTo(0,0);return}
+    if(b.id==='eaiall'){for(let i=0;i<E.items.length;i++){if(EXAM!==E||!AI)break;if(E.items[i].txt.trim().length>=20&&!(AIG['e'+i]&&AIG['e'+i].res))await aiExam(i)}return}
+    if(b.id==='esave'){const MX=exMX(),sc=E.yy&&MX!==20?Math.round(20*exTot()/MX):exTot();M.tests.push({d:Date.now(),st:E.kind,sc,n:E.yy&&MX!==20?20:MX,t:E.used||0});for(const x of E.items)tagStat(x.c,x.sc===x.mx);metaDirty=true;persist();toast('Wynik zapisany');EXAM=null;rTest();window.scrollTo(0,0);return}
+    if(b.id==='ecancel'){EXAM=null;clearInterval(rExam._iv);rTest();window.scrollTo(0,0)}
+  };
+}
+
+/* ===== Widok: Lekcje ===== */
+let LES=null,LCUR=null,LQ=null,LSTEP=0;
+async function loadLes(){if(LES)return LES;try{const r=await fetch('lekcje.json',{cache:'no-cache'});LES=await r.json()}catch(e){LES=null}return LES}
+function lesStat(id){return (M.les||{})[id]||null}
+function lesMark(id,patch){M.les=M.les||{};M.les[id]=Object.assign({},M.les[id]||{},patch,{u:Date.now()});metaDirty=true;persist()}
+function lesCards(L){return (L.karty||[]).map(i=>CARD[i]).filter(c=>c&&c.t==='m')}
+function lesOlimp(L){return (L.olimp||[]).map(i=>CARD[i]).filter(Boolean)}
+function lesNext(){if(!LES)return null;return LES.lessons.find(L=>!(lesStat(L.id)||{}).r)||null}
+const ARCH_ID=/^([SO]\d\d-|A\d\d-|E\d\d-|D\d\d-|F-|ZS-)/;
+function idSrc(id){let m;if((m=/^([SO])(\d\d)-/.exec(id)))return `OWoP ${1997+ +m[2]}/${String(1998+ +m[2]).slice(-2)} ${m[1]==='S'?'szk.':'okr.'}`;
+  if((m=/^A(\d\d)-(\d)-/.exec(id)))return `OWoPiP ${1999+ +m[1]}/${m[1]} ${['','I','II','III'][+m[2]]} et.`;
+  if((m=/^E(\d\d)-/.exec(id)))return `OWoP ${1998+ +m[1]} egz. pisemny`;if((m=/^D(\d\d)-(\d)-/.exec(id)))return `OWoPiP ${2000+ +m[1]} ${m[2]==='2'?'probl.':'ustne'}`;
+  if(/^F-/.test(id))return 'OWoP finał (program)';if(/^ZS-/.test(id))return 'OWoP finał 2021';return ''}
+function olimpCount(L){const o=L.olimp||[];return {n:o.length,owop:o.filter(i=>/^([SOE]\d\d|F|ZS)-/.test(i)).length,owopip:o.filter(i=>/^[AD]\d\d-/.test(i)).length}}
+async function rLessons(){
+  const el=$('#v-lekcje');
+  if(!LES){el.innerHTML='<div class="empty">Wczytywanie lekcji…</div>';await loadLes();if(VIEW!=='lekcje')return;if(!LES){el.innerHTML='<div class="empty">Nie udało się wczytać lekcji. Odśwież stronę.</div>';return}}
+  if(LCUR){rLesson(el);return}
+  el.onclick=null;el.oninput=null;
+  const all=LES.lessons,done=all.filter(L=>(lesStat(L.id)||{}).r).length,nx=lesNext(),tot=all.reduce((s,L)=>s+olimpCount(L).n,0);
+  let h=`<div class="panel stack"><h2>Lekcje</h2><p>Nauka krok po kroku: ${all.length} lekcji obejmuje cały zakres obu olimpiad. Każda lekcja zaczyna się od ściągi z tym, o co najczęściej pytają, potem idzie część po części – z tabelami, krótkimi quizami po każdej części i wyróżnionymi faktami, które były na olimpiadach. Do lekcji przypisano ${tot} pytań i zadań z prawdziwych testów – licznik przy lekcji pokazuje, jak często organizatorzy pytają o temat.</p>
+  <div class="row"><div class="meter" style="flex:1"><i style="width:${Math.round(100*done/all.length)}%"></i></div><span class="small">przerobione ${done}/${all.length}</span>${nx?`<button class="btn pri" data-lopen="${nx.id}" type="button">${done?'Następna lekcja':'Zacznij od lekcji 1'} →</button>`:''}</div></div>`;
+  const bloki=[...new Set(all.map(L=>L.blok))];
+  for(const b of bloki){h+=`<h3>${esc(b)}</h3><div class="list">`;
+    for(const L of all.filter(x=>x.blok===b)){const s=lesStat(L.id)||{},n=lesCards(L).length,oc=olimpCount(L);
+      h+=`<button class="item les" data-lopen="${L.id}" type="button"><span class="mono">${esc(L.id.slice(1))}</span><span class="t">${esc(L.t)}${oc.n?`<span class="small muted lcnt"> · ${oc.n} ${plural(oc.n,'pytanie','pytania','pytań')} z olimpiad${oc.owop&&oc.owopip?` (OWoP ${oc.owop}, OWoPiP ${oc.owopip})`:oc.owop?' (OWoP)':' (OWoPiP)'}</span>`:''}</span><span class="small muted">${s.b!=null?`<span class="st ${s.b>=Math.ceil(.8*(s.n||n))?'rev':'lrn'}">${fmtPts(s.b)}/${fmtPts(s.n||n)}</span> `:''}${s.r?'✓ ':''}${L.min} min</span></button>`}
+    h+='</div>'}
+  el.innerHTML=h;
+  el.querySelectorAll('[data-lopen]').forEach(b=>b.onclick=()=>openLesson(b.dataset.lopen));
+}
+function openLesson(id){if(LQ)clearInterval(LQ.iv);LQ=null;LCUR=id;LSTEP=0;if(VIEW!=='lekcje'){location.hash='lekcje';go('lekcje')}else rLessons();window.scrollTo(0,0)}
+function lesSteps(L){const t=document.createElement('template');t.innerHTML=L.html;const steps=[];let cur={title:'Na start: o co pytają i ściąga',nodes:[]};
+  for(const n of [...t.content.childNodes]){if(n.nodeType===1&&n.tagName==='H2'){if(cur.nodes.some(x=>x.nodeType===1||(x.textContent||'').trim()))steps.push(cur);cur={title:n.textContent,nodes:[n]}}else cur.nodes.push(n)}
+  steps.push(cur);return steps.map(s=>({title:s.title,html:s.nodes.map(n=>n.nodeType===1?n.outerHTML:n.textContent).join('')}))}
+function markAsked(root){root.querySelectorAll('p,li,tr,div.box').forEach(b=>{if(b.closest('.chk'))return;const ids=[...b.querySelectorAll('.idlink')].map(s=>s.dataset.open).filter(i=>ARCH_ID.test(i));
+  if(!ids.length||b.querySelector('p,li,tr,div.box'))return;const src=[...new Set(ids.map(idSrc).filter(Boolean))];b.classList.add('asked');
+  const tag=document.createElement('span');tag.className='askb';tag.textContent='Było na olimpiadzie'+(src.length?': '+src.slice(0,3).join(' · ')+(src.length>3?` i ${src.length-3} inne`:''):'');
+  (b.tagName==='TR'?b.lastElementChild:b).appendChild(tag)})}
+function mountChecks(root,L){let n=0;root.querySelectorAll('div.chk[data-q]').forEach(d=>{const cards=d.dataset.q.split(/\s+/).map(i=>CARD[i]).filter(c=>c&&c.t==='m');if(!cards.length){d.remove();return}
+  n++;const box=document.createElement('div');box.className='chkbox';box.innerHTML=`<div class="chkh">Sprawdź od razu – ${cards.length} ${plural(cards.length,'pytanie','pytania','pytań')} z ${cards.some(c=>ARCH_ID.test(c.i))?'olimpiad':'kursu'}</div><div class="chkq"></div>`;d.replaceWith(box);
+  const Q=qlNew({k:'c'+L.id+'-'+n+'-',mini:true,mode:'now',cards,multiAll:false,srcTag:true});qlRender(Q,box.querySelector('.chkq'))})}
+function rLesson(el){
+  const all=LES.lessons,k=all.findIndex(L=>L.id===LCUR);if(k<0){LCUR=null;rLessons();return}
+  const L=all[k],s=lesStat(L.id)||{},cards=lesCards(L),prev=all[k-1],next=all[k+1],mode=S().lmode||'now',ol=lesOlimp(L).filter(c=>c.t==='m'||c.t==='z'),oc=olimpCount(L);
+  const steps=lesSteps(L),whole=!!S().lall;LSTEP=Math.max(0,Math.min(LSTEP,steps.length-1));const last=whole||LSTEP===steps.length-1;
+  let h=`<div class="row"><button class="btn" data-lback type="button">← Wszystkie lekcje</button><span class="small muted">Lekcja ${k+1} z ${all.length} · ${esc(L.blok)} · ok. ${L.min} min</span><span style="flex:1"></span><label class="small"><input type="checkbox" data-lall ${whole?'checked':''}> cała lekcja na jednej stronie</label></div>
+  <article class="panel lesson"><h1 class="ltitle">${esc(L.t)}</h1>${oc.n?`<div class="lstat">Z tego tematu na olimpiadach: <b>${oc.n}</b> ${plural(oc.n,'pytanie lub zadanie','pytania lub zadania','pytań lub zadań')}${oc.owop?` · OWoP ${oc.owop}`:''}${oc.owopip?` · OWoPiP ${oc.owopip}`:''}. Fakty, o które pytano, są oznaczone w treści.</div>`:''}
+  ${whole?'':`<div class="steps">${steps.map((st,i)=>`<button class="stepdot ${i===LSTEP?'on':''} ${i<LSTEP?'done':''}" data-lstep="${i}" type="button" title="${esc(st.title)}" aria-label="Krok ${i+1}: ${esc(st.title)}">${i+1}</button>`).join('')}</div><div class="small muted">Krok ${LSTEP+1} z ${steps.length}: ${esc(steps[LSTEP].title)}</div>`}
+  <div class="lbody">${linkIds(whole?L.html:steps[LSTEP].html)}</div>
+  ${whole?'':`<div class="row lstepnav">${LSTEP>0?`<button class="btn" data-lstep="${LSTEP-1}" type="button">← Wstecz</button>`:''}<span style="flex:1"></span>${!last?`<button class="btn pri" data-lstep="${LSTEP+1}" type="button">Dalej: ${esc(steps[LSTEP+1].title)} →</button>`:''}</div>`}</article>
+  ${last?`<div class="row"><button class="btn ${s.r?'':'pri'}" data-lread type="button" aria-pressed="${!!s.r}">${s.r?'✓ Przeczytana':'Oznacz jako przeczytaną'}</button></div>
+  <div class="panel stack" id="lpanel"><h2>Sprawdź się</h2><p>${cards.length} wybranych pytań do lekcji${s.b!=null?` · najlepszy wynik ${fmtPts(s.b)}/${fmtPts(s.n||cards.length)}`:''}. Pytania OWoP i OWoPiP są pogrupowane osobno.${ol.length>cards.length?` Możesz też rozwiązać wszystkie ${ol.length} pytania i zadania z olimpiad przypisane do tej lekcji.`:''}</p>
+  ${LQ?'':`<div class="fld"><span class="lbl">Tryb</span><div class="tabs2">${modeChips(mode,'lm')}</div></div><div class="row"><button class="btn pri big" data-lstart type="button">Rozwiąż wybrane pytania (${cards.length})</button>${ol.length>cards.length?`<button class="btn" data-lall2 type="button">Wszystkie z olimpiad (${ol.length})</button>`:''}</div>`}</div>
+  <div id="lq"></div>`:''}
+  <div class="row lnav">${prev?`<button class="btn" data-lopen="${prev.id}" type="button">← ${esc(prev.t)}</button>`:''}<span style="flex:1"></span>${next?`<button class="btn ${last?'pri':''}" data-lopen="${next.id}" type="button">${esc(next.t)} →</button>`:''}</div>`;
+  el.innerHTML=h;const body=el.querySelector('.lbody');bindIdLinks(el);markAsked(body);mountChecks(body,L);
+  el.oninput=null;
+  el.onclick=e=>{const b=e.target.closest('button,input');if(!b||!el.contains(b)||b.closest('#lq')||b.closest('.chkbox'))return;const d=b.dataset;
+    if('lall' in d){setS({lall:b.checked});rLesson(el);return}
+    if(b.tagName!=='BUTTON')return;
+    if('lback' in d){if(LQ)clearInterval(LQ.iv);LQ=null;LCUR=null;rLessons();window.scrollTo(0,0);return}
+    if(d.lstep!=null){LSTEP=+d.lstep;rLesson(el);if(LSTEP===steps.length-1&&!(lesStat(L.id)||{}).r)lesMark(L.id,{r:Date.now()});scrollToEl(el.querySelector('.lesson'));return}
+    if(d.lopen){openLesson(d.lopen);return}
+    if('lread' in d){const r=!(lesStat(L.id)||{}).r;lesMark(L.id,{r:r?Date.now():0});b.textContent=r?'✓ Przeczytana':'Oznacz jako przeczytaną';b.classList.toggle('pri',!r);b.setAttribute('aria-pressed',r);return}
+    if(d.lm){setS({lmode:d.lm});rLesson(el);return}
+    if('lstart' in d){lesPractice(L,cards);return}
+    if('lall2' in d){lesPractice(L,ol);return}
+  };
+  if(LQ&&LQ.lid===L.id&&$('#lq'))qlRender(LQ,$('#lq'));
+}
+function lesPractice(L,cards){if(LQ)clearInterval(LQ.iv);
+  const mode=S().lmode||'now';const ord=c=>/^[SO]\d\d-/.test(c.i)?0:/^A\d\d-/.test(c.i)?1:/^(C|T)-/.test(c.i)?3:2;
+  const sorted=cards.filter(c=>c.t==='m'||c.t==='z').map((c,i)=>[c,i]).sort((a,b)=>ord(a[0])-ord(b[0])||a[1]-b[1]).map(x=>x[0]);
+  LQ=qlNew({k:'l',lid:L.id,mode,cards:sorted,multiAll:false,groups:true,limit:0,title:'Sprawdź się · '+L.t,
+    onEnd:Q=>{const s=lesStat(L.id)||{};lesMark(L.id,{r:s.r||Date.now(),b:Math.max(s.b||0,Q.sc),n:Q.max,last:Q.sc})},
+    onQuit:()=>{LQ=null;rLessons()},onAgain:()=>{lesPractice(L,cards)}});
+  const p=$('#lpanel');if(p)p.querySelectorAll('.fld,.row').forEach(x=>x.remove());
+  qlRender(LQ,$('#lq'));qlStart(LQ);scrollToEl($('#lq'));
+}
+
+/* ===== Widok: Archiwum testów (PDF do pobrania) ===== */
+let AIDX=null,DL=null,DLtried=false;
+async function getDL(){if(DLtried)return DL;DLtried=true;try{if(window.claude&&claude.use)DL=await claude.use('downloads')}catch(e){DL=null}return DL}
+function archOnline(id){let m;if((m=/^owop_([so])(\d\d)$/.exec(id)))return {fam:'owop',key:m[1].toUpperCase()+m[2]};if((m=/^owopip_(\d\d)_(\d)$/.exec(id)))return {fam:'owopip',key:'A'+m[1]+'-'+m[2]};return null}
+async function rArch(){const el=$('#v-archiwum');
+  if(!AIDX){el.innerHTML='<div class="empty">Wczytywanie archiwum…</div>';try{AIDX=await (await fetch('archiwum/index.json',{cache:'no-cache'})).json()}catch(e){el.innerHTML='<div class="empty">Nie udało się wczytać archiwum.</div>';return}if(VIEW!=='archiwum')return}
+  const dl=await getDL();
+  const sec=(fam,title,src)=>{const L=AIDX.filter(x=>x.fam===fam);return `<div class="panel stack"><h2>${title}</h2><p class="small muted">${src}</p><div class="scroll"><table class="arch"><tr><th>Test</th><th>Pobierz</th><th></th></tr>${L.map(x=>{const on=archOnline(x.id);return `<tr><td>${esc(x.name)}${x.src?` <a class="small" href="${esc(x.src)}" target="_blank" rel="noopener">oryginał</a>`:''}</td><td class="nowrap"><a class="btn sm" href="${x.test}" download data-dl="${x.test}">Test (PDF)</a> <a class="btn sm" href="${x.klucz}" download data-dl="${x.klucz}">${x.kind==='open'?'Odpowiedzi':'Klucz'} (PDF)</a></td><td>${on?`<button class="btn sm" data-aon="${on.fam}:${on.key}" type="button">Rozwiąż tutaj</button>`:''}</td></tr>`}).join('')}</table></div></div>`};
+  el.innerHTML=`<div class="panel stack"><h2>Archiwum testów</h2><p>Wszystkie testy z kursu do wydruku: osobno treść (do rozwiązania na kartce) i klucz. Klucze są sprawdzone ze stanem prawnym z XI 2026 r.; gdzie różnią się od klucza organizatora, wyjaśnia to kolumna „Uwagi”. „Rozwiąż tutaj” otwiera ten sam test w zakładce Testy.</p></div>
+  ${sec('owop','OWoP – Ogólnopolska Olimpiada Wiedzy o Prawie','Organizator: Komitet Główny OWoP (II Społeczne LO im. Toniego Halika w Ostrołęce) – olimpiada.slo2.pl. Etap okręgowy: część testowa (pytania zamknięte) i egzamin pisemny.')}
+  ${sec('owopip','OWoPiP – Ogólnopolska Olimpiada Wiedzy o Państwie i Prawie','Organizator: WSPiA Rzeszowska Szkoła Wyższa – olimpiada.wspia.eu. Testy I–III etapu oraz pytania problemowe i ustne.')}`;
+  el.onclick=async e=>{const a=e.target.closest('[data-dl]');if(a&&dl){e.preventDefault();try{const r=await fetch(a.dataset.dl);const blob=await r.blob();await dl.save({filename:a.dataset.dl.split('/').pop(),data:blob})}catch(err){if(err&&err.code!=='dismissed')toast('Nie udało się pobrać pliku')}return}
+    const b=e.target.closest('[data-aon]');if(b){const [fam,key]=b.dataset.aon.split(':');const o=archTests().find(x=>x.id===key);if(!o)return;setS({tol:fam,tarch:key});location.hash='test';go('test');startArch(o,S().tmode||'now')}}}
+/* ===== Ocena odpowiedzi przez Claude i dyktowanie ===== */
+let AI=null,DICT=null,DT=null;const AIG={};
+function initAI(){if(!(window.claude&&typeof window.claude.use==='function'))return;
+  window.claude.use('sample').then(s=>{AI=s||null;if(AI)reAI()},()=>{});
+  window.claude.use('dictation').then(d=>{DICT=d||null;if(!DICT)return;
+    DICT.onPartial(({text})=>{const l=DT!=null&&$('#flive-'+DT);if(l)l.textContent=text});
+    DICT.onFinal(({text})=>{if(DT==null||!FIN)return;const i=DT;FIN.txt[i]=((FIN.txt[i]||'')+' '+text).trim();const t=$('#ft-'+i);if(t)t.value=FIN.txt[i];const l=$('#flive-'+i);if(l)l.textContent=''});
+    DICT.onState(({state,reason})=>{const on=state==='listening'||state==='starting'||state==='finishing';document.querySelectorAll('.mic').forEach(b=>{const me=+b.dataset.mic===DT&&on;b.setAttribute('aria-pressed',me?'true':'false');b.textContent=me?'■ Zatrzymaj':'🎤 Dyktuj'});
+      if(state==='idle'){if(reason==='not_granted'){DICT=null;toast('Dyktowanie jest wyłączone – możesz wpisać odpowiedź');reAI()}if(DT!=null){const l=$('#flive-'+DT);if(l)l.textContent=''}}});
+    reAI()},()=>{})}
+function reAI(key){if(VIEW==='test'&&EXAM){if(key&&key[0]==='e'){exUpd(+key.slice(1));exTotUpd()}else if(EXAM.phase==='grade')rExam();else EXAM.items.forEach((x,i)=>{if(x.shown)exUpd(i)})}else if(VIEW==='final'&&FIN&&FIN.phase!=='prep')rFinal()}
+function aiScale(o){return o.crit?o.crit.map(([k,n,m])=>`"${k}" – ${n} (0–${m})`).join('; '):`jedna ocena 0–${o.max}: ${o.rubric}`}
+async function aiGrade(key,o){
+  if(!AI||(AIG[key]&&AIG[key].busy))return;AIG[key]={busy:true,max:o.max};reAI(key);
+  const critJson=o.crit?`, "kryteria": {${o.crit.map(([k,,m])=>`"${k}": 0–${m}`).join(', ')}}`:'';
+  const prompt=`Jesteś członkiem komisji ${o.org}. Oceń odpowiedź ucznia liceum tak, jak oceniłaby ją komisja: ściśle, ale życzliwie, po polsku.
+Liczy się stan prawny z listopada 2026 r. Punktem odniesienia jest odpowiedź wzorcowa z kursu – bywa pełniejsza, niż wymaga komisja, więc za pełną punktację wystarczy odpowiedź, która zawiera jej istotę: definicję lub podstawę prawną, najważniejsze elementy i poprawne liczby. Nie wymagaj dosłownego brzmienia. Nie dopisuj faktów spoza wzorca, których nie jesteś pewien. Każde twierdzenie ucznia sprzeczne z wzorcem lub z prawem wskaż jako błąd.
+${o.oral?'Odpowiedź jest zapisem wypowiedzi ustnej (dyktowanej), więc drobne błędy zapisu i interpunkcji pomiń.\n':''}Skala: ${aiScale(o)}.
+
+PYTANIE:
+${o.q}
+
+ODPOWIEDŹ WZORCOWA:
+${o.ref.slice(0,7000)}
+
+ODPOWIEDŹ UCZNIA:
+${o.ans.slice(0,7000)}
+
+Odpowiedz tylko obiektem JSON: {"punkty": liczba całkowita 0–${o.max}${critJson}, "dobrze": ["…"], "brakuje": ["…"], "bledy": ["…"], "rada": "jedno zdanie"}. Każda lista – najwyżej 4 krótkie punkty (mogą być puste).`;
+  try{const r=await AI.json(prompt,{modelTier:'default'});
+    const num=(v,m)=>Math.max(0,Math.min(m,Math.round(Number(v)||0)));const arr=v=>Array.isArray(v)?v.map(String).slice(0,4):[];
+    const res={punkty:num(r&&r.punkty,o.max),dobrze:arr(r&&r.dobrze),brakuje:arr(r&&r.brakuje),bledy:arr(r&&r.bledy),rada:r&&r.rada?String(r.rada):''};
+    if(o.crit){res.kryteria={};for(const [k,,m] of o.crit)res.kryteria[k]=num(r&&r.kryteria&&r.kryteria[k],m);res.punkty=o.crit.reduce((a,[k])=>a+res.kryteria[k],0)}
+    AIG[key]={res,max:o.max};if(o.apply)o.apply(res)}
+  catch(e){const code=(e&&e.code)||'upstream_error';AIG[key]={err:code,max:o.max};if(code==='not_granted'||code==='sampling_disabled'||code==='capability_disabled'||code==='capability_removed'||code==='not_declared'){AI=null}}
+  reAI(key)}
+function aiBox(key){const g=AIG[key];if(!g)return '';
+  if(g.busy)return '<div class="aibox small muted" role="status">Claude ocenia odpowiedź…</div>';
+  if(g.err)return `<div class="aibox small">${g.err==='not_granted'?'Ocena przez Claude jest wyłączona dla tej strony – zmienisz to w menu Uprawnienia.':g.err==='rate_limited'?'Za dużo ocen w krótkim czasie. Spróbuj ponownie za chwilę.':g.err==='prompt_too_large'?'Odpowiedź jest za długa do oceny – skróć ją.':'Nie udało się ocenić odpowiedzi. Spróbuj ponownie.'}</div>`;
+  const r=g.res,li=(t,a)=>a.length?`<div><b>${t}</b><ul>${a.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>`:'';
+  return `<div class="aibox"><div><b>Ocena Claude: ${r.punkty}/${g.max} pkt</b>${r.kryteria?` <span class="small muted">(${Object.entries(r.kryteria).map(([k,v])=>`${(CRIT.find(c=>c[0]===k)||[k,k])[1]} ${v}`).join(' · ')})</span>`:''}</div>${li('Dobrze',r.dobrze)}${li('Brakuje',r.brakuje)}${li('Błędy',r.bledy)}${r.rada?`<div class="small"><b>Rada:</b> ${esc(r.rada)}</div>`:''}<div class="small muted">Ocena orientacyjna – suwak ustawiono na tę wartość, możesz go zmienić.</div></div>`}
+function refText(ids){return ids.map(id=>{const c=CARD[id];if(!c)return '';return strip(c.t==='m'?c.q+' '+c.e:(c.a||'')+' '+(c.x||''))}).filter(Boolean).join('\n\n')}
+
+/* ===== Widok: Finał ===== */
+const CRIT=[['meritum','Meritum wypowiedzi',5],['org','Organizacja wypowiedzi',3],['styl','Styl i język prawniczy',2],['popr','Poprawność merytoryczna',5]];
+function rFinal(){
+  const el=$('#v-final');
+  if(!FIN){
+    const hist=M.finals.slice(-6).reverse();
+    el.innerHTML=`<div class="panel stack"><h2>Symulacja finału</h2>
+    <p>Finał jest ustny: losujesz zestaw 3 pytań, masz ok. 10 minut na przygotowanie (notatki tylko na kartce od komisji), potem do ok. 10 minut wypowiedzi przed jury. Każde pytanie 0–15 pkt: meritum 5, organizacja wypowiedzi 3, styl i język prawniczy 2, poprawność merytoryczna 5.</p>
+    <div class="row"><button class="btn pri big" id="f-rand" type="button">OWoP: losuj 3 zagadnienia z 122</button><button class="btn big" id="f-real" type="button">OWoP: zestaw z finału 2021</button></div>
+    <p class="small muted">Mów na głos. W Claude możesz podyktować wypowiedź (albo wpisać jej punkty), a po zakończeniu Claude oceni ją według kryteriów regulaminu; zawsze możesz też ocenić się sam i porównać z gotową odpowiedzią z karty.</p></div>
+    <div class="panel stack"><h2>III etap OWoPiP – część ustna</h2><p>10 najlepszych z testu losuje 3 pytania; 5 minut przygotowania, każde pytanie 0–10 pkt. Losowanie ze 134 pytań ustnych III etapu OWoPiP (2011/12–2014/15 i 2018/19).</p><div class="row"><button class="btn pri big" id="f-pip" type="button">OWoPiP: losuj 3 pytania</button></div></div>
+    ${hist.length?`<h3>Ostatnie próby</h3><div class="scroll"><table><tr><th>Data</th><th>Zestaw</th><th class="num">Punkty</th></tr>${hist.map(t=>`<tr><td>${new Date(t.d).toLocaleDateString('pl-PL')}</td><td class="small">${t.ids.map(esc).join(', ')}</td><td class="num">${t.sc}/${t.mx||45}</td></tr>`).join('')}</table></div>`:''}`;
+    $('#f-rand').onclick=()=>{const F=DATA.cards.filter(c=>/^F-\d+$/.test(c.i));const pick=[];while(pick.length<3){const c=F[Math.floor(Math.random()*F.length)];if(!pick.includes(c))pick.push(c)}startFinal(pick.map(c=>({q:c.q.replace(/^Finał – zagadnienie \d+: /,''),refs:[c.i]})),'losowanie')};
+    $('#f-real').onclick=()=>{const Z=DATA.cards.filter(c=>c.i.startsWith('ZS-'));const z=Z[Math.floor(Math.random()*Z.length)];
+      const qs=z.q.split('<br>').slice(1).map(s=>s.replace(/^\d+\.\s*/,''));const refs=z.a.split('<br>').map(s=>(s.match(/[A-Z]{1,2}\d{0,2}-\d{2,3}[a-z0-9]?/g)||[]).filter(x=>CARD[x]));
+      startFinal(qs.map((q,i)=>({q,refs:refs[i]||[]})),z.i)};
+    $('#f-pip').onclick=()=>{const D=DATA.cards.filter(c=>c.g.includes('pytanie_problemowe')&&c.d==='f');const pick=[];while(pick.length<3&&pick.length<D.length){const c=D[Math.floor(Math.random()*D.length)];if(!pick.includes(c))pick.push(c)}startFinal(pick.map(c=>({q:c.q,refs:[c.i]})),'OWoPiP','p')};
+    return;
+  }
+  const ph=FIN.phase;let h=`<div class="sesbar"><span class="mono">Zestaw: ${esc(FIN.name)}</span>${ph==='prep'||ph==='talk'?`<span class="timer" id="fclock"></span>`:''}</div>`;
+  h+=`<div class="stack">`+FIN.qs.map((q,i)=>`<div class="topic"><div><span class="no">Pytanie ${i+1}</span></div><div class="q">${esc(q.q)}</div>`+
+    (ph!=='prep'?`<label class="small" for="ft-${i}">Twoja wypowiedź${DICT?' – dyktuj albo wpisz':' – wpisz najważniejsze punkty'}${AI?'; Claude oceni ją według kryteriów':''}</label><textarea id="ft-${i}" data-ft="${i}" rows="4">${esc(FIN.txt[i]||'')}</textarea><div class="live small" id="flive-${i}" aria-live="polite"></div>${DICT?`<div class="row"><button class="btn mic" data-mic="${i}" type="button" aria-pressed="false">🎤 Dyktuj</button></div>`:''}`:'')+
+    (ph==='grade'&&AI&&(FIN.txt[i]||'').trim().length>=20&&!AIG['f'+i]?`<div class="row"><button class="btn" data-aif="${i}" type="button">Oceń z Claude</button></div>`:'')+
+    (ph==='grade'?aiBox('f'+i):'')+
+    (ph==='grade'?`<div class="crit">${(FIN.mode==='p'?[['pk','Ocena odpowiedzi',10]]:CRIT).map(([k,n,mx])=>`<label for="cr-${i}-${k}">${n} <span class="muted">(0–${mx})</span></label><span class="mono"><b id="cv-${i}-${k}">${FIN.sc[i][k]}</b></span><input type="range" id="cr-${i}-${k}" min="0" max="${mx}" step="1" value="${FIN.sc[i][k]}" data-i="${i}" data-k="${k}" style="grid-column:1/-1">`).join('')}</div>
+    <details><summary>Gotowa odpowiedź z kart (${q.refs.map(esc).join(', ')||'brak karty'})</summary>${q.refs.map(id=>{const c=CARD[id];return c?`<div class="ans">${c.t==='m'?c.q+'<br>'+c.e:c.a}</div>${c.x?`<div class="exp">${c.x}</div>`:''}`:''}).join('')}</details>`:'')+`</div>`).join('')+`</div>`;
+  if(ph==='prep')h+=`<div class="row"><button class="btn pri big" id="f-talk" type="button">Zaczynam odpowiadać</button><span class="small muted">Przygotowanie: ${FIN.mode==='p'?'5 min':'ok. 10 min'}.</span></div>`;
+  if(ph==='talk')h+=`<div class="row"><button class="btn pri big" id="f-grade" type="button">Skończyłem – oceniam</button><span class="small muted">Wypowiedź: do ok. 10 min na 3 pytania.</span></div>`;
+  if(ph==='grade'){const tot=finTot();
+    h+=`<div class="panel row"><div class="score" id="ftot">${tot}/${finMax()}</div><div class="small" id="fverd">${finVerdict(tot)}</div>${AI&&FIN.qs.some((q,i)=>(FIN.txt[i]||'').trim().length>=20)?'<button class="btn" id="f-aiall" type="button">Oceń wszystkie z Claude</button>':''}<button class="btn pri" id="f-save" type="button">Zapisz wynik</button><button class="btn" id="f-new" type="button">Nowe losowanie</button></div>`}
+  el.innerHTML=h;
+  el.querySelectorAll('textarea[data-ft]').forEach(t=>t.oninput=()=>{FIN.txt[+t.dataset.ft]=t.value});
+  el.querySelectorAll('.mic').forEach(b=>b.onclick=()=>{if(!DICT)return;const i=+b.dataset.mic;
+    if(DICT.active()&&DT===i){DICT.stop().catch(()=>{});return}
+    if(DICT.active()){DT=i;document.querySelectorAll('.mic').forEach(x=>{const me=+x.dataset.mic===i;x.setAttribute('aria-pressed',me?'true':'false');x.textContent=me?'■ Zatrzymaj':'🎤 Dyktuj'});return}
+    DT=i;DICT.start({language:'pl'}).catch(e=>{const c=e&&e.code;if(c==='not_granted'){DICT=null;toast('Dyktowanie jest wyłączone – możesz wpisać odpowiedź');reAI()}else if(c!=='dismissed'&&c!=='stopped')toast('Dyktowanie nie ruszyło – spróbuj ponownie')})});
+  el.querySelectorAll('[data-aif]').forEach(b=>b.onclick=()=>aiFinal(+b.dataset.aif));
+  if($('#f-aiall'))$('#f-aiall').onclick=async()=>{const F=FIN;for(let i=0;i<F.qs.length;i++){if(FIN!==F||!AI)break;if((F.txt[i]||'').trim().length>=20&&!(AIG['f'+i]&&AIG['f'+i].res))await aiFinal(i)}};
+  if($('#f-talk'))$('#f-talk').onclick=()=>{FIN.phase='talk';FIN.t0=Date.now();rFinal()};
+  if($('#f-grade'))$('#f-grade').onclick=()=>{if(DICT&&DICT.active())DICT.stop().catch(()=>{});FIN.phase='grade';clearInterval(rFinal._iv);rFinal()};
+  el.querySelectorAll('input[type=range]').forEach(r=>r.oninput=()=>{FIN.sc[+r.dataset.i][r.dataset.k]=+r.value;$('#cv-'+r.dataset.i+'-'+r.dataset.k).textContent=r.value;
+    const tot=finTot();$('#ftot').textContent=tot+'/'+finMax();$('#fverd').innerHTML=finVerdict(tot)});
+  if($('#f-save'))$('#f-save').onclick=()=>{const tot=finTot();M.finals.push({d:Date.now(),ids:FIN.qs.flatMap(q=>q.refs).slice(0,6),sc:tot,mx:finMax(),set:FIN.name});metaDirty=true;persist();toast('Wynik zapisany');FIN=null;rFinal()};
+  if($('#f-new'))$('#f-new').onclick=()=>{FIN=null;rFinal()};
+  tickFinal();
+}
+function finTot(){return FIN.mode==='p'?FIN.sc.reduce((a,s)=>a+(s.pk||0),0):FIN.sc.reduce((a,s)=>a+CRIT.reduce((b,[k])=>b+s[k],0),0)}
+function finMax(){return FIN.mode==='p'?30:45}
+function finVerdict(t){if(FIN&&FIN.mode==='p')return t>=24?'<b>Bardzo dobry wynik</b> – laureatami zostaje 10 najlepszych (o kolejności decyduje suma z testu i części ustnej)':t>=15?'<b>Dobry wynik</b> – finalistą jest uczestnik III etapu z co najmniej 20 pkt łącznie':'Słaby wynik – powtórz pytania problemowe';return t>=25?'<b>Poziom laureata</b> (min. 25 pkt wg § 12 ust. 4 regulaminu)':t>=15?'<b>Poziom finalisty</b> (min. 15 pkt)':'Poniżej progu finalisty (15 pkt)'}
+function aiFinal(i){const F=FIN;if(!F)return;const q=F.qs[i];const pip=F.mode==='p';
+  return aiGrade('f'+i,{org:pip?'III etapu (części ustnej) Ogólnopolskiej Olimpiady Wiedzy o Państwie i Prawie':'finału Olimpiady Wiedzy o Prawie (wypowiedź ustna na wylosowane zagadnienie)',oral:true,q:strip(q.q),ref:refText(q.refs)||'(brak odpowiedzi wzorcowej – oceń według obowiązującego prawa)',ans:F.txt[i]||'',
+    max:pip?10:15,crit:pip?null:CRIT,rubric:'9–10 – pełna, uporządkowana odpowiedź z podstawą prawną i przykładami; 6–8 – dobra z brakami; 3–5 – częściowa; 1–2 – fragmentaryczna; 0 – brak lub błędna',
+    apply:r=>{if(FIN!==F)return;if(pip)F.sc[i].pk=r.punkty;else for(const [k] of CRIT)F.sc[i][k]=r.kryteria[k]}})}
+function startFinal(qs,name,mode){for(const k in AIG)if(k[0]==='f')delete AIG[k];if(DICT&&DICT.active())DICT.stop().catch(()=>{});DT=null;FIN={qs,name,mode:mode||'',phase:'prep',t0:Date.now(),txt:qs.map(()=>''),sc:qs.map(()=>({meritum:0,org:0,styl:0,popr:0,pk:0}))};clearInterval(rFinal._iv);rFinal._iv=setInterval(tickFinal,1000);rFinal()}
+function tickFinal(){const el=$('#fclock');if(!FIN||!el)return;const lim=(FIN.mode==='p'&&FIN.phase==='prep'?5:10)*MIN,used=Date.now()-FIN.t0,l=lim-used;el.textContent=(l>=0?fmtClock(l):'+'+fmtClock(-l));el.classList.toggle('low',l<MIN)}
+
+/* ===== Widok: Karty ===== */
+function rBrowse(){
+  const el=$('#v-karty');const f=rBrowse.f||(rBrowse.f={q:'',st:'',sub:'',tag:'',status:''});
+  if(!el.dataset.built){
+    const tags=Object.keys(TOPICS).filter(t=>DATA.cards.some(c=>c.g.includes(t)));
+    el.innerHTML=`<div class="panel stack"><h2>Wszystkie karty</h2>
+    <div class="row"><input type="search" id="bq" placeholder="Szukaj w treści, np. ławnik, art. 118" style="flex:1;min-width:200px">
+    <select id="bst"><option value="">Wszystkie etapy</option>${['s','o','f'].map(k=>`<option value="${k}">${STAGES[k].name}</option>`).join('')}</select>
+    <select id="btag"><option value="">Wszystkie działy</option><option value="pulapka">Pułapki</option><option value="uwaga">Z ramką „Uwaga”</option><option value="prognoza">Prognoza XXIX</option><option value="rozszerzenie">Rozszerzenie bazy</option>${tags.map(t=>`<option value="${t}">${TOPICS[t]}</option>`).join('')}</select>
+    <select id="bstat"><option value="">Każdy stan</option><option value="new">Nowe</option><option value="lrn">W nauce</option><option value="rev">Powtórki</option><option value="hard">Trudne (≥2 pomyłki)</option></select></div>
+    <div class="row"><span class="small muted" id="bcount"></span><button class="btn" id="bpractice" type="button">Ćwicz wyniki (bez wpływu na powtórki)</button></div></div><div id="blist" class="list"></div>`;
+    el.dataset.built=1;
+    const upd=()=>{f.q=$('#bq').value;f.st=$('#bst').value;f.tag=$('#btag').value;f.status=$('#bstat').value;listBrowse()};
+    ['#bq','#bst','#btag','#bstat'].forEach(s=>$(s).addEventListener('input',upd));
+    $('#bpractice').onclick=()=>{const r=filterBrowse();if(!r.length)return;const a=r.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}startSession(null,a.slice(0,60))};
+  }
+  listBrowse();
+}
+function filterBrowse(){const f=rBrowse.f;const q=f.q.trim().toLowerCase();
+  return DATA.cards.filter(c=>{if(f.st&&c.d!==f.st)return false;
+    if(f.tag){if(f.tag==='uwaga'){if(!c.u)return false}else if(!c.g.includes(f.tag))return false}
+    const p=P[c.i];if(f.status==='new'&&!isNew(p))return false;if(f.status==='lrn'&&(isNew(p)||p[0]===2))return false;if(f.status==='rev'&&!(p&&p[0]===2))return false;if(f.status==='hard'&&!(p&&p[5]>=2))return false;
+    if(q){const txt=(c.i+' '+c.q+' '+(c.o||[]).join(' ')+' '+(c.a||'')+' '+(c.e||'')+' '+(c.x||'')).toLowerCase();if(!q.split(/\s+/).every(w=>txt.includes(w)))return false}
+    return true})}
+function listBrowse(){const r=filterBrowse();$('#bcount').textContent=`${r.length} ${plural(r.length,'karta','karty','kart')}${r.length>200?' (pokazano 200)':''}`;
+  $('#blist').innerHTML=r.length?r.slice(0,200).map(c=>{const p=P[c.i];const st=isNew(p)?'<span class="st new">nowa</span>':p[0]===2?`<span class="st rev">${p[2]} d</span>`:'<span class="st lrn">w nauce</span>';
+    return `<button class="item" data-open="${c.i}" type="button"><span class="mono">${esc(c.i)}</span><span class="t">${esc(strip(c.q))}</span>${st}</button>`}).join(''):'<div class="empty">Nic nie pasuje do filtrów.</div>';
+  bindIdLinks($('#blist'))}
+
+/* ===== Konstytucja ===== */
+let KONST=null;
+const CHT={I:'Rzeczpospolita',II:'Wolności, prawa i obowiązki człowieka i obywatela',III:'Źródła prawa',IV:'Sejm i Senat',V:'Prezydent Rzeczypospolitej Polskiej',VI:'Rada Ministrów i administracja rządowa',VII:'Samorząd terytorialny',VIII:'Sądy i Trybunały',IX:'Organy kontroli państwowej i ochrony prawa',X:'Finanse publiczne',XI:'Stany nadzwyczajne',XII:'Zmiana Konstytucji',XIII:'Przepisy przejściowe i końcowe'};
+async function loadKonst(){if(KONST)return KONST;try{const r=await fetch('konst.json',{cache:'no-cache'});KONST=await r.json()}catch(e){KONST=null}return KONST}
+function konstLinks(h){return String(h||'').replace(/\b([Aa]rt\.\s*)(\d{1,3}[a-z]?)((?:\s*(?:ust\.|pkt|zd\.)\s*\d+[a-z]?)*(?:\s*(?:i|oraz|,|–|-)\s*\d{1,3}[a-z]?(?:\s*ust\.\s*\d+)?)*)(\s+Konstytucji)/g,(m,a,n,rest,k)=>`<span class="idlink" data-art="${n}">${a}${n}${rest}${k}</span>`)}
+function artHtml(n){const a=KONST&&KONST.a[n];if(!a)return '<p class="muted">Brak artykułu.</p>';
+  return `<div class="ans"><b>Art. ${esc(n)}.</b> ${a.t.map(x=>/^\d+\)/.test(x)?`<div style="padding-left:1.4em">${esc(x)}</div>`:`<div>${esc(x)}</div>`).join('')}</div>`}
+async function openArt(n){await loadKonst();const a=KONST&&KONST.a[n];const ch=a?KONST.ch.find(c=>c.no===a.ch):null;
+  const m=$('#modal');m.innerHTML=`<div class="card"><div class="cardtop"><span class="src">Konstytucja RP${ch?` · rozdział ${ch.no} – ${esc(CHT[ch.no]||ch.title)}`:''}${a&&a.sec?` · ${esc(a.sec)}`:''}</span></div>${artHtml(n)}<div class="row"><button class="btn" id="a-prev" type="button">← art. ${esc(String(+n-1))}</button><button class="btn" id="a-next" type="button">art. ${esc(String(+n+1))} →</button><button class="btn" id="m-close" type="button">Zamknij</button></div></div>`;
+  m.hidden=false;m.onclick=e=>{if(e.target===m)closeModal()};$('#m-close').onclick=closeModal;
+  $('#a-prev').disabled=!(KONST&&KONST.a[String(+n-1)]);$('#a-next').disabled=!(KONST&&KONST.a[String(+n+1)]);
+  $('#a-prev').onclick=()=>openArt(String(+n-1));$('#a-next').onclick=()=>openArt(String(+n+1))}
+async function rKonst(){
+  const el=$('#v-konstytucja');if(!KONST){el.innerHTML='<div class="empty">Wczytywanie Konstytucji…</div>';await loadKonst();if(!KONST){el.innerHTML='<div class="empty">Nie udało się wczytać tekstu.</div>';return}}
+  const q=rKonst.q||'',open=rKonst.open;
+  let h=`<div class="panel stack"><h2>Konstytucja Rzeczypospolitej Polskiej</h2><p class="small muted">z dnia 2 kwietnia 1997 r. (Dz.U. 1997 nr 78 poz. 483 ze zm.) – tekst ujednolicony z ISAP. Regulamin olimpiady zaleca znajomość całego tekstu (§ 9 ust. 2).</p>
+  <div class="row"><input type="search" id="kq" placeholder="Szukaj w Konstytucji, np. wotum, 30 dni, Rzecznik" value="${esc(q)}" style="flex:1;min-width:200px"><input type="number" id="kn" placeholder="nr art." min="1" max="243" style="width:100px"><button class="btn" id="kgo" type="button">Pokaż artykuł</button></div></div>`;
+  if(q.trim().length>=2){const ws=q.toLowerCase().split(/\s+/).filter(Boolean);
+    const hits=Object.entries(KONST.a).filter(([n,a])=>{const t=a.t.join(' ').toLowerCase();return ws.every(w=>t.includes(w))});
+    h+=`<p class="small muted">Wyniki: ${hits.length}</p><div class="stack">${hits.slice(0,60).map(([n])=>`<div class="topic">${artHtml(n)}</div>`).join('')||'<div class="empty">Brak wyników.</div>'}</div>`}
+  else{
+    h+=`<details class="panel"><summary>Preambuła</summary><p class="ans">${esc(KONST.pre)}</p></details>`;
+    h+=KONST.ch.map(c=>`<details class="panel" data-ch="${c.no}" ${open===c.no?'open':''}><summary><b>Rozdział ${c.no}</b> – ${esc(CHT[c.no]||c.title)} <span class="muted small">(art. ${c.arts[0]}–${c.arts[c.arts.length-1]})</span></summary><div class="stack" style="margin-top:10px">${open===c.no?chapterHtml(c):''}</div></details>`).join('');
+  }
+  el.innerHTML=h;
+  const kq=$('#kq');kq.oninput=()=>{rKonst.q=kq.value;clearTimeout(rKonst._t);rKonst._t=setTimeout(()=>{rKonst();const k=$('#kq');k.focus();k.setSelectionRange(k.value.length,k.value.length)},250)};
+  $('#kgo').onclick=()=>{const n=$('#kn').value.trim();if(n)openArt(n)};
+  el.querySelectorAll('details[data-ch]').forEach(d=>d.addEventListener('toggle',()=>{if(d.open){rKonst.open=d.dataset.ch;const c=KONST.ch.find(x=>x.no===d.dataset.ch);const box=d.querySelector('.stack');if(!box.innerHTML)box.innerHTML=chapterHtml(c)}}));
+}
+function chapterHtml(c){let h='',sec=null;for(const n of c.arts){const a=KONST.a[n];if(a.sec&&a.sec!==sec){sec=a.sec;h+=`<h3>${esc(sec)}</h3>`}h+=artHtml(n)}return h}
+
+/* ===== Widok: Postępy ===== */
+function rStats(){
+  const el=$('#v-postepy'),now=Date.now();
+  const by={s:[0,0,0,0],o:[0,0,0,0],f:[0,0,0,0]};
+  for(const c of DATA.cards){const p=P[c.i];const a=by[c.d];if(isNew(p))a[0]++;else if(p[0]!==2)a[1]++;else if(p[2]>=7)a[3]++;else a[2]++}
+  const td=dstat(today());const acc=td.r?Math.round(100*td.ok/td.r):0;
+  let h=`<div class="tiles"><div class="tile"><b>${td.r}</b><span>odpowiedzi dziś</span></div><div class="tile"><b>${td.r?acc+'%':'—'}</b><span>poprawnych dziś</span></div><div class="tile"><b>${streak()}</b><span>dni z rzędu</span></div><div class="tile"><b>${Math.round(td.ms/60000)} min</b><span>czas nauki dziś</span></div></div>`;
+  h+=`<h3>Stan kart</h3><div class="scroll"><table><tr><th>Etap</th><th class="num">Nowe</th><th class="num">Nauka</th><th class="num">Młode</th><th class="num" title="odstęp co najmniej 7 dni">Dojrzałe</th><th>Opanowane</th></tr>${['s','o','f'].map(k=>{const a=by[k],t=a[0]+a[1]+a[2]+a[3];const pct=t?Math.round(100*(a[2]+a[3])/t):0;return `<tr><td>${STAGES[k].name}</td><td class="num">${a[0]}</td><td class="num">${a[1]}</td><td class="num">${a[2]}</td><td class="num">${a[3]}</td><td><div class="meter" title="${pct}%"><i style="width:${pct}%"></i></div></td></tr>`}).join('')}</table></div>`;
+  const days=[];for(let i=29;i>=0;i--){const t=dayStart(dayNum(now)-i)+HOUR;days.push([dayKey(t),(M.days[dayKey(t)]||{}).r||0])}
+  const mx=Math.max(1,...days.map(d=>d[1]));
+  h+=`<h3>Odpowiedzi – ostatnie 30 dni</h3><div class="panel"><div class="bars">${days.map(([k,v])=>`<div class="${v?'':'zero'}" style="height:${Math.max(2,Math.round(100*v/mx))}%" title="${k}: ${v}"></div>`).join('')}</div><div class="axis"><span>${days[0][0].slice(5)}</span><span>maks. ${mx}</span><span>dziś</span></div></div>`;
+  const fut=[];for(let i=0;i<14;i++){const s0=i===0?0:dayStart(dayNum(now)+i),s1=dayStart(dayNum(now)+i+1);let n=0;for(const k in P){const p=P[k];if(!isNew(p)&&p[1]>=s0&&p[1]<s1)n++}fut.push(n)}
+  const mf=Math.max(1,...fut);
+  h+=`<h3>Powtórki na najbliższe 14 dni</h3><div class="panel"><div class="bars">${fut.map((v,i)=>`<div class="${v?'':'zero'}" style="height:${Math.max(2,Math.round(100*v/mf))}%" title="${i===0?'dziś':'za '+i+' d'}: ${v}"></div>`).join('')}</div><div class="axis"><span>dziś</span><span>maks. ${mf}</span><span>+13 d</span></div></div>`;
+  const rows=Object.entries(M.tags).filter(([g,v])=>TOPICS[g]&&v[1]>=5).sort((a,b)=>a[1][0]/a[1][1]-b[1][0]/b[1][1]);
+  h+=`<h3>Działy – skuteczność</h3>${rows.length?`<div class="scroll"><table><tr><th>Dział</th><th class="num">Dobrze</th><th>Skuteczność</th></tr>${rows.map(([g,v])=>{const p=Math.round(100*v[0]/v[1]);return `<tr><td>${esc(TOPICS[g])}</td><td class="num">${v[0]}/${v[1]}</td><td><div class="meter"><i style="width:${p}%;${p<60?'background:var(--bad)':p<80?'background:var(--warn)':''}"></i></div></td></tr>`}).join('')}</table></div><p class="small muted">Najsłabsze działy są na górze. Kliknij „Karty”, wybierz dział i ćwicz.</p>`:'<p class="muted small">Pojawi się po kilkudziesięciu odpowiedziach.</p>'}`;
+  if(Cloud.mode==='firebase'&&Cloud.uid){
+    const rowsB=(Cloud.boardRows||[]).sort((a,b)=>(b.learned||0)-(a.learned||0));
+    h+=`<h3>Znajomi</h3>${S().board?'':'<p class="small muted">Włącz pokazywanie siebie w Opcjach, żeby dołączyć do zestawienia.</p>'}${rowsB.length?`<div class="scroll"><table><tr><th>Osoba</th><th class="num">Opanowane</th><th class="num">Seria</th><th class="num">Dziś</th><th class="num">Test szk.</th></tr>${rowsB.map(r=>`<tr><td>${esc(r.nick||'Bez nazwy')}${r.id===Cloud.uid?' (Ty)':''}</td><td class="num">${r.learned||0}</td><td class="num">${r.streak||0}</td><td class="num">${r.today||0}</td><td class="num">${r.best&&r.best.s!=null?r.best.s+'/30':'—'}</td></tr>`).join('')}</table></div>`:''}`;
+  }
+  el.innerHTML=h;
+}
+
+/* ===== Widok: O olimpiadzie ===== */
+function rInfo(){
+  const nA=DATA.cards.filter(c=>c.i[0]==='A').length,nD=DATA.cards.filter(c=>c.i[0]==='D').length,nT=DATA.cards.filter(c=>c.i.startsWith('T-')).length,nL=LES?LES.lessons.length:0;
+  $('#v-olimpiada').innerHTML=`<div class="panel stack"><h2>Jeden kurs – dwie olimpiady</h2>
+  <p>Kurs przygotowuje do <b>Ogólnopolskiej Olimpiady Wiedzy o Prawie (OWoP)</b> i <b>Ogólnopolskiej Olimpiady Wiedzy o Państwie i Prawie (OWoPiP)</b>. Etapy obu olimpiad wypadają w podobnych terminach, więc karty podzielono na trzy wspólne etapy. Zakresy w dużej części się pokrywają (Konstytucja, teoria prawa, prawo cywilne, karne, administracyjne, prawa człowieka); OWoPiP dodaje m.in. prawo UE, zawody prawnicze, prawo gospodarcze i prawo pracy.</p></div>
+  <div class="scroll"><table><tr><th>Etap kursu</th><th>OWoP</th><th>OWoPiP</th></tr>
+  <tr><td>1 – szkolny</td><td>24 XI 2026, 10:00 – test 30 pkt, 45 min, próg 25 pkt</td><td>2 XII 2026 – test 50 pytań (a–c), 60 min, awans od 30 pkt</td></tr>
+  <tr><td>2 – okręgowy</td><td>6 III 2027 – test 30 pkt + egzamin pisemny 20 pkt</td><td>10 III 2027 – test 50 pytań + 6 pytań problemowych (0–5 pkt), 120 min; do finału 30 najlepszych</td></tr>
+  <tr><td>3 – finał</td><td>10 IV 2027 – ustny, 3 pytania × 15 pkt</td><td>21 IV 2027 – test 50 pytań wielokrotnego wyboru, 60 min (punkt tylko za komplet poprawnych); 10 najlepszych – część ustna: 3 pytania, 5 min przygotowania, 0–10 pkt każde</td></tr></table></div>
+  <div class="panel stack"><h3>OWoPiP – najważniejsze informacje</h3><ul><li>Organizator: WSPiA Rzeszowska Szkoła Wyższa we współpracy z Podkarpackim Kuratorem Oświaty (<a href="https://olimpiada.wspia.eu" target="_blank" rel="noopener">olimpiada.wspia.eu</a>). Rekrutacja na edycję 2026/27: 27 X – 28 XI 2026.</li><li>Laureaci – 10 najlepszych w III etapie; finaliści – pozostali uczestnicy III etapu z co najmniej 20 pkt (§ 10 regulaminu).</li><li>Nagrody: miejsca I–II – bezpłatne studia w WSPiA i akademik przez 5 lat; III–V – bezpłatne studia; VI–X – zniżka 50%; finaliści – przyjęcie bez opłat rekrutacyjnych.</li><li>Zakres I etapu: WOS, historia państwa i prawa, prawoznawstwo, nauka o państwie, prawa człowieka, prawo konstytucyjne, karne, cywilne, międzynarodowe i UE; akty: Konstytucja, ustawa o obywatelstwie polskim, KK (część ogólna), KC (księga I).</li><li>II etap dodatkowo: zawody prawnicze, prawo gospodarcze, postępowanie administracyjne; akty: ustawa o repatriacji, o sejmowej komisji śledczej, o stanie klęski żywiołowej, Prawo o adwokaturze, KC (księgi II i IV), Prawo przedsiębiorców, KSH (tytuły I i II), KPA.</li><li>III etap dodatkowo: prawo pracy (KP części I, VI, VII), ustawa o radcach prawnych, przewodnik ETPC po kryteriach dopuszczalności skarg oraz materiały z I i II etapu.</li><li>Analiza testów 2011–2026: organizator powtarza pytania między etapami i edycjami (np. w II etapie 2025/26 pytania z KK z I etapu). W kursie jest ${nA} pytań z 23 testów (2011/12–2018/19 i 2025/26) i ${nD} pytań problemowych i ustnych z planami odpowiedzi. Odpowiedzi do starszych testów poprawiono według obecnego prawa (tag „aktualne”, w ramce Uwaga – co podawał dawny klucz).</li><li>Organizatorzy co roku układają w większości nowe pytania z tych samych aktów. Dlatego kurs ma też ${nT} pytań z przepisów, o które dotąd nie pytano (podtalia „Przepisy kluczowe spoza testów”): Konstytucja, KC, KK, KPK, KPA, KSH, KP, KRO, Prawo przedsiębiorców, Kodeks wyborczy oraz akty wymienione w regulaminie OWoPiP: ustawa o obywatelstwie polskim, Prawo o adwokaturze, ustawa o radcach prawnych, ustawy o repatriacji, o sejmowej komisji śledczej i o stanie klęski żywiołowej.</li><li>Klucz OWoPiP konsekwentnie traktuje tajność jako cechę głosowania, nie wyborów (Konstytucja: wybory „powszechne, równe, bezpośrednie … oraz w głosowaniu tajnym”) – na teście nie zaznaczaj „wybory są tajne”.</li></ul></div>
+  <div class="panel stack"><h2>XXIX Ogólnopolska Olimpiada Wiedzy o Prawie (OWoP)</h2>
+  <p>Organizator: Komitet Główny przy II Społecznym LO im. Toniego Halika w Ostrołęce (<a href="https://olimpiada.slo2.pl" target="_blank" rel="noopener">olimpiada.slo2.pl</a>). Dane z regulaminu XXIX edycji i harmonogramu na stronie organizatora (sprawdzone 11 XI 2026).</p></div>
+  <div class="scroll"><table><tr><th>Etap</th><th>Termin</th><th>Forma</th><th>Próg</th></tr>
+  <tr><td>Szkolny</td><td>24 XI 2026, 10:00</td><td>test wiedzy prawniczej: 30 pkt, 45 min (klucz ok. 11:00 na stronie)</td><td>min. 25 pkt (§ 5 ust. 7)</td></tr>
+  <tr><td>Okręgowy</td><td>6 III 2027, 10:00</td><td>test 30 pkt, 45 min; potem pisemny egzamin prawniczy 20 pkt, 60 min (start najpóźniej 13:00)</td><td>do egzaminu min. 20 pkt z testu; do finału łącznie min. 40 pkt, maks. 60 osób (§ 5 ust. 11–17)</td></tr>
+  <tr><td>Finał</td><td>10 IV 2027, 8:00</td><td>ustny: losowany zestaw 3 pytań, ok. 10 min przygotowania, do ok. 10 min odpowiedzi, 3 × 15 pkt</td><td>finalista min. 15 pkt; laureat min. 25 pkt (§ 12 ust. 4) – § 5 ust. 24 mówi o połowie uczestników z najlepszymi wynikami</td></tr></table></div>
+  <div class="panel stack"><h3>Jak oceniają finał</h3><ul><li>Meritum wypowiedzi – 5 pkt, organizacja wypowiedzi – 3 pkt, styl i język prawniczy – 2 pkt, poprawność merytoryczna – 5 pkt (zał. nr 8 do regulaminu).</li><li>Jury nie przerywa wypowiedzi. Nie wolno korzystać z własnych materiałów; notatki tylko na kartce od komisji.</li><li>Odpowiedzi ocenia się według aktualnego stanu prawnego (§ 5 ust. 10) – klucz jest dla komisji pomocniczy.</li><li>Odwołanie: od wyniku etapu szkolnego i okręgowego – 1 dzień roboczy; w finale – 30 minut od ogłoszenia wyniku.</li></ul></div>
+  <div class="panel stack"><h3>Zakres i zalecane akty</h3><ul><li>Prawo konstytucyjne, administracyjne, cywilne, karne, rodzinne i opiekuńcze, kanoniczne, gospodarcze oraz WOS na poziomie rozszerzonym (§ 8).</li><li>Zalecane akty (§ 9 ust. 2): Konstytucja RP, Regulamin Sejmu, ustawy o samorządzie gminnym, powiatowym i województwa, Kodeks prawa kanonicznego, Kodeks rodzinny i opiekuńczy.</li><li>Etap okręgowy dodatkowo: uniwersalny system ochrony praw człowieka; finał: system europejski (EKPC z protokołami, Europejska Karta Społeczna, orzecznictwo ETPC) i 122 zagadnienia z programu.</li><li>Organizator poleca dwa wykłady wideo na swojej stronie (m.in. funkcje prawa karnego, sprawy nieletnich, prawa konsumentów, prawo rodzinne).</li></ul></div>
+  <div class="panel stack"><h3>Laureaci i finaliści</h3><ul><li>Zaświadczenie dla każdego laureata i finalisty; laureat I nagrody dostaje statuetkę Temidy.</li><li>Uczelnie (m.in. UW, Uniwersytet w Białymstoku, KUL) mogą przyjmować na studia bez postępowania kwalifikacyjnego lub na preferencyjnych zasadach – decyduje senat uczelni.</li><li>Sam tytuł nie zwalnia z matury – zwolnienia wynikają tylko z ustawy o systemie oświaty.</li></ul></div>
+  <div class="panel stack"><h3>Czego uczy analiza testów 2016–2026</h3><ul><li>Organizator często powtarza pytania: w teście szkolnym z 2025 r. 60%, a w okręgowym 77% pytań padło już wcześniej, najczęściej w testach okręgowych sprzed 1–4 lat. Dlatego testy archiwalne idą w nauce na początek.</li><li>Najczęstsze działy etapu szkolnego: Konstytucja, teoria prawa, sądy, prawo cywilne, karne, łacina. Okręgowego: prawo cywilne, Konstytucja, karne.</li><li>„Żadna z powyższych” jest w co czwartym pytaniu i wtedy bywa poprawna mniej więcej co czwarty raz. Dużo pytań o liczby, terminy i organy.</li><li>Egzamin pisemny wraca do tematów sprzed 2–4 lat; od 2026 r. pyta „wyjaśnij na podstawie KC/KK pojęcie”.</li></ul></div>
+  <div class="panel stack"><h3>Jak działają powtórki</h3><ul><li>Nowa karta wraca po 1 i 10 minutach, potem po 1 dniu. Każda dobra odpowiedź wydłuża odstęp (ok. 2,5 raza), zła cofa kartę do nauki.</li><li>Odstęp nigdy nie przekracza połowy czasu do najbliższego etapu ani limitu z Opcji (domyślnie 21 dni) – każda karta wróci przed olimpiadą.</li><li>Liczba nowych kart dziennie wylicza się sama z liczby kart i dni do etapu; można ją ustawić ręcznie.</li></ul></div>`;
+}
+
+/* ===== Widok: Opcje ===== */
+function rOpts(){
+  const s=S(),el=$('#v-opcje');const auto=newLimit(s.stage);
+  let acct='';
+  if(Cloud.mode==='claude')acct=`<p>Postępy zapisują się na Twoim koncie Claude – widzisz je na każdym urządzeniu, na którym otwierasz tę stronę po zalogowaniu.</p>`;
+  else if(Cloud.mode==='firebase')acct=Cloud.uid?`<p>Zalogowano jako <b>${esc(Cloud.user&&Cloud.user.name||'')}</b> ${Cloud.user&&Cloud.user.email?'('+esc(Cloud.user.email)+')':''}. Postępy zapisują się na koncie i synchronizują między urządzeniami.</p><div class="row"><button class="btn" id="o-logout" type="button">Wyloguj</button></div>`:`<p>Zaloguj się kontem Google, żeby zapisywać postępy na koncie i mieć je na każdym urządzeniu. Bez logowania postęp zostaje tylko w tej przeglądarce.</p><div class="row"><button class="btn pri" id="o-login" type="button">Zaloguj przez Google</button></div>`;
+  else acct=`<p>Postęp zapisuje się tylko w tej przeglądarce. Aby przenieść go na inne urządzenie, użyj kodu postępu poniżej.</p>`;
+  el.innerHTML=`<div class="panel stack"><h2>Zapis postępów</h2>${acct}</div>
+  <div class="panel stack"><h2>Nauka</h2>
+   <div class="row"><label for="o-newmode">Nowe karty dziennie</label><select id="o-newmode"><option value="auto">automatycznie (teraz ${auto})</option><option value="man">ręcznie</option></select><input type="number" id="o-new" min="0" max="300" value="${s.newPerDay}" style="width:90px" ${s.newMode==='auto'?'disabled':''}></div>
+   <div class="row"><label for="o-max">Najdłuższy odstęp między powtórkami</label><input type="number" id="o-max" min="2" max="120" value="${s.maxIvl}" style="width:90px"><span class="small muted">dni (i nie dłużej niż połowa czasu do etapu)</span></div>
+   ${window.claude?'':`<div class="row"><label for="o-theme">Motyw</label><select id="o-theme"><option value="system">systemowy</option><option value="light">jasny</option><option value="dark">ciemny</option></select></div>`}
+  </div>
+  ${Cloud.mode==='firebase'&&Cloud.uid?`<div class="panel stack"><h2>Zestawienie znajomych</h2><p class="small muted">Inne zalogowane osoby z linkiem zobaczą Twój pseudonim i liczby (opanowane karty, seria dni, wynik testu). Treść odpowiedzi nie jest udostępniana.</p><div class="row"><input type="text" id="o-nick" placeholder="Pseudonim" maxlength="30" value="${esc(s.nick)}"><label class="small"><input type="checkbox" id="o-board" ${s.board?'checked':''}> pokazuj mnie</label></div></div>`:''}
+  <div class="panel stack"><h2>Kod postępu</h2><p class="small muted">Kopia całego postępu jako tekst – do przeniesienia na inne urządzenie bez konta albo na wszelki wypadek.</p>
+   <div class="row"><button class="btn" id="o-exp" type="button">Utwórz i skopiuj kod</button><button class="btn" id="o-imp" type="button">Wczytaj kod z pola</button><button class="btn" id="o-fsave" type="button">Zapisz kopię do pliku</button><label class="btn" for="o-fload">Wczytaj kopię z pliku</label><input type="file" id="o-fload" accept=".txt,text/plain" hidden></div>
+   <textarea id="o-code" placeholder="Tu pojawi się kod albo wklej kod z innego urządzenia"></textarea></div>
+  <div class="panel stack"><h2>Zerowanie</h2><p class="small muted">Usuwa cały postęp i statystyki.</p><div class="row"><button class="btn" id="o-reset" type="button">Wyzeruj wszystko</button></div></div>
+  <p class="small muted">Wersja kart: ${esc(DATA.v)} · ${DATA.n} kart.</p>`;
+  $('#o-newmode').value=s.newMode==='auto'?'auto':'man';
+  $('#o-newmode').onchange=e=>{setS({newMode:e.target.value==='auto'?'auto':'man'});rOpts()};
+  $('#o-new').onchange=e=>setS({newPerDay:Math.max(0,Math.min(300,+e.target.value||0))});
+  $('#o-max').onchange=e=>setS({maxIvl:Math.max(2,Math.min(120,+e.target.value||21))});
+  if($('#o-theme')){$('#o-theme').value=s.theme;$('#o-theme').onchange=e=>{setS({theme:e.target.value});applyTheme()}}
+  if($('#o-login'))$('#o-login').onclick=()=>Cloud.login&&Cloud.login();
+  if($('#o-logout'))$('#o-logout').onclick=()=>Cloud.logout&&Cloud.logout();
+  if($('#o-nick'))$('#o-nick').onchange=e=>setS({nick:e.target.value.trim().slice(0,30)});
+  if($('#o-board'))$('#o-board').onchange=e=>{setS({board:e.target.checked});if(!e.target.checked&&Cloud.unboard)Cloud.unboard().catch(()=>{})};
+  $('#o-exp').onclick=async()=>{const code=await packCode();$('#o-code').value=code;try{await navigator.clipboard.writeText(code);toast('Kod skopiowany')}catch(e){$('#o-code').select();toast('Zaznaczono kod – skopiuj go ręcznie')}};
+  $('#o-fsave').onclick=async()=>{const code=await packCode();const name='kurs-prawa-postep-'+new Date().toISOString().slice(0,10)+'.txt';const dl=await getDL();
+    if(dl){try{await dl.save({filename:name,data:new Blob([code],{type:'text/plain'})})}catch(e){}return}
+    const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([code],{type:'text/plain'}));a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},500)};
+  $('#o-fload').onchange=async e=>{const f=e.target.files[0];if(!f)return;$('#o-code').value=(await f.text()).trim();$('#o-imp').click()};
+  $('#o-imp').onclick=async()=>{try{const d=await unpackCode($('#o-code').value.trim());let n=0;for(const k in d.P){if(!P[k]||d.P[k][7]>P[k][7]){P[k]=d.P[k];dirty.add(bucket(k));n++}}mergeRemote('meta',Object.assign({},d.M,{u:Date.now()}));metaDirty=true;persist();toast(`Wczytano – zaktualizowano ${n} ${plural(n,'kartę','karty','kart')}`)}catch(e){toast('To nie jest poprawny kod postępu')}};
+  $('#o-reset').onclick=()=>{const b=$('#o-reset');if(!b.dataset.c){b.dataset.c=1;b.textContent='Na pewno? Kliknij jeszcze raz';return}
+    const now=Date.now();for(const k in P){P[k]=[0,0,0,250,0,0,0,now];dirty.add(bucket(k))}const set=M.set,setU=M.setU;M={set,setU,days:{},tags:{},tests:[],finals:[],les:{},resetAt:now};metaDirty=true;persist();toast('Postęp wyzerowany');rOpts()};
+}
+async function packCode(){const json=JSON.stringify({P,M:{days:M.days,tags:M.tags,tests:M.tests,finals:M.finals,les:M.les,set:M.set,setU:M.setU},v:1});
+  if(window.CompressionStream){const s=new Blob([json]).stream().pipeThrough(new CompressionStream('gzip'));const buf=new Uint8Array(await new Response(s).arrayBuffer());let b='';for(let i=0;i<buf.length;i+=8192)b+=String.fromCharCode.apply(null,buf.subarray(i,i+8192));return 'OWOP1.'+btoa(b)}
+  return 'OWOP0.'+btoa(unescape(encodeURIComponent(json)))}
+async function unpackCode(code){if(code.startsWith('OWOP1.')){const bin=atob(code.slice(6));const u=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)u[i]=bin.charCodeAt(i);const s=new Blob([u]).stream().pipeThrough(new DecompressionStream('gzip'));return JSON.parse(await new Response(s).text())}
+  if(code.startsWith('OWOP0.'))return JSON.parse(decodeURIComponent(escape(atob(code.slice(6)))));throw new Error('zły kod')}
+
+/* ===== Start ===== */
+$('#sync').onclick=()=>{location.hash='opcje'};
+document.querySelectorAll('#tabs a').forEach(a=>a.addEventListener('click',e=>{if(VIEW==='sesja'&&a.dataset.v==='nauka'){e.preventDefault();endSession()}}));
+(async function boot(){
+  loadLocal(localKey);applyTheme();
+  try{const r=await fetch('cards.json',{cache:'no-cache'});DATA=await r.json()}catch(e){$('#v-nauka').innerHTML='<div class="empty">Nie udało się wczytać kart. Odśwież stronę.</div>';return}
+  for(const c of DATA.cards){CARD[c.i]=c;if(c.sb)(SIB[c.sb]=SIB[c.sb]||[]).push(c.i)}SUBS=DATA.subs;
+  for(const t of (DATA.tasks||[]))CARD[t.i]=t;
+  {const SAN=/[\uE000-\uF8FF\u25A0-\u25FF\u2610-\u2612\u2751\u274F]/g,san=v=>typeof v==='string'?v.replace(SAN,'').replace(/^\s+/,''):v;for(const c of DATA.cards){c.q=san(c.q);if(c.o)c.o=c.o.map(san);c.e=san(c.e)}}
+  go(location.hash.slice(1)||'nauka');
+  setInterval(renderCountdown,60000);
+  initCloud();initAI();
+})();
+</script>
+</body></html>
